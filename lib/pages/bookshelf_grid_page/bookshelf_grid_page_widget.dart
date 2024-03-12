@@ -80,8 +80,12 @@ class _BookshelfGridPageWidgetState extends State<BookshelfGridPageWidget>
   Widget build(BuildContext context) {
     return StreamBuilder<List<BooksRecord>>(
       stream: queryBooksRecord(
-        queryBuilder: (booksRecord) =>
-            booksRecord.orderBy('added_at', descending: true),
+        queryBuilder: (booksRecord) => booksRecord
+            .where(
+              'uid',
+              isEqualTo: currentUserUid,
+            )
+            .orderBy('added_at', descending: true),
       ),
       builder: (context, snapshot) {
         // Customize what your widget looks like when it's loading.
