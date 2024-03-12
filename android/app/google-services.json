@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "1061902500859",
+    "project_id": "summi-shelf-z6nbpi",
+    "storage_bucket": "summi-shelf-z6nbpi.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1061902500859:android:64ad9b3bc165853cdd415e",
+        "android_client_info": {
+          "package_name": "com.flostate.summishelf"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBaP2xaqkgvIHTfpXN__PnqJ5mzJYlqv-Y"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
