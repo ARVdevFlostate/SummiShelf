@@ -94,7 +94,7 @@ class _EditProfileComponentWidgetState
                 child: Stack(
                   children: [
                     ClipRRect(
-                      borderRadius: BorderRadius.circular(0.0),
+                      borderRadius: BorderRadius.circular(50.0),
                       child: Image.asset(
                         'assets/images/defaultAvatar-v2.png',
                         height: 100.0,
@@ -105,37 +105,31 @@ class _EditProfileComponentWidgetState
                       builder: (context) {
                         if ((currentUserPhoto != '') &&
                             (_model.uploadedFileUrl == '')) {
-                          return Padding(
-                            padding: const EdgeInsets.all(4.0),
-                            child: ClipRRect(
-                              borderRadius: BorderRadius.circular(60.0),
-                              child: CachedNetworkImage(
-                                fadeInDuration: const Duration(milliseconds: 200),
-                                fadeOutDuration: const Duration(milliseconds: 200),
-                                imageUrl: valueOrDefault<String>(
-                                  currentUserPhoto,
-                                  'https://firebasestorage.googleapis.com/v0/b/summi-shelf-z6nbpi.appspot.com/o/assets%2FdefaultAvatar-v2.png?alt=media&token=706a34fc-8a48-4f5f-8831-7c860e0773a9',
-                                ),
-                                height: 100.0,
-                                fit: BoxFit.cover,
+                          return ClipRRect(
+                            borderRadius: BorderRadius.circular(50.0),
+                            child: CachedNetworkImage(
+                              fadeInDuration: const Duration(milliseconds: 200),
+                              fadeOutDuration: const Duration(milliseconds: 200),
+                              imageUrl: valueOrDefault<String>(
+                                currentUserPhoto,
+                                'https://firebasestorage.googleapis.com/v0/b/summi-shelf-z6nbpi.appspot.com/o/assets%2FdefaultAvatar-v2.png?alt=media&token=706a34fc-8a48-4f5f-8831-7c860e0773a9',
                               ),
+                              height: 100.0,
+                              fit: BoxFit.cover,
                             ),
                           );
                         } else {
-                          return Padding(
-                            padding: const EdgeInsets.all(4.0),
-                            child: ClipRRect(
-                              borderRadius: BorderRadius.circular(60.0),
-                              child: CachedNetworkImage(
-                                fadeInDuration: const Duration(milliseconds: 200),
-                                fadeOutDuration: const Duration(milliseconds: 200),
-                                imageUrl: valueOrDefault<String>(
-                                  _model.uploadedFileUrl,
-                                  'https://firebasestorage.googleapis.com/v0/b/summi-shelf-z6nbpi.appspot.com/o/assets%2FdefaultAvatar-v2.png?alt=media&token=706a34fc-8a48-4f5f-8831-7c860e0773a9',
-                                ),
-                                height: 100.0,
-                                fit: BoxFit.cover,
+                          return ClipRRect(
+                            borderRadius: BorderRadius.circular(50.0),
+                            child: CachedNetworkImage(
+                              fadeInDuration: const Duration(milliseconds: 200),
+                              fadeOutDuration: const Duration(milliseconds: 200),
+                              imageUrl: valueOrDefault<String>(
+                                _model.uploadedFileUrl,
+                                'https://firebasestorage.googleapis.com/v0/b/summi-shelf-z6nbpi.appspot.com/o/assets%2FdefaultAvatar-v2.png?alt=media&token=706a34fc-8a48-4f5f-8831-7c860e0773a9',
                               ),
+                              height: 100.0,
+                              fit: BoxFit.cover,
                             ),
                           );
                         }
