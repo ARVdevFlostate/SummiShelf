@@ -12,7 +12,20 @@
           "package_name": "com.flostate.summishelf"
         }
       },
-      "oauth_client": [],
+      "oauth_client": [
+        {
+          "client_id": "1061902500859-4dans6q3mv6klrmcotn7fgajkf8o7vi4.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.flostate.summishelf",
+            "certificate_hash": "9bbb3186b2189ef16d8f272bdab59362c395cbb4"
+          }
+        },
+        {
+          "client_id": "1061902500859-ivmn8ucmflob6n2boaekdphfnfkg2hk4.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
       "api_key": [
         {
           "current_key": "AIzaSyBaP2xaqkgvIHTfpXN__PnqJ5mzJYlqv-Y"
@@ -20,7 +33,19 @@
       ],
       "services": {
         "appinvite_service": {
-          "other_platform_oauth_client": []
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1061902500859-ivmn8ucmflob6n2boaekdphfnfkg2hk4.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "1061902500859-eqeg566ludae6k46t6gjsvsdcfo0unij.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.flostate.summishelf"
+              }
+            }
+          ]
         }
       }
     }
