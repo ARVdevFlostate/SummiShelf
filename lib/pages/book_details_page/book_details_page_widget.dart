@@ -317,9 +317,12 @@ class _BookDetailsPageWidgetState extends State<BookDetailsPageWidget>
                                                                 .override(
                                                                   fontFamily:
                                                                       'Readex Pro',
+                                                                  color: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .primaryText,
                                                                   fontWeight:
                                                                       FontWeight
-                                                                          .w500,
+                                                                          .normal,
                                                                 ),
                                                       ),
                                                       count: _model
@@ -366,7 +369,14 @@ class _BookDetailsPageWidgetState extends State<BookDetailsPageWidget>
                                                     ),
                                                     style: FlutterFlowTheme.of(
                                                             context)
-                                                        .labelMedium,
+                                                        .labelMedium
+                                                        .override(
+                                                          fontFamily:
+                                                              'Readex Pro',
+                                                          color: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .primaryText,
+                                                        ),
                                                   ),
                                                 ),
                                               ].divide(const SizedBox(width: 4.0)),
