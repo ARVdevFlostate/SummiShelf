@@ -331,7 +331,8 @@ class _BookshelfGridPageWidgetState extends State<BookshelfGridPageWidget>
                                             size: 90.0,
                                           ),
                                           title: 'No Books',
-                                          body: 'No books found in bookshelf.',
+                                          body:
+                                              'No books found in your bookshelf.',
                                           buttonAction: () async {},
                                         ),
                                       );

@@ -337,7 +337,7 @@ class FFRoute {
                   color: const Color(0xFF9900FF),
                   child: Center(
                     child: Image.asset(
-                      'assets/images/summishelf-appsplash-1024-v1.png',
+                      'assets/images/summishelf-appsplash-1024-v3.png',
                       width: 256.0,
                       fit: BoxFit.contain,
                     ),

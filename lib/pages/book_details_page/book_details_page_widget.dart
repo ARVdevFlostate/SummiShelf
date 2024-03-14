@@ -71,8 +71,7 @@ class _BookDetailsPageWidgetState extends State<BookDetailsPageWidget>
                   desktop: false,
                 ))
                   Padding(
-                    padding:
-                        const EdgeInsetsDirectional.fromSTEB(0.0, 64.0, 0.0, 8.0),
+                    padding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 8.0),
                     child: InkWell(
                       splashColor: Colors.transparent,
                       focusColor: Colors.transparent,
@@ -478,7 +477,7 @@ class _BookDetailsPageWidgetState extends State<BookDetailsPageWidget>
                     ),
                   ),
                 ),
-              ],
+              ].addToStart(const SizedBox(height: 64.0)),
             ),
           ),
         ),

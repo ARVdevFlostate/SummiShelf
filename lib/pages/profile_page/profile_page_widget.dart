@@ -77,7 +77,7 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget>
           height: double.infinity,
           decoration: const BoxDecoration(),
           child: Padding(
-            padding: const EdgeInsetsDirectional.fromSTEB(24.0, 64.0, 24.0, 0.0),
+            padding: const EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 24.0, 0.0),
             child: Column(
               mainAxisSize: MainAxisSize.max,
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -348,10 +348,10 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget>
                                     activeTrackColor:
                                         FlutterFlowTheme.of(context).accent1,
                                     inactiveTrackColor:
+                                        FlutterFlowTheme.of(context).alternate,
+                                    inactiveThumbColor:
                                         FlutterFlowTheme.of(context)
                                             .secondaryText,
-                                    inactiveThumbColor:
-                                        FlutterFlowTheme.of(context).alternate,
                                   ),
                                 ),
                               ],
@@ -691,10 +691,11 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget>
                 Padding(
                   padding: const EdgeInsetsDirectional.fromSTEB(8.0, 20.0, 0.0, 0.0),
                   child: Text(
-                    'App Versions',
-                    style: FlutterFlowTheme.of(context).titleSmall.override(
+                    'App Version',
+                    style: FlutterFlowTheme.of(context).labelSmall.override(
                           fontFamily: 'Readex Pro',
                           color: FlutterFlowTheme.of(context).primaryText,
+                          fontWeight: FontWeight.w600,
                         ),
                   ),
                 ),
@@ -702,7 +703,10 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget>
                   padding: const EdgeInsetsDirectional.fromSTEB(8.0, 0.0, 0.0, 0.0),
                   child: Text(
                     'v${FFAppState().asvAppVersion} build(${FFAppState().asvAppBuild})',
-                    style: FlutterFlowTheme.of(context).labelSmall,
+                    style: FlutterFlowTheme.of(context).bodySmall.override(
+                          fontFamily: 'Readex Pro',
+                          color: FlutterFlowTheme.of(context).secondaryText,
+                        ),
                   ),
                 ),
                 if (valueOrDefault<bool>(
@@ -733,7 +737,9 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget>
                       ),
                     ),
                   ),
-              ].divide(const SizedBox(height: 4.0)),
+              ]
+                  .divide(const SizedBox(height: 4.0))
+                  .addToStart(const SizedBox(height: 64.0)),
             ),
           ),
         ),

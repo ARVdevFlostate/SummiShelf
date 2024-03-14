@@ -91,35 +91,30 @@ class _HomePageWidgetState extends State<HomePageWidget>
                 mainAxisAlignment: MainAxisAlignment.start,
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  Padding(
-                    padding:
-                        const EdgeInsetsDirectional.fromSTEB(0.0, 64.0, 0.0, 0.0),
-                    child: Row(
-                      mainAxisSize: MainAxisSize.max,
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      children: [
-                        ClipRRect(
-                          borderRadius: BorderRadius.circular(0.0),
-                          child: Image.asset(
-                            'assets/images/business-3d-stack-of-different-books.png',
-                            height: 40.0,
-                            fit: BoxFit.cover,
-                          ),
+                  Row(
+                    mainAxisSize: MainAxisSize.max,
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      ClipRRect(
+                        borderRadius: BorderRadius.circular(0.0),
+                        child: Image.asset(
+                          'assets/images/business-3d-stack-of-different-books.png',
+                          height: 40.0,
+                          fit: BoxFit.cover,
                         ),
-                        Text(
-                          'SummiShelf',
-                          style: FlutterFlowTheme.of(context)
-                              .displaySmall
-                              .override(
-                                fontFamily: 'DM Serif Display',
-                                color: FlutterFlowTheme.of(context).primary,
-                                letterSpacing: 2.0,
-                                fontWeight: FontWeight.bold,
-                              ),
-                        ),
-                      ].divide(const SizedBox(width: 12.0)),
-                    ),
+                      ),
+                      Text(
+                        'SummiShelf',
+                        style:
+                            FlutterFlowTheme.of(context).displaySmall.override(
+                                  fontFamily: 'DM Serif Display',
+                                  color: FlutterFlowTheme.of(context).primary,
+                                  letterSpacing: 2.0,
+                                  fontWeight: FontWeight.bold,
+                                ),
+                      ),
+                    ].divide(const SizedBox(width: 12.0)),
                   ),
                   Row(
                     mainAxisSize: MainAxisSize.max,
@@ -527,7 +522,9 @@ class _HomePageWidgetState extends State<HomePageWidget>
                       ].divide(const SizedBox(height: 12.0)),
                     ),
                   ),
-                ].divide(const SizedBox(height: 24.0)),
+                ]
+                    .divide(const SizedBox(height: 24.0))
+                    .addToStart(const SizedBox(height: 64.0)),
               ),
             ),
           ),
