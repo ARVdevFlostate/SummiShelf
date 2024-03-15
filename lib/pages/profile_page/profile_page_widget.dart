@@ -386,83 +386,78 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget>
                                             .primaryText,
                                       ),
                                 ),
-                                Container(
-                                  decoration: const BoxDecoration(),
-                                  child: ToggleIcon(
-                                    onPressed: () async {
-                                      setState(() => FFAppState().isDarkMode =
-                                          !FFAppState().isDarkMode);
-                                      if (FFAppState().isDarkMode == true) {
-                                        setDarkModeSetting(
-                                            context, ThemeMode.dark);
-                                        setState(() {
-                                          FFAppState().isDarkMode = true;
-                                        });
-                                        ScaffoldMessenger.of(context)
-                                            .showSnackBar(
-                                          SnackBar(
-                                            content: Text(
-                                              'Appearance changed to dark mode',
-                                              style: FlutterFlowTheme.of(
-                                                      context)
-                                                  .titleSmall
-                                                  .override(
-                                                    fontFamily: 'Readex Pro',
-                                                    color: FlutterFlowTheme.of(
-                                                            context)
-                                                        .info,
-                                                  ),
-                                            ),
-                                            duration:
-                                                const Duration(milliseconds: 4000),
-                                            backgroundColor:
-                                                FlutterFlowTheme.of(context)
-                                                    .secondary,
+                                ToggleIcon(
+                                  onPressed: () async {
+                                    setState(() => FFAppState().isDarkMode =
+                                        !FFAppState().isDarkMode);
+                                    if (FFAppState().isDarkMode == true) {
+                                      setDarkModeSetting(
+                                          context, ThemeMode.dark);
+                                      setState(() {
+                                        FFAppState().isDarkMode = true;
+                                      });
+                                      ScaffoldMessenger.of(context)
+                                          .showSnackBar(
+                                        SnackBar(
+                                          content: Text(
+                                            'Appearance changed to dark mode',
+                                            style: FlutterFlowTheme.of(context)
+                                                .titleSmall
+                                                .override(
+                                                  fontFamily: 'Readex Pro',
+                                                  color: FlutterFlowTheme.of(
+                                                          context)
+                                                      .info,
+                                                ),
                                           ),
-                                        );
-                                      } else {
-                                        setDarkModeSetting(
-                                            context, ThemeMode.light);
-                                        setState(() {
-                                          FFAppState().isDarkMode = false;
-                                        });
-                                        ScaffoldMessenger.of(context)
-                                            .showSnackBar(
-                                          SnackBar(
-                                            content: Text(
-                                              'Appearance changed to light mode',
-                                              style: FlutterFlowTheme.of(
-                                                      context)
-                                                  .titleSmall
-                                                  .override(
-                                                    fontFamily: 'Readex Pro',
-                                                    color: FlutterFlowTheme.of(
-                                                            context)
-                                                        .info,
-                                                  ),
-                                            ),
-                                            duration:
-                                                const Duration(milliseconds: 4000),
-                                            backgroundColor:
-                                                FlutterFlowTheme.of(context)
-                                                    .secondary,
+                                          duration:
+                                              const Duration(milliseconds: 4000),
+                                          backgroundColor:
+                                              FlutterFlowTheme.of(context)
+                                                  .secondary,
+                                        ),
+                                      );
+                                    } else {
+                                      setDarkModeSetting(
+                                          context, ThemeMode.light);
+                                      setState(() {
+                                        FFAppState().isDarkMode = false;
+                                      });
+                                      ScaffoldMessenger.of(context)
+                                          .showSnackBar(
+                                        SnackBar(
+                                          content: Text(
+                                            'Appearance changed to light mode',
+                                            style: FlutterFlowTheme.of(context)
+                                                .titleSmall
+                                                .override(
+                                                  fontFamily: 'Readex Pro',
+                                                  color: FlutterFlowTheme.of(
+                                                          context)
+                                                      .info,
+                                                ),
                                           ),
-                                        );
-                                      }
-                                    },
-                                    value: FFAppState().isDarkMode,
-                                    onIcon: Icon(
-                                      Icons.dark_mode,
-                                      color: FlutterFlowTheme.of(context)
-                                          .secondaryText,
-                                      size: 24.0,
-                                    ),
-                                    offIcon: Icon(
-                                      Icons.light_mode,
-                                      color: FlutterFlowTheme.of(context)
-                                          .secondaryText,
-                                      size: 24.0,
-                                    ),
+                                          duration:
+                                              const Duration(milliseconds: 4000),
+                                          backgroundColor:
+                                              FlutterFlowTheme.of(context)
+                                                  .secondary,
+                                        ),
+                                      );
+                                    }
+                                  },
+                                  value: FFAppState().isDarkMode,
+                                  onIcon: Icon(
+                                    Icons.dark_mode,
+                                    color: FlutterFlowTheme.of(context)
+                                        .secondaryText,
+                                    size: 24.0,
+                                  ),
+                                  offIcon: Icon(
+                                    Icons.light_mode,
+                                    color: FlutterFlowTheme.of(context)
+                                        .secondaryText,
+                                    size: 24.0,
                                   ),
                                 ),
                               ],

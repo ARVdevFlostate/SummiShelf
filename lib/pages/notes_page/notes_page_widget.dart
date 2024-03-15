@@ -474,7 +474,7 @@ class _NotesPageWidgetState extends State<NotesPageWidget>
                                                                     12.0,
                                                                     8.0,
                                                                     0.0,
-                                                                    4.0),
+                                                                    8.0),
                                                         child: Column(
                                                           mainAxisSize:
                                                               MainAxisSize.max,
@@ -494,7 +494,7 @@ class _NotesPageWidgetState extends State<NotesPageWidget>
                                                                 notesListItem
                                                                     .title
                                                                     .maybeHandleOverflow(
-                                                                  maxChars: 45,
+                                                                  maxChars: 30,
                                                                   replacement:
                                                                       '…',
                                                                 ),
@@ -518,7 +518,7 @@ class _NotesPageWidgetState extends State<NotesPageWidget>
                                                               notesListItem
                                                                   .description
                                                                   .maybeHandleOverflow(
-                                                                maxChars: 90,
+                                                                maxChars: 60,
                                                                 replacement:
                                                                     '…',
                                                               ),
@@ -531,8 +531,42 @@ class _NotesPageWidgetState extends State<NotesPageWidget>
                                                                         'Readex Pro',
                                                                     fontWeight:
                                                                         FontWeight
-                                                                            .normal,
+                                                                            .w500,
                                                                   ),
+                                                            ),
+                                                            Padding(
+                                                              padding:
+                                                                  const EdgeInsetsDirectional
+                                                                      .fromSTEB(
+                                                                          0.0,
+                                                                          8.0,
+                                                                          0.0,
+                                                                          2.0),
+                                                              child: Row(
+                                                                mainAxisSize:
+                                                                    MainAxisSize
+                                                                        .max,
+                                                                mainAxisAlignment:
+                                                                    MainAxisAlignment
+                                                                        .spaceBetween,
+                                                                children: [
+                                                                  Text(
+                                                                    'Updated on ${dateTimeFormat('yMMMd', notesListItem.lastUpdated)}',
+                                                                    style: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .labelSmall,
+                                                                  ),
+                                                                  Text(
+                                                                    dateTimeFormat(
+                                                                        'relative',
+                                                                        notesListItem
+                                                                            .lastUpdated!),
+                                                                    style: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .labelSmall,
+                                                                  ),
+                                                                ],
+                                                              ),
                                                             ),
                                                           ].divide(const SizedBox(
                                                               height: 4.0)),
@@ -559,37 +593,6 @@ class _NotesPageWidgetState extends State<NotesPageWidget>
                                                     ),
                                                   ].divide(
                                                       const SizedBox(width: 8.0)),
-                                                ),
-                                                Padding(
-                                                  padding: const EdgeInsetsDirectional
-                                                      .fromSTEB(
-                                                          12.0, 4.0, 12.0, 8.0),
-                                                  child: Row(
-                                                    mainAxisSize:
-                                                        MainAxisSize.max,
-                                                    mainAxisAlignment:
-                                                        MainAxisAlignment
-                                                            .spaceBetween,
-                                                    children: [
-                                                      Text(
-                                                        'Updated on ${dateTimeFormat('yMMMd', notesListItem.lastUpdated)}',
-                                                        style:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .labelSmall,
-                                                      ),
-                                                      Text(
-                                                        dateTimeFormat(
-                                                            'relative',
-                                                            notesListItem
-                                                                .lastUpdated!),
-                                                        style:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .labelSmall,
-                                                      ),
-                                                    ],
-                                                  ),
                                                 ),
                                                 Divider(
                                                   height: 2.0,

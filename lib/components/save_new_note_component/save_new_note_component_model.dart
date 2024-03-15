@@ -20,7 +20,7 @@ class SaveNewNoteComponentModel
   String? _notesTitleTextFieldControllerValidator(
       BuildContext context, String? val) {
     if (val == null || val.isEmpty) {
-      return 'Please enter your note title';
+      return 'Please enter a title for your note';
     }
 
     return null;
@@ -34,7 +34,7 @@ class SaveNewNoteComponentModel
   String? _notesDescriptionTextFieldControllerValidator(
       BuildContext context, String? val) {
     if (val == null || val.isEmpty) {
-      return 'Please enter your note description';
+      return 'Please enter a description';
     }
 
     return null;

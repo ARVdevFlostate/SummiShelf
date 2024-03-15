@@ -157,17 +157,13 @@ class _NoteDetailsPageWidgetState extends State<NoteDetailsPageWidget> {
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           Text(
-                            '${dateTimeFormat('yMMMd', widget.currentNoteDocument?.lastUpdated)} at ${dateTimeFormat('hh:mm a', widget.currentNoteDocument?.lastUpdated)}',
+                            '${widget.currentNoteDocument?.lastUpdated?.toString()} at ${dateTimeFormat('hh:mm a', widget.currentNoteDocument?.lastUpdated)}',
                             style: FlutterFlowTheme.of(context).labelMedium,
                           ),
-                          Padding(
-                            padding: const EdgeInsetsDirectional.fromSTEB(
-                                0.0, 0.0, 10.0, 0.0),
-                            child: Text(
-                              dateTimeFormat('relative',
-                                  widget.currentNoteDocument!.lastUpdated!),
-                              style: FlutterFlowTheme.of(context).labelSmall,
-                            ),
+                          Text(
+                            dateTimeFormat('relative',
+                                widget.currentNoteDocument!.lastUpdated!),
+                            style: FlutterFlowTheme.of(context).labelMedium,
                           ),
                         ],
                       ),
@@ -181,105 +177,103 @@ class _NoteDetailsPageWidgetState extends State<NoteDetailsPageWidget> {
                     style: FlutterFlowTheme.of(context).titleLarge,
                   ),
                 ),
-                Expanded(
-                  child: Padding(
-                    padding:
-                        const EdgeInsetsDirectional.fromSTEB(16.0, 16.0, 16.0, 24.0),
-                    child: Container(
-                      width: double.infinity,
-                      height: 300.0,
-                      constraints: const BoxConstraints(
-                        minWidth: 530.0,
+                Padding(
+                  padding:
+                      const EdgeInsetsDirectional.fromSTEB(16.0, 16.0, 16.0, 24.0),
+                  child: Container(
+                    width: double.infinity,
+                    height: 300.0,
+                    constraints: const BoxConstraints(
+                      minWidth: 530.0,
+                    ),
+                    decoration: BoxDecoration(
+                      color: FlutterFlowTheme.of(context).primaryBackground,
+                      borderRadius: const BorderRadius.only(
+                        bottomLeft: Radius.circular(16.0),
+                        bottomRight: Radius.circular(16.0),
+                        topLeft: Radius.circular(16.0),
+                        topRight: Radius.circular(16.0),
                       ),
-                      decoration: BoxDecoration(
-                        color: FlutterFlowTheme.of(context).primaryBackground,
-                        borderRadius: const BorderRadius.only(
-                          bottomLeft: Radius.circular(16.0),
-                          bottomRight: Radius.circular(16.0),
-                          topLeft: Radius.circular(16.0),
-                          topRight: Radius.circular(16.0),
-                        ),
-                        border: Border.all(
-                          color: FlutterFlowTheme.of(context).alternate,
-                          width: 2.0,
-                        ),
+                      border: Border.all(
+                        color: FlutterFlowTheme.of(context).alternate,
+                        width: 2.0,
                       ),
-                      child: FutureBuilder<List<UpdationsRecord>>(
-                        future: queryUpdationsRecordOnce(
-                          parent: widget.currentNoteDocument?.reference,
-                        ),
-                        builder: (context, snapshot) {
-                          // Customize what your widget looks like when it's loading.
-                          if (!snapshot.hasData) {
-                            return Center(
-                              child: SizedBox(
-                                width: 50.0,
-                                height: 50.0,
-                                child: SpinKitCubeGrid(
-                                  color: FlutterFlowTheme.of(context).primary,
-                                  size: 50.0,
+                    ),
+                    child: FutureBuilder<List<UpdationsRecord>>(
+                      future: queryUpdationsRecordOnce(
+                        parent: widget.currentNoteDocument?.reference,
+                      ),
+                      builder: (context, snapshot) {
+                        // Customize what your widget looks like when it's loading.
+                        if (!snapshot.hasData) {
+                          return Center(
+                            child: SizedBox(
+                              width: 50.0,
+                              height: 50.0,
+                              child: SpinKitCubeGrid(
+                                color: FlutterFlowTheme.of(context).primary,
+                                size: 50.0,
+                              ),
+                            ),
+                          );
+                        }
+                        List<UpdationsRecord>
+                            updationsListViewUpdationsRecordList =
+                            snapshot.data!;
+                        return ListView.separated(
+                          padding: EdgeInsets.zero,
+                          scrollDirection: Axis.vertical,
+                          itemCount:
+                              updationsListViewUpdationsRecordList.length,
+                          separatorBuilder: (_, __) => const SizedBox(height: 2.0),
+                          itemBuilder: (context, updationsListViewIndex) {
+                            final updationsListViewUpdationsRecord =
+                                updationsListViewUpdationsRecordList[
+                                    updationsListViewIndex];
+                            return Padding(
+                              padding: const EdgeInsetsDirectional.fromSTEB(
+                                  8.0, 0.0, 8.0, 0.0),
+                              child: Container(
+                                width: double.infinity,
+                                height: 56.0,
+                                decoration: BoxDecoration(
+                                  color: FlutterFlowTheme.of(context)
+                                      .primaryBackground,
+                                  boxShadow: [
+                                    BoxShadow(
+                                      blurRadius: 0.0,
+                                      color: FlutterFlowTheme.of(context)
+                                          .alternate,
+                                      offset: const Offset(0.0, 2.0),
+                                    )
+                                  ],
+                                  borderRadius: BorderRadius.circular(0.0),
+                                ),
+                                child: Row(
+                                  mainAxisSize: MainAxisSize.max,
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceBetween,
+                                  children: [
+                                    Text(
+                                      '${dateTimeFormat('yMMMd', updationsListViewUpdationsRecord.updated)} at ${dateTimeFormat('hh:mm a', updationsListViewUpdationsRecord.updated)}',
+                                      style: FlutterFlowTheme.of(context)
+                                          .labelMedium,
+                                    ),
+                                    Text(
+                                      dateTimeFormat(
+                                          'relative',
+                                          updationsListViewUpdationsRecord
+                                              .updated!),
+                                      style: FlutterFlowTheme.of(context)
+                                          .labelMedium,
+                                    ),
+                                  ],
                                 ),
                               ),
                             );
-                          }
-                          List<UpdationsRecord>
-                              updationsListViewUpdationsRecordList =
-                              snapshot.data!;
-                          return ListView.separated(
-                            padding: EdgeInsets.zero,
-                            scrollDirection: Axis.vertical,
-                            itemCount:
-                                updationsListViewUpdationsRecordList.length,
-                            separatorBuilder: (_, __) => const SizedBox(height: 2.0),
-                            itemBuilder: (context, updationsListViewIndex) {
-                              final updationsListViewUpdationsRecord =
-                                  updationsListViewUpdationsRecordList[
-                                      updationsListViewIndex];
-                              return Padding(
-                                padding: const EdgeInsetsDirectional.fromSTEB(
-                                    8.0, 0.0, 8.0, 0.0),
-                                child: Container(
-                                  width: double.infinity,
-                                  height: 50.0,
-                                  decoration: BoxDecoration(
-                                    color: FlutterFlowTheme.of(context)
-                                        .primaryBackground,
-                                    boxShadow: [
-                                      BoxShadow(
-                                        blurRadius: 0.0,
-                                        color: FlutterFlowTheme.of(context)
-                                            .alternate,
-                                        offset: const Offset(0.0, 2.0),
-                                      )
-                                    ],
-                                    borderRadius: BorderRadius.circular(0.0),
-                                  ),
-                                  child: Row(
-                                    mainAxisSize: MainAxisSize.max,
-                                    mainAxisAlignment:
-                                        MainAxisAlignment.spaceBetween,
-                                    children: [
-                                      Text(
-                                        '${dateTimeFormat('yMMMd', updationsListViewUpdationsRecord.updated)} at ${dateTimeFormat('hh:mm a', updationsListViewUpdationsRecord.updated)}',
-                                        style: FlutterFlowTheme.of(context)
-                                            .labelMedium,
-                                      ),
-                                      Text(
-                                        dateTimeFormat(
-                                            'relative',
-                                            updationsListViewUpdationsRecord
-                                                .updated!),
-                                        style: FlutterFlowTheme.of(context)
-                                            .labelSmall,
-                                      ),
-                                    ],
-                                  ),
-                                ),
-                              );
-                            },
-                          );
-                        },
-                      ),
+                          },
+                        );
+                      },
                     ),
                   ),
                 ),
