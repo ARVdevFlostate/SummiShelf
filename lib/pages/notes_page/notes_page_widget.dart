@@ -316,7 +316,11 @@ class _NotesPageWidgetState extends State<NotesPageWidget>
                                       padding: const EdgeInsetsDirectional.fromSTEB(
                                           0.0, 0.0, 4.0, 0.0),
                                       child: Text(
-                                        '0 found',
+                                        '${valueOrDefault<String>(
+                                          notesPageNotesRecordList.length
+                                              .toString(),
+                                          '0',
+                                        )} found',
                                         style: FlutterFlowTheme.of(context)
                                             .labelSmall
                                             .override(
@@ -474,7 +478,7 @@ class _NotesPageWidgetState extends State<NotesPageWidget>
                                                                     12.0,
                                                                     8.0,
                                                                     0.0,
-                                                                    8.0),
+                                                                    4.0),
                                                         child: Column(
                                                           mainAxisSize:
                                                               MainAxisSize.max,
@@ -482,43 +486,34 @@ class _NotesPageWidgetState extends State<NotesPageWidget>
                                                               CrossAxisAlignment
                                                                   .stretch,
                                                           children: [
-                                                            Padding(
-                                                              padding:
-                                                                  const EdgeInsetsDirectional
-                                                                      .fromSTEB(
-                                                                          0.0,
-                                                                          2.0,
-                                                                          0.0,
-                                                                          0.0),
-                                                              child: Text(
-                                                                notesListItem
-                                                                    .title
-                                                                    .maybeHandleOverflow(
-                                                                  maxChars: 30,
-                                                                  replacement:
-                                                                      '…',
-                                                                ),
-                                                                maxLines: 1,
-                                                                style: FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .labelLarge
-                                                                    .override(
-                                                                      fontFamily:
-                                                                          'Readex Pro',
-                                                                      color: FlutterFlowTheme.of(
-                                                                              context)
-                                                                          .primaryText,
-                                                                      fontWeight:
-                                                                          FontWeight
-                                                                              .w500,
-                                                                    ),
+                                                            Text(
+                                                              notesListItem
+                                                                  .title
+                                                                  .maybeHandleOverflow(
+                                                                maxChars: 45,
+                                                                replacement:
+                                                                    '…',
                                                               ),
+                                                              maxLines: 1,
+                                                              style: FlutterFlowTheme
+                                                                      .of(context)
+                                                                  .labelLarge
+                                                                  .override(
+                                                                    fontFamily:
+                                                                        'Readex Pro',
+                                                                    color: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .primaryText,
+                                                                    fontWeight:
+                                                                        FontWeight
+                                                                            .w500,
+                                                                  ),
                                                             ),
                                                             Text(
                                                               notesListItem
                                                                   .description
                                                                   .maybeHandleOverflow(
-                                                                maxChars: 60,
+                                                                maxChars: 90,
                                                                 replacement:
                                                                     '…',
                                                               ),
@@ -531,42 +526,8 @@ class _NotesPageWidgetState extends State<NotesPageWidget>
                                                                         'Readex Pro',
                                                                     fontWeight:
                                                                         FontWeight
-                                                                            .w500,
+                                                                            .normal,
                                                                   ),
-                                                            ),
-                                                            Padding(
-                                                              padding:
-                                                                  const EdgeInsetsDirectional
-                                                                      .fromSTEB(
-                                                                          0.0,
-                                                                          8.0,
-                                                                          0.0,
-                                                                          2.0),
-                                                              child: Row(
-                                                                mainAxisSize:
-                                                                    MainAxisSize
-                                                                        .max,
-                                                                mainAxisAlignment:
-                                                                    MainAxisAlignment
-                                                                        .spaceBetween,
-                                                                children: [
-                                                                  Text(
-                                                                    'Updated on ${dateTimeFormat('yMMMd', notesListItem.lastUpdated)}',
-                                                                    style: FlutterFlowTheme.of(
-                                                                            context)
-                                                                        .labelSmall,
-                                                                  ),
-                                                                  Text(
-                                                                    dateTimeFormat(
-                                                                        'relative',
-                                                                        notesListItem
-                                                                            .lastUpdated!),
-                                                                    style: FlutterFlowTheme.of(
-                                                                            context)
-                                                                        .labelSmall,
-                                                                  ),
-                                                                ],
-                                                              ),
                                                             ),
                                                           ].divide(const SizedBox(
                                                               height: 4.0)),
@@ -593,6 +554,37 @@ class _NotesPageWidgetState extends State<NotesPageWidget>
                                                     ),
                                                   ].divide(
                                                       const SizedBox(width: 8.0)),
+                                                ),
+                                                Padding(
+                                                  padding: const EdgeInsetsDirectional
+                                                      .fromSTEB(
+                                                          12.0, 4.0, 12.0, 8.0),
+                                                  child: Row(
+                                                    mainAxisSize:
+                                                        MainAxisSize.max,
+                                                    mainAxisAlignment:
+                                                        MainAxisAlignment
+                                                            .spaceBetween,
+                                                    children: [
+                                                      Text(
+                                                        'Updated on ${dateTimeFormat('yMMMd', notesListItem.lastUpdated)} at ${dateTimeFormat('hh:mm a', notesListItem.lastUpdated)}',
+                                                        style:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .labelSmall,
+                                                      ),
+                                                      Text(
+                                                        dateTimeFormat(
+                                                            'relative',
+                                                            notesListItem
+                                                                .lastUpdated!),
+                                                        style:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .labelSmall,
+                                                      ),
+                                                    ],
+                                                  ),
                                                 ),
                                                 Divider(
                                                   height: 2.0,

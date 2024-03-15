@@ -52,10 +52,12 @@ class _SaveNewNoteComponentWidgetState
       });
     });
 
-    _model.notesTitleTextFieldController ??= TextEditingController();
+    _model.notesTitleTextFieldController ??=
+        TextEditingController(text: widget.currentNoteDocument?.title);
     _model.notesTitleTextFieldFocusNode ??= FocusNode();
 
-    _model.notesDescriptionTextFieldController ??= TextEditingController();
+    _model.notesDescriptionTextFieldController ??=
+        TextEditingController(text: widget.currentNoteDocument?.description);
     _model.notesDescriptionTextFieldFocusNode ??= FocusNode();
   }
 
@@ -155,7 +157,7 @@ class _SaveNewNoteComponentWidgetState
                         autofillHints: const [AutofillHints.email],
                         obscureText: false,
                         decoration: InputDecoration(
-                          labelText: 'Title',
+                          labelText: 'Title *',
                           labelStyle: FlutterFlowTheme.of(context).labelLarge,
                           hintText: 'Enter your notes title',
                           hintStyle: FlutterFlowTheme.of(context).labelLarge,
@@ -191,7 +193,7 @@ class _SaveNewNoteComponentWidgetState
                           fillColor:
                               FlutterFlowTheme.of(context).primaryBackground,
                           contentPadding: const EdgeInsetsDirectional.fromSTEB(
-                              20.0, 20.0, 0.0, 20.0),
+                              20.0, 24.0, 0.0, 24.0),
                           suffixIcon: _model.notesTitleTextFieldController!.text
                                   .isNotEmpty
                               ? InkWell(
@@ -227,7 +229,7 @@ class _SaveNewNoteComponentWidgetState
                         autofillHints: const [AutofillHints.email],
                         obscureText: false,
                         decoration: InputDecoration(
-                          labelText: 'Description',
+                          labelText: 'Description *',
                           labelStyle: FlutterFlowTheme.of(context).labelLarge,
                           hintText: 'Enter your notes description',
                           hintStyle: FlutterFlowTheme.of(context).labelLarge,
@@ -263,7 +265,7 @@ class _SaveNewNoteComponentWidgetState
                           fillColor:
                               FlutterFlowTheme.of(context).primaryBackground,
                           contentPadding: const EdgeInsetsDirectional.fromSTEB(
-                              20.0, 20.0, 0.0, 20.0),
+                              20.0, 24.0, 0.0, 24.0),
                           suffixIcon: _model
                                   .notesDescriptionTextFieldController!
                                   .text
