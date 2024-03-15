@@ -513,7 +513,7 @@ class _NotesPageWidgetState extends State<NotesPageWidget>
                                                               notesListItem
                                                                   .description
                                                                   .maybeHandleOverflow(
-                                                                maxChars: 83,
+                                                                maxChars: 77,
                                                                 replacement:
                                                                     '…',
                                                               ),
