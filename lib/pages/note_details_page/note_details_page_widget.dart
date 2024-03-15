@@ -166,7 +166,12 @@ class _NoteDetailsPageWidgetState extends State<NoteDetailsPageWidget> {
                             child: Text(
                               dateTimeFormat('relative',
                                   widget.currentNoteDocument!.lastUpdated!),
-                              style: FlutterFlowTheme.of(context).labelSmall,
+                              style: FlutterFlowTheme.of(context)
+                                  .labelSmall
+                                  .override(
+                                    fontFamily: 'Readex Pro',
+                                    fontWeight: FontWeight.normal,
+                                  ),
                             ),
                           ),
                         ],
@@ -261,7 +266,11 @@ class _NoteDetailsPageWidgetState extends State<NoteDetailsPageWidget> {
                                     Text(
                                       '${dateTimeFormat('yMMMd', updationsListViewUpdationsRecord.updated)} at ${dateTimeFormat('hh:mm a', updationsListViewUpdationsRecord.updated)}',
                                       style: FlutterFlowTheme.of(context)
-                                          .labelMedium,
+                                          .labelMedium
+                                          .override(
+                                            fontFamily: 'Readex Pro',
+                                            fontWeight: FontWeight.w500,
+                                          ),
                                     ),
                                     Text(
                                       dateTimeFormat(
@@ -269,7 +278,11 @@ class _NoteDetailsPageWidgetState extends State<NoteDetailsPageWidget> {
                                           updationsListViewUpdationsRecord
                                               .updated!),
                                       style: FlutterFlowTheme.of(context)
-                                          .labelSmall,
+                                          .labelSmall
+                                          .override(
+                                            fontFamily: 'Readex Pro',
+                                            fontWeight: FontWeight.w600,
+                                          ),
                                     ),
                                   ],
                                 ),

@@ -365,7 +365,7 @@ class _NotesPageWidgetState extends State<NotesPageWidget>
                                         0,
                                         0,
                                         0,
-                                        56.0,
+                                        48.0,
                                       ),
                                       scrollDirection: Axis.vertical,
                                       itemCount: notesList.length,
@@ -478,7 +478,7 @@ class _NotesPageWidgetState extends State<NotesPageWidget>
                                                                     12.0,
                                                                     8.0,
                                                                     0.0,
-                                                                    4.0),
+                                                                    8.0),
                                                         child: Column(
                                                           mainAxisSize:
                                                               MainAxisSize.max,
@@ -513,7 +513,7 @@ class _NotesPageWidgetState extends State<NotesPageWidget>
                                                               notesListItem
                                                                   .description
                                                                   .maybeHandleOverflow(
-                                                                maxChars: 96,
+                                                                maxChars: 80,
                                                                 replacement:
                                                                     '…',
                                                               ),
@@ -558,7 +558,7 @@ class _NotesPageWidgetState extends State<NotesPageWidget>
                                                 Padding(
                                                   padding: const EdgeInsetsDirectional
                                                       .fromSTEB(
-                                                          12.0, 4.0, 12.0, 8.0),
+                                                          12.0, 8.0, 12.0, 8.0),
                                                   child: Row(
                                                     mainAxisSize:
                                                         MainAxisSize.max,
@@ -571,7 +571,14 @@ class _NotesPageWidgetState extends State<NotesPageWidget>
                                                         style:
                                                             FlutterFlowTheme.of(
                                                                     context)
-                                                                .labelSmall,
+                                                                .labelSmall
+                                                                .override(
+                                                                  fontFamily:
+                                                                      'Readex Pro',
+                                                                  fontWeight:
+                                                                      FontWeight
+                                                                          .w500,
+                                                                ),
                                                       ),
                                                       Text(
                                                         dateTimeFormat(
@@ -581,7 +588,14 @@ class _NotesPageWidgetState extends State<NotesPageWidget>
                                                         style:
                                                             FlutterFlowTheme.of(
                                                                     context)
-                                                                .labelSmall,
+                                                                .labelSmall
+                                                                .override(
+                                                                  fontFamily:
+                                                                      'Readex Pro',
+                                                                  fontWeight:
+                                                                      FontWeight
+                                                                          .w600,
+                                                                ),
                                                       ),
                                                     ],
                                                   ),
