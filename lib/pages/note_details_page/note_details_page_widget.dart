@@ -157,13 +157,17 @@ class _NoteDetailsPageWidgetState extends State<NoteDetailsPageWidget> {
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           Text(
-                            '${widget.currentNoteDocument?.lastUpdated?.toString()} at ${dateTimeFormat('hh:mm a', widget.currentNoteDocument?.lastUpdated)}',
+                            '${dateTimeFormat('yMMMd', widget.currentNoteDocument?.lastUpdated)} at ${dateTimeFormat('hh:mm a', widget.currentNoteDocument?.lastUpdated)}',
                             style: FlutterFlowTheme.of(context).labelMedium,
                           ),
-                          Text(
-                            dateTimeFormat('relative',
-                                widget.currentNoteDocument!.lastUpdated!),
-                            style: FlutterFlowTheme.of(context).labelMedium,
+                          Padding(
+                            padding: const EdgeInsetsDirectional.fromSTEB(
+                                0.0, 0.0, 10.0, 0.0),
+                            child: Text(
+                              dateTimeFormat('relative',
+                                  widget.currentNoteDocument!.lastUpdated!),
+                              style: FlutterFlowTheme.of(context).labelSmall,
+                            ),
                           ),
                         ],
                       ),
@@ -236,7 +240,7 @@ class _NoteDetailsPageWidgetState extends State<NoteDetailsPageWidget> {
                                     8.0, 0.0, 8.0, 0.0),
                                 child: Container(
                                   width: double.infinity,
-                                  height: 56.0,
+                                  height: 50.0,
                                   decoration: BoxDecoration(
                                     color: FlutterFlowTheme.of(context)
                                         .primaryBackground,
@@ -266,7 +270,7 @@ class _NoteDetailsPageWidgetState extends State<NoteDetailsPageWidget> {
                                             updationsListViewUpdationsRecord
                                                 .updated!),
                                         style: FlutterFlowTheme.of(context)
-                                            .labelMedium,
+                                            .labelSmall,
                                       ),
                                     ],
                                   ),
