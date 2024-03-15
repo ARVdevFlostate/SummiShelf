@@ -4,11 +4,11 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:flutter/material.dart';
-import 'confirm_book_remove_component_model.dart';
-export 'confirm_book_remove_component_model.dart';
+import 'confirm_book_delete_component_model.dart';
+export 'confirm_book_delete_component_model.dart';
 
-class ConfirmBookRemoveComponentWidget extends StatefulWidget {
-  const ConfirmBookRemoveComponentWidget({
+class ConfirmBookDeleteComponentWidget extends StatefulWidget {
+  const ConfirmBookDeleteComponentWidget({
     super.key,
     required this.currentBook,
   });
@@ -16,13 +16,13 @@ class ConfirmBookRemoveComponentWidget extends StatefulWidget {
   final BooksRecord? currentBook;
 
   @override
-  State<ConfirmBookRemoveComponentWidget> createState() =>
-      _ConfirmBookRemoveComponentWidgetState();
+  State<ConfirmBookDeleteComponentWidget> createState() =>
+      _ConfirmBookDeleteComponentWidgetState();
 }
 
-class _ConfirmBookRemoveComponentWidgetState
-    extends State<ConfirmBookRemoveComponentWidget> {
-  late ConfirmBookRemoveComponentModel _model;
+class _ConfirmBookDeleteComponentWidgetState
+    extends State<ConfirmBookDeleteComponentWidget> {
+  late ConfirmBookDeleteComponentModel _model;
 
   @override
   void setState(VoidCallback callback) {
@@ -33,7 +33,7 @@ class _ConfirmBookRemoveComponentWidgetState
   @override
   void initState() {
     super.initState();
-    _model = createModel(context, () => ConfirmBookRemoveComponentModel());
+    _model = createModel(context, () => ConfirmBookDeleteComponentModel());
   }
 
   @override

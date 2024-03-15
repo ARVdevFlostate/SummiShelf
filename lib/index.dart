@@ -20,3 +20,6 @@ export '/pages/book_details_page/book_details_page_widget.dart'
 export '/pages/bookshelf_grid_page/bookshelf_grid_page_widget.dart'
     show BookshelfGridPageWidget;
 export '/pages/insights_page/insights_page_widget.dart' show InsightsPageWidget;
+export '/pages/notes_page/notes_page_widget.dart' show NotesPageWidget;
+export '/pages/note_details_page/note_details_page_widget.dart'
+    show NoteDetailsPageWidget;

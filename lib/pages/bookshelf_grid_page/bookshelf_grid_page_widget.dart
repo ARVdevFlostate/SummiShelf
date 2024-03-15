@@ -1,6 +1,6 @@
 import '/auth/firebase_auth/auth_util.dart';
 import '/backend/backend.dart';
-import '/components/confirm_book_remove_component/confirm_book_remove_component_widget.dart';
+import '/components/confirm_book_delete_component/confirm_book_delete_component_widget.dart';
 import '/components/empty_state_dynamic/empty_state_dynamic_widget.dart';
 import '/flutter_flow/flutter_flow_ad_banner.dart';
 import '/flutter_flow/flutter_flow_animations.dart';
@@ -390,7 +390,7 @@ class _BookshelfGridPageWidgetState extends State<BookshelfGridPageWidget>
                                                     Color(0x12FF0099),
                                                     Color(0x1E9900FF)
                                                   ],
-                                                  stops: [0.2, 0.7],
+                                                  stops: [0.3, 0.7],
                                                   begin: AlignmentDirectional(
                                                       0.5, 1.0),
                                                   end: AlignmentDirectional(
@@ -624,7 +624,7 @@ class _BookshelfGridPageWidgetState extends State<BookshelfGridPageWidget>
                                                                               onTap: () => _model.unfocusNode.canRequestFocus ? FocusScope.of(context).requestFocus(_model.unfocusNode) : FocusScope.of(context).unfocus(),
                                                                               child: SizedBox(
                                                                                 height: 290.0,
-                                                                                child: ConfirmBookRemoveComponentWidget(
+                                                                                child: ConfirmBookDeleteComponentWidget(
                                                                                   currentBook: allBooksItem,
                                                                                 ),
                                                                               ),

@@ -153,6 +153,24 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           builder: (context, params) => params.isEmpty
               ? const NavBarPage(initialPage: 'InsightsPage')
               : const InsightsPageWidget(),
+        ),
+        FFRoute(
+          name: 'NotesPage',
+          path: '/notesPage',
+          builder: (context, params) => params.isEmpty
+              ? const NavBarPage(initialPage: 'NotesPage')
+              : const NotesPageWidget(),
+        ),
+        FFRoute(
+          name: 'NoteDetailsPage',
+          path: '/noteDetailsPage',
+          asyncParams: {
+            'currentNoteDocument': getDoc(['notes'], NotesRecord.fromSnapshot),
+          },
+          builder: (context, params) => NoteDetailsPageWidget(
+            currentNoteDocument:
+                params.getParam('currentNoteDocument', ParamType.Document),
+          ),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
     );

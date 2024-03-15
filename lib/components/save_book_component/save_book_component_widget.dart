@@ -106,7 +106,7 @@ class _SaveBookComponentWidgetState extends State<SaveBookComponentWidget> {
         mainAxisAlignment: MainAxisAlignment.start,
         children: [
           Padding(
-            padding: const EdgeInsetsDirectional.fromSTEB(20.0, 0.0, 20.0, 0.0),
+            padding: const EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 24.0, 0.0),
             child: Row(
               mainAxisSize: MainAxisSize.max,
               mainAxisAlignment: MainAxisAlignment.center,
@@ -228,7 +228,7 @@ class _SaveBookComponentWidgetState extends State<SaveBookComponentWidget> {
                         decoration: BoxDecoration(
                           gradient: const LinearGradient(
                             colors: [Color(0x12FF0099), Color(0x1E9900FF)],
-                            stops: [0.2, 0.7],
+                            stops: [0.3, 0.7],
                             begin: AlignmentDirectional(0.5, 1.0),
                             end: AlignmentDirectional(-0.5, -1.0),
                           ),

@@ -1,10 +1,8 @@
 import '/flutter_flow/flutter_flow_util.dart';
-import 'confirm_book_remove_component_widget.dart'
-    show ConfirmBookRemoveComponentWidget;
+import 'note_details_page_widget.dart' show NoteDetailsPageWidget;
 import 'package:flutter/material.dart';
 
-class ConfirmBookRemoveComponentModel
-    extends FlutterFlowModel<ConfirmBookRemoveComponentWidget> {
+class NoteDetailsPageModel extends FlutterFlowModel<NoteDetailsPageWidget> {
   /// Initialization and disposal methods.
 
   @override
