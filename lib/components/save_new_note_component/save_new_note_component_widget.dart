@@ -193,7 +193,7 @@ class _SaveNewNoteComponentWidgetState
                           fillColor:
                               FlutterFlowTheme.of(context).primaryBackground,
                           contentPadding: const EdgeInsetsDirectional.fromSTEB(
-                              20.0, 24.0, 0.0, 24.0),
+                              20.0, 20.0, 0.0, 20.0),
                           suffixIcon: _model.notesTitleTextFieldController!.text
                                   .isNotEmpty
                               ? InkWell(
@@ -265,7 +265,7 @@ class _SaveNewNoteComponentWidgetState
                           fillColor:
                               FlutterFlowTheme.of(context).primaryBackground,
                           contentPadding: const EdgeInsetsDirectional.fromSTEB(
-                              20.0, 24.0, 0.0, 24.0),
+                              20.0, 20.0, 0.0, 24.0),
                           suffixIcon: _model
                                   .notesDescriptionTextFieldController!
                                   .text

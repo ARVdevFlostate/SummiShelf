@@ -133,6 +133,7 @@ class _ResetPasswordPageWidgetState extends State<ResetPasswordPageWidget> {
                           () => setState(() {}),
                         ),
                         autofillHints: const [AutofillHints.email],
+                        textInputAction: TextInputAction.done,
                         obscureText: false,
                         decoration: InputDecoration(
                           labelText: 'Enter your email address',

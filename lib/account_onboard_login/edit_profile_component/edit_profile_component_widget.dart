@@ -237,6 +237,7 @@ class _EditProfileComponentWidgetState
                   () => setState(() {}),
                 ),
                 autofillHints: const [AutofillHints.email],
+                textInputAction: TextInputAction.done,
                 obscureText: false,
                 decoration: InputDecoration(
                   labelText: 'Display name',

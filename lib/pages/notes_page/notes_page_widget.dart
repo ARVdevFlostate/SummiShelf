@@ -513,7 +513,7 @@ class _NotesPageWidgetState extends State<NotesPageWidget>
                                                               notesListItem
                                                                   .description
                                                                   .maybeHandleOverflow(
-                                                                maxChars: 77,
+                                                                maxChars: 79,
                                                                 replacement:
                                                                     '…',
                                                               ),
@@ -567,7 +567,7 @@ class _NotesPageWidgetState extends State<NotesPageWidget>
                                                             .spaceBetween,
                                                     children: [
                                                       Text(
-                                                        'Last update ${dateTimeFormat('yMMMd', notesListItem.lastUpdated)}',
+                                                        'Last updated ${dateTimeFormat('yMMMd', notesListItem.lastUpdated)}',
                                                         style:
                                                             FlutterFlowTheme.of(
                                                                     context)

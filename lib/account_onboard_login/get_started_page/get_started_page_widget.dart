@@ -196,6 +196,7 @@ class _GetStartedPageWidgetState extends State<GetStartedPageWidget>
                               () => setState(() {}),
                             ),
                             autofillHints: const [AutofillHints.email],
+                            textInputAction: TextInputAction.next,
                             obscureText: false,
                             decoration: InputDecoration(
                               labelText: 'Enter your email',
@@ -270,6 +271,7 @@ class _GetStartedPageWidgetState extends State<GetStartedPageWidget>
                           controller: _model.passwordTextFieldController,
                           focusNode: _model.passwordTextFieldFocusNode,
                           autofillHints: const [AutofillHints.password],
+                          textInputAction: TextInputAction.done,
                           obscureText: !_model.passwordTextFieldVisibility,
                           decoration: InputDecoration(
                             labelText: 'Create a password',

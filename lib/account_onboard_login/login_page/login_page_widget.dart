@@ -195,6 +195,7 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                               () => setState(() {}),
                             ),
                             autofillHints: const [AutofillHints.email],
+                            textInputAction: TextInputAction.next,
                             obscureText: false,
                             decoration: InputDecoration(
                               labelText: 'Enter your email',
@@ -269,6 +270,7 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                           controller: _model.passwordTextFieldController,
                           focusNode: _model.passwordTextFieldFocusNode,
                           autofillHints: const [AutofillHints.password],
+                          textInputAction: TextInputAction.done,
                           obscureText: !_model.passwordTextFieldVisibility,
                           decoration: InputDecoration(
                             labelText: 'Enter your password',
