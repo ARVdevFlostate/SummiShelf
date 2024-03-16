@@ -210,6 +210,8 @@ class _NoteDetailsPageWidgetState extends State<NoteDetailsPageWidget> {
                     child: FutureBuilder<List<UpdationsRecord>>(
                       future: queryUpdationsRecordOnce(
                         parent: widget.currentNoteDocument?.reference,
+                        queryBuilder: (updationsRecord) => updationsRecord
+                            .orderBy('updated', descending: true),
                       ),
                       builder: (context, snapshot) {
                         // Customize what your widget looks like when it's loading.
