@@ -307,7 +307,7 @@ class _NotesPageWidgetState extends State<NotesPageWidget>
                                 crossAxisAlignment: CrossAxisAlignment.center,
                                 children: [
                                   Text(
-                                    'Recently Updated Notes',
+                                    'Recently Updated ',
                                     style:
                                         FlutterFlowTheme.of(context).titleLarge,
                                   ),
@@ -517,7 +517,6 @@ class _NotesPageWidgetState extends State<NotesPageWidget>
                                                                 replacement:
                                                                     '…',
                                                               ),
-                                                              maxLines: 2,
                                                               style: FlutterFlowTheme
                                                                       .of(context)
                                                                   .labelMedium
