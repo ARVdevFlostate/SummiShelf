@@ -64,14 +64,17 @@ class _BookshelfGridPageWidgetState extends State<BookshelfGridPageWidget>
       setState(() {
         _model.psvShowSearchResults = false;
       });
+      if (valueOrDefault<bool>(currentUserDocument?.isFreeUser, false)) {
+        admob.loadInterstitialAd(
+          "ca-app-pub-2902584978304943/1960504189",
+          "",
+          true,
+        );
 
-      admob.loadInterstitialAd(
-        "ca-app-pub-2902584978304943/1960504189",
-        "",
-        true,
-      );
-
-      await Future.delayed(const Duration(milliseconds: 1000));
+        await Future.delayed(const Duration(milliseconds: 1000));
+      } else {
+        return;
+      }
     });
 
     _model.textController ??= TextEditingController();
@@ -371,55 +374,74 @@ class _BookshelfGridPageWidgetState extends State<BookshelfGridPageWidget>
                                           hoverColor: Colors.transparent,
                                           highlightColor: Colors.transparent,
                                           onTap: () async {
-                                            _model.interstitialAdSuccess =
-                                                await admob
-                                                    .showInterstitialAd();
+                                            if (valueOrDefault<bool>(
+                                                currentUserDocument?.isFreeUser,
+                                                false)) {
+                                              _model.interstitialAdSuccess =
+                                                  await admob
+                                                      .showInterstitialAd();
 
-                                            if (_model.interstitialAdSuccess!) {
-                                              admob.loadInterstitialAd(
-                                                "ca-app-pub-2902584978304943/1960504189",
-                                                "",
-                                                true,
+                                              if (_model
+                                                  .interstitialAdSuccess!) {
+                                                admob.loadInterstitialAd(
+                                                  "ca-app-pub-2902584978304943/1960504189",
+                                                  "",
+                                                  true,
+                                                );
+                                              } else {
+                                                ScaffoldMessenger.of(context)
+                                                    .showSnackBar(
+                                                  SnackBar(
+                                                    content: Text(
+                                                      'An error has occured while loading Ad',
+                                                      style:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .titleSmall
+                                                              .override(
+                                                                fontFamily:
+                                                                    'Readex Pro',
+                                                                color: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .info,
+                                                              ),
+                                                    ),
+                                                    duration: const Duration(
+                                                        milliseconds: 4000),
+                                                    backgroundColor:
+                                                        FlutterFlowTheme.of(
+                                                                context)
+                                                            .tertiary,
+                                                  ),
+                                                );
+                                              }
+
+                                              context.goNamed(
+                                                'BookDetailsPage',
+                                                queryParameters: {
+                                                  'currentBook': serializeParam(
+                                                    allBooksItem,
+                                                    ParamType.Document,
+                                                  ),
+                                                }.withoutNulls,
+                                                extra: <String, dynamic>{
+                                                  'currentBook': allBooksItem,
+                                                },
                                               );
                                             } else {
-                                              ScaffoldMessenger.of(context)
-                                                  .showSnackBar(
-                                                SnackBar(
-                                                  content: Text(
-                                                    'An error has occured while loading Ad',
-                                                    style: FlutterFlowTheme.of(
-                                                            context)
-                                                        .titleSmall
-                                                        .override(
-                                                          fontFamily:
-                                                              'Readex Pro',
-                                                          color: FlutterFlowTheme
-                                                                  .of(context)
-                                                              .info,
-                                                        ),
+                                              context.goNamed(
+                                                'BookDetailsPage',
+                                                queryParameters: {
+                                                  'currentBook': serializeParam(
+                                                    allBooksItem,
+                                                    ParamType.Document,
                                                   ),
-                                                  duration: const Duration(
-                                                      milliseconds: 4000),
-                                                  backgroundColor:
-                                                      FlutterFlowTheme.of(
-                                                              context)
-                                                          .tertiary,
-                                                ),
+                                                }.withoutNulls,
+                                                extra: <String, dynamic>{
+                                                  'currentBook': allBooksItem,
+                                                },
                                               );
                                             }
-
-                                            context.goNamed(
-                                              'BookDetailsPage',
-                                              queryParameters: {
-                                                'currentBook': serializeParam(
-                                                  allBooksItem,
-                                                  ParamType.Document,
-                                                ),
-                                              }.withoutNulls,
-                                              extra: <String, dynamic>{
-                                                'currentBook': allBooksItem,
-                                              },
-                                            );
 
                                             setState(() {});
                                           },
