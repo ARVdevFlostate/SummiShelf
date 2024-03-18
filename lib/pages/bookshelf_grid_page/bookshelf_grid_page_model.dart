@@ -14,6 +14,8 @@ class BookshelfGridPageModel extends FlutterFlowModel<BookshelfGridPageWidget> {
   FocusNode? textFieldFocusNode;
   TextEditingController? textController;
   String? Function(BuildContext, String?)? textControllerValidator;
+  // Stores action output result for [AdMob - Show Interstitial Ad] action in BookshelfItemContainer widget.
+  bool? interstitialAdSuccess;
 
   /// Initialization and disposal methods.
 
