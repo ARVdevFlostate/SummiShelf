@@ -117,7 +117,7 @@ class _ConfirmOffboardComponentWidgetState
                           children: [
                             Icon(
                               Icons.highlight_off_outlined,
-                              color: FlutterFlowTheme.of(context).tertiary,
+                              color: FlutterFlowTheme.of(context).error,
                               size: 24.0,
                             ),
                             Expanded(
@@ -168,7 +168,7 @@ class _ConfirmOffboardComponentWidgetState
                           children: [
                             Icon(
                               Icons.highlight_off_outlined,
-                              color: FlutterFlowTheme.of(context).tertiary,
+                              color: FlutterFlowTheme.of(context).error,
                               size: 24.0,
                             ),
                             Expanded(

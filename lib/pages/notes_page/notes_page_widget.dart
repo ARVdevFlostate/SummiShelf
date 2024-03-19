@@ -141,7 +141,7 @@ class _NotesPageWidgetState extends State<NotesPageWidget>
                         FlutterFlowIconButton(
                           borderColor: FlutterFlowTheme.of(context).primary,
                           borderRadius: 16.0,
-                          borderWidth: 1.0,
+                          borderWidth: 2.0,
                           buttonSize: 40.0,
                           fillColor: FlutterFlowTheme.of(context).accent1,
                           icon: Icon(
@@ -479,13 +479,13 @@ class _NotesPageWidgetState extends State<NotesPageWidget>
                                                                   0.0,
                                                                   8.0),
                                                       child: Container(
-                                                        width: 80.0,
-                                                        height: 84.0,
+                                                        width: 78.0,
+                                                        height: 86.0,
                                                         decoration:
                                                             BoxDecoration(
                                                           color: FlutterFlowTheme
                                                                   .of(context)
-                                                              .primaryBackground,
+                                                              .secondaryBackground,
                                                           borderRadius:
                                                               BorderRadius
                                                                   .circular(
@@ -509,29 +509,29 @@ class _NotesPageWidgetState extends State<NotesPageWidget>
                                                                 padding:
                                                                     const EdgeInsetsDirectional
                                                                         .fromSTEB(
-                                                                            8.0,
+                                                                            6.0,
                                                                             0.0,
-                                                                            8.0,
+                                                                            6.0,
                                                                             0.0),
                                                                 child:
                                                                     Container(
                                                                   width: double
                                                                       .infinity,
-                                                                  height: 20.0,
+                                                                  height: 24.0,
                                                                   decoration:
                                                                       BoxDecoration(
                                                                     color: FlutterFlowTheme.of(
                                                                             context)
-                                                                        .alternate,
+                                                                        .primaryBackground,
                                                                     borderRadius:
                                                                         BorderRadius.circular(
-                                                                            8.0),
+                                                                            10.0),
                                                                     border:
                                                                         Border
                                                                             .all(
                                                                       color: FlutterFlowTheme.of(
                                                                               context)
-                                                                          .alternate,
+                                                                          .primaryBackground,
                                                                     ),
                                                                   ),
                                                                   child: Align(
@@ -543,9 +543,9 @@ class _NotesPageWidgetState extends State<NotesPageWidget>
                                                                         Padding(
                                                                       padding: const EdgeInsetsDirectional.fromSTEB(
                                                                           0.0,
-                                                                          1.0,
+                                                                          2.0,
                                                                           0.0,
-                                                                          1.0),
+                                                                          2.0),
                                                                       child:
                                                                           Text(
                                                                         dateTimeFormat(
@@ -576,10 +576,10 @@ class _NotesPageWidgetState extends State<NotesPageWidget>
                                                                         'Outfit',
                                                                     color: FlutterFlowTheme.of(
                                                                             context)
-                                                                        .primary,
+                                                                        .primaryText,
                                                                     fontWeight:
                                                                         FontWeight
-                                                                            .w600,
+                                                                            .bold,
                                                                   ),
                                                             ),
                                                             Text(
@@ -631,37 +631,28 @@ class _NotesPageWidgetState extends State<NotesPageWidget>
                                                               CrossAxisAlignment
                                                                   .stretch,
                                                           children: [
-                                                            Padding(
-                                                              padding:
-                                                                  const EdgeInsetsDirectional
-                                                                      .fromSTEB(
-                                                                          0.0,
-                                                                          2.0,
-                                                                          0.0,
-                                                                          0.0),
-                                                              child: Text(
-                                                                notesListItem
-                                                                    .title
-                                                                    .maybeHandleOverflow(
-                                                                  maxChars: 45,
-                                                                  replacement:
-                                                                      '…',
-                                                                ),
-                                                                maxLines: 1,
-                                                                style: FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .labelLarge
-                                                                    .override(
-                                                                      fontFamily:
-                                                                          'Readex Pro',
-                                                                      color: FlutterFlowTheme.of(
-                                                                              context)
-                                                                          .primaryText,
-                                                                      fontWeight:
-                                                                          FontWeight
-                                                                              .w500,
-                                                                    ),
+                                                            Text(
+                                                              notesListItem
+                                                                  .title
+                                                                  .maybeHandleOverflow(
+                                                                maxChars: 45,
+                                                                replacement:
+                                                                    '…',
                                                               ),
+                                                              maxLines: 1,
+                                                              style: FlutterFlowTheme
+                                                                      .of(context)
+                                                                  .labelLarge
+                                                                  .override(
+                                                                    fontFamily:
+                                                                        'Readex Pro',
+                                                                    color: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .primaryText,
+                                                                    fontWeight:
+                                                                        FontWeight
+                                                                            .w500,
+                                                                  ),
                                                             ),
                                                             Text(
                                                               notesListItem
@@ -673,14 +664,7 @@ class _NotesPageWidgetState extends State<NotesPageWidget>
                                                               ),
                                                               style: FlutterFlowTheme
                                                                       .of(context)
-                                                                  .labelMedium
-                                                                  .override(
-                                                                    fontFamily:
-                                                                        'Readex Pro',
-                                                                    fontWeight:
-                                                                        FontWeight
-                                                                            .normal,
-                                                                  ),
+                                                                  .labelSmall,
                                                             ),
                                                           ].divide(const SizedBox(
                                                               height: 4.0)),
@@ -706,7 +690,7 @@ class _NotesPageWidgetState extends State<NotesPageWidget>
                                                       ),
                                                     ),
                                                   ].divide(
-                                                      const SizedBox(width: 8.0)),
+                                                      const SizedBox(width: 10.0)),
                                                 ),
                                                 Divider(
                                                   height: 2.0,

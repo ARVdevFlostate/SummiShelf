@@ -285,7 +285,7 @@ class _SaveNewNoteComponentWidgetState
                               : null,
                         ),
                         style: FlutterFlowTheme.of(context).bodyLarge,
-                        maxLines: 2,
+                        maxLines: 3,
                         cursorColor: FlutterFlowTheme.of(context).primary,
                         validator: _model
                             .notesDescriptionTextFieldControllerValidator
