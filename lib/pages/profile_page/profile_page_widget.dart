@@ -282,67 +282,73 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget>
                                         !valueOrDefault<bool>(
                                             currentUserDocument?.isFreeUser,
                                             false),
-                                    onChanged: (newValue) async {
-                                      setState(
-                                          () => _model.switchValue = newValue);
-                                      if (newValue) {
-                                        await currentUserReference!
-                                            .update(createUsersRecordData(
-                                          isFreeUser: false,
-                                        ));
-                                        setState(() {});
-                                        ScaffoldMessenger.of(context)
-                                            .showSnackBar(
-                                          SnackBar(
-                                            content: Text(
-                                              'Ads have been removed',
-                                              style: FlutterFlowTheme.of(
-                                                      context)
-                                                  .titleSmall
-                                                  .override(
-                                                    fontFamily: 'Readex Pro',
-                                                    color: FlutterFlowTheme.of(
+                                    onChanged: false
+                                        ? null
+                                        : (newValue) async {
+                                            setState(() =>
+                                                _model.switchValue = newValue);
+                                            if (newValue) {
+                                              await currentUserReference!
+                                                  .update(createUsersRecordData(
+                                                isFreeUser: false,
+                                              ));
+                                              setState(() {});
+                                              ScaffoldMessenger.of(context)
+                                                  .showSnackBar(
+                                                SnackBar(
+                                                  content: Text(
+                                                    'Ads have been removed',
+                                                    style: FlutterFlowTheme.of(
                                                             context)
-                                                        .info,
+                                                        .titleSmall
+                                                        .override(
+                                                          fontFamily:
+                                                              'Readex Pro',
+                                                          color: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .info,
+                                                        ),
                                                   ),
-                                            ),
-                                            duration:
-                                                const Duration(milliseconds: 4000),
-                                            backgroundColor:
-                                                FlutterFlowTheme.of(context)
-                                                    .secondary,
-                                          ),
-                                        );
-                                      } else {
-                                        await currentUserReference!
-                                            .update(createUsersRecordData(
-                                          isFreeUser: true,
-                                        ));
-                                        setState(() {});
-                                        ScaffoldMessenger.of(context)
-                                            .showSnackBar(
-                                          SnackBar(
-                                            content: Text(
-                                              'Ads are back',
-                                              style: FlutterFlowTheme.of(
-                                                      context)
-                                                  .titleSmall
-                                                  .override(
-                                                    fontFamily: 'Readex Pro',
-                                                    color: FlutterFlowTheme.of(
+                                                  duration: const Duration(
+                                                      milliseconds: 4000),
+                                                  backgroundColor:
+                                                      FlutterFlowTheme.of(
+                                                              context)
+                                                          .secondary,
+                                                ),
+                                              );
+                                            } else {
+                                              await currentUserReference!
+                                                  .update(createUsersRecordData(
+                                                isFreeUser: true,
+                                              ));
+                                              setState(() {});
+                                              ScaffoldMessenger.of(context)
+                                                  .showSnackBar(
+                                                SnackBar(
+                                                  content: Text(
+                                                    'Ads are back',
+                                                    style: FlutterFlowTheme.of(
                                                             context)
-                                                        .info,
+                                                        .titleSmall
+                                                        .override(
+                                                          fontFamily:
+                                                              'Readex Pro',
+                                                          color: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .info,
+                                                        ),
                                                   ),
-                                            ),
-                                            duration:
-                                                const Duration(milliseconds: 4000),
-                                            backgroundColor:
-                                                FlutterFlowTheme.of(context)
-                                                    .secondary,
-                                          ),
-                                        );
-                                      }
-                                    },
+                                                  duration: const Duration(
+                                                      milliseconds: 4000),
+                                                  backgroundColor:
+                                                      FlutterFlowTheme.of(
+                                                              context)
+                                                          .secondary,
+                                                ),
+                                              );
+                                            }
+                                          },
                                     activeColor:
                                         FlutterFlowTheme.of(context).primary,
                                     activeTrackColor:

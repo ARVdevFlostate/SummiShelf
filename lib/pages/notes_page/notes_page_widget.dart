@@ -552,7 +552,7 @@ class _NotesPageWidgetState extends State<NotesPageWidget>
                                                                             'MMM',
                                                                             notesListItem.lastUpdated!),
                                                                         style: FlutterFlowTheme.of(context)
-                                                                            .bodySmall
+                                                                            .bodyMedium
                                                                             .override(
                                                                               fontFamily: 'Readex Pro',
                                                                               fontWeight: FontWeight.w500,

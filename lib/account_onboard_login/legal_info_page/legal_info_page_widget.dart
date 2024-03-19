@@ -212,8 +212,8 @@ This service does not use these “cookies” explicitly. However, the app may u
 I may employ third-party companies and individuals due to the following reasons:
 *   To facilitate our service;
 *   To provide the service on our behalf;
-*   To perform service-related services; or
-*   To assist us in analyzing how our service is used.
+*   To perform service-related activities; or
+*   To analyze how our service is used.
 
 I want to inform users of this service that these third parties have access to their personal information. The reason is to perform the tasks assigned to them on our behalf. However, they are obligated not to disclose or use the information for any other purpose.
 
