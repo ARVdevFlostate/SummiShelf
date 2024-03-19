@@ -307,7 +307,7 @@ class _NotesPageWidgetState extends State<NotesPageWidget>
                                 crossAxisAlignment: CrossAxisAlignment.center,
                                 children: [
                                   Text(
-                                    'Recently Updated ',
+                                    'Recent Updates',
                                     style:
                                         FlutterFlowTheme.of(context).titleLarge,
                                   ),
@@ -365,7 +365,7 @@ class _NotesPageWidgetState extends State<NotesPageWidget>
                                         0,
                                         0,
                                         0,
-                                        48.0,
+                                        56.0,
                                       ),
                                       scrollDirection: Axis.vertical,
                                       itemCount: notesList.length,
@@ -470,15 +470,160 @@ class _NotesPageWidgetState extends State<NotesPageWidget>
                                                   crossAxisAlignment:
                                                       CrossAxisAlignment.start,
                                                   children: [
+                                                    Padding(
+                                                      padding:
+                                                          const EdgeInsetsDirectional
+                                                              .fromSTEB(
+                                                                  8.0,
+                                                                  8.0,
+                                                                  0.0,
+                                                                  8.0),
+                                                      child: Container(
+                                                        width: 80.0,
+                                                        height: 84.0,
+                                                        decoration:
+                                                            BoxDecoration(
+                                                          color: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .primaryBackground,
+                                                          borderRadius:
+                                                              BorderRadius
+                                                                  .circular(
+                                                                      16.0),
+                                                          border: Border.all(
+                                                            color: FlutterFlowTheme
+                                                                    .of(context)
+                                                                .alternate,
+                                                            width: 2.0,
+                                                          ),
+                                                        ),
+                                                        child: Column(
+                                                          mainAxisSize:
+                                                              MainAxisSize.max,
+                                                          children: [
+                                                            Align(
+                                                              alignment:
+                                                                  const AlignmentDirectional(
+                                                                      0.0, 0.0),
+                                                              child: Padding(
+                                                                padding:
+                                                                    const EdgeInsetsDirectional
+                                                                        .fromSTEB(
+                                                                            8.0,
+                                                                            0.0,
+                                                                            8.0,
+                                                                            0.0),
+                                                                child:
+                                                                    Container(
+                                                                  width: double
+                                                                      .infinity,
+                                                                  height: 20.0,
+                                                                  decoration:
+                                                                      BoxDecoration(
+                                                                    color: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .alternate,
+                                                                    borderRadius:
+                                                                        BorderRadius.circular(
+                                                                            8.0),
+                                                                    border:
+                                                                        Border
+                                                                            .all(
+                                                                      color: FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .alternate,
+                                                                    ),
+                                                                  ),
+                                                                  child: Align(
+                                                                    alignment:
+                                                                        const AlignmentDirectional(
+                                                                            0.0,
+                                                                            0.0),
+                                                                    child:
+                                                                        Padding(
+                                                                      padding: const EdgeInsetsDirectional.fromSTEB(
+                                                                          0.0,
+                                                                          1.0,
+                                                                          0.0,
+                                                                          1.0),
+                                                                      child:
+                                                                          Text(
+                                                                        dateTimeFormat(
+                                                                            'MMM',
+                                                                            notesListItem.lastUpdated!),
+                                                                        style: FlutterFlowTheme.of(context)
+                                                                            .bodySmall
+                                                                            .override(
+                                                                              fontFamily: 'Readex Pro',
+                                                                              fontWeight: FontWeight.w500,
+                                                                            ),
+                                                                      ),
+                                                                    ),
+                                                                  ),
+                                                                ),
+                                                              ),
+                                                            ),
+                                                            Text(
+                                                              dateTimeFormat(
+                                                                  'd',
+                                                                  notesListItem
+                                                                      .lastUpdated!),
+                                                              style: FlutterFlowTheme
+                                                                      .of(context)
+                                                                  .titleLarge
+                                                                  .override(
+                                                                    fontFamily:
+                                                                        'Outfit',
+                                                                    color: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .primary,
+                                                                    fontWeight:
+                                                                        FontWeight
+                                                                            .w600,
+                                                                  ),
+                                                            ),
+                                                            Text(
+                                                              dateTimeFormat(
+                                                                  'y',
+                                                                  notesListItem
+                                                                      .lastUpdated!),
+                                                              style: FlutterFlowTheme
+                                                                      .of(context)
+                                                                  .bodySmall
+                                                                  .override(
+                                                                    fontFamily:
+                                                                        'Readex Pro',
+                                                                    color: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .secondaryText,
+                                                                    fontWeight:
+                                                                        FontWeight
+                                                                            .w500,
+                                                                  ),
+                                                            ),
+                                                          ]
+                                                              .divide(const SizedBox(
+                                                                  height: 1.0))
+                                                              .addToStart(
+                                                                  const SizedBox(
+                                                                      height:
+                                                                          6.0))
+                                                              .addToEnd(
+                                                                  const SizedBox(
+                                                                      height:
+                                                                          6.0)),
+                                                        ),
+                                                      ),
+                                                    ),
                                                     Expanded(
                                                       child: Padding(
                                                         padding:
                                                             const EdgeInsetsDirectional
                                                                 .fromSTEB(
-                                                                    12.0,
+                                                                    0.0,
                                                                     8.0,
                                                                     0.0,
-                                                                    8.0),
+                                                                    0.0),
                                                         child: Column(
                                                           mainAxisSize:
                                                               MainAxisSize.max,
@@ -486,28 +631,37 @@ class _NotesPageWidgetState extends State<NotesPageWidget>
                                                               CrossAxisAlignment
                                                                   .stretch,
                                                           children: [
-                                                            Text(
-                                                              notesListItem
-                                                                  .title
-                                                                  .maybeHandleOverflow(
-                                                                maxChars: 45,
-                                                                replacement:
-                                                                    '…',
+                                                            Padding(
+                                                              padding:
+                                                                  const EdgeInsetsDirectional
+                                                                      .fromSTEB(
+                                                                          0.0,
+                                                                          2.0,
+                                                                          0.0,
+                                                                          0.0),
+                                                              child: Text(
+                                                                notesListItem
+                                                                    .title
+                                                                    .maybeHandleOverflow(
+                                                                  maxChars: 45,
+                                                                  replacement:
+                                                                      '…',
+                                                                ),
+                                                                maxLines: 1,
+                                                                style: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .labelLarge
+                                                                    .override(
+                                                                      fontFamily:
+                                                                          'Readex Pro',
+                                                                      color: FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .primaryText,
+                                                                      fontWeight:
+                                                                          FontWeight
+                                                                              .w500,
+                                                                    ),
                                                               ),
-                                                              maxLines: 1,
-                                                              style: FlutterFlowTheme
-                                                                      .of(context)
-                                                                  .labelLarge
-                                                                  .override(
-                                                                    fontFamily:
-                                                                        'Readex Pro',
-                                                                    color: FlutterFlowTheme.of(
-                                                                            context)
-                                                                        .primaryText,
-                                                                    fontWeight:
-                                                                        FontWeight
-                                                                            .w500,
-                                                                  ),
                                                             ),
                                                             Text(
                                                               notesListItem
@@ -538,7 +692,7 @@ class _NotesPageWidgetState extends State<NotesPageWidget>
                                                           const EdgeInsetsDirectional
                                                               .fromSTEB(
                                                                   0.0,
-                                                                  8.0,
+                                                                  10.0,
                                                                   8.0,
                                                                   0.0),
                                                       child: Icon(
@@ -553,51 +707,6 @@ class _NotesPageWidgetState extends State<NotesPageWidget>
                                                     ),
                                                   ].divide(
                                                       const SizedBox(width: 8.0)),
-                                                ),
-                                                Padding(
-                                                  padding: const EdgeInsetsDirectional
-                                                      .fromSTEB(
-                                                          12.0, 8.0, 12.0, 8.0),
-                                                  child: Row(
-                                                    mainAxisSize:
-                                                        MainAxisSize.max,
-                                                    mainAxisAlignment:
-                                                        MainAxisAlignment
-                                                            .spaceBetween,
-                                                    children: [
-                                                      Text(
-                                                        'Last updated ${dateTimeFormat('yMMMd', notesListItem.lastUpdated)}',
-                                                        style:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .labelSmall
-                                                                .override(
-                                                                  fontFamily:
-                                                                      'Readex Pro',
-                                                                  fontWeight:
-                                                                      FontWeight
-                                                                          .w500,
-                                                                ),
-                                                      ),
-                                                      Text(
-                                                        dateTimeFormat(
-                                                            'relative',
-                                                            notesListItem
-                                                                .lastUpdated!),
-                                                        style:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .labelSmall
-                                                                .override(
-                                                                  fontFamily:
-                                                                      'Readex Pro',
-                                                                  fontWeight:
-                                                                      FontWeight
-                                                                          .w600,
-                                                                ),
-                                                      ),
-                                                    ],
-                                                  ),
                                                 ),
                                                 Divider(
                                                   height: 2.0,
@@ -626,8 +735,8 @@ class _NotesPageWidgetState extends State<NotesPageWidget>
                                                   child: Padding(
                                                     padding:
                                                         const EdgeInsetsDirectional
-                                                            .fromSTEB(12.0, 8.0,
-                                                                8.0, 8.0),
+                                                            .fromSTEB(8.0, 8.0,
+                                                                12.0, 8.0),
                                                     child: Row(
                                                       mainAxisSize:
                                                           MainAxisSize.max,
@@ -756,6 +865,29 @@ class _NotesPageWidgetState extends State<NotesPageWidget>
                                                                   setState(
                                                                       () {}));
                                                             },
+                                                          ),
+                                                        ),
+                                                        Expanded(
+                                                          child: Align(
+                                                            alignment:
+                                                                const AlignmentDirectional(
+                                                                    1.0, 1.0),
+                                                            child: Text(
+                                                              dateTimeFormat(
+                                                                  'relative',
+                                                                  notesListItem
+                                                                      .lastUpdated!),
+                                                              style: FlutterFlowTheme
+                                                                      .of(context)
+                                                                  .labelSmall
+                                                                  .override(
+                                                                    fontFamily:
+                                                                        'Readex Pro',
+                                                                    fontWeight:
+                                                                        FontWeight
+                                                                            .w600,
+                                                                  ),
+                                                            ),
                                                           ),
                                                         ),
                                                       ].divide(const SizedBox(
