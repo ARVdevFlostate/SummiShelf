@@ -393,7 +393,7 @@ class _BookshelfGridPageWidgetState extends State<BookshelfGridPageWidget>
                                                     .showSnackBar(
                                                   SnackBar(
                                                     content: Text(
-                                                      'An error has occured while loading Ad',
+                                                      'No ads to interrupt your fun. Enjoy!',
                                                       style:
                                                           FlutterFlowTheme.of(
                                                                   context)
