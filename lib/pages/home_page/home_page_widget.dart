@@ -110,6 +110,7 @@ class _HomePageWidgetState extends State<HomePageWidget>
                             FlutterFlowTheme.of(context).displaySmall.override(
                                   fontFamily: 'DM Serif Display',
                                   color: FlutterFlowTheme.of(context).primary,
+                                  fontSize: 32.0,
                                   letterSpacing: 2.0,
                                   fontWeight: FontWeight.bold,
                                 ),

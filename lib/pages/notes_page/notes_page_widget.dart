@@ -638,11 +638,10 @@ class _NotesPageWidgetState extends State<NotesPageWidget>
                                                               notesListItem
                                                                   .title
                                                                   .maybeHandleOverflow(
-                                                                maxChars: 45,
+                                                                maxChars: 30,
                                                                 replacement:
                                                                     '…',
                                                               ),
-                                                              maxLines: 1,
                                                               style: FlutterFlowTheme
                                                                       .of(context)
                                                                   .labelLarge

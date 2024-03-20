@@ -109,9 +109,6 @@ class _NoteDetailsPageWidgetState extends State<NoteDetailsPageWidget> {
                         valueOrDefault<String>(
                           widget.currentNoteDocument?.title,
                           'No title',
-                        ).maybeHandleOverflow(
-                          maxChars: 30,
-                          replacement: '…',
                         ),
                         style: FlutterFlowTheme.of(context).titleLarge,
                       ),
