@@ -501,7 +501,7 @@ class _GetStartedPageWidgetState extends State<GetStartedPageWidget>
                                 }
 
                                 context.goNamedAuth(
-                                    'HomePage', context.mounted);
+                                    'ProfileCreatePage', context.mounted);
                               },
                             ),
                           ].divide(const SizedBox(width: 16.0)),

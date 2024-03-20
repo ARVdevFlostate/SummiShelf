@@ -108,7 +108,7 @@ class _ProfileCreatePageWidgetState extends State<ProfileCreatePageWidget>
                           title: 'Create Profile',
                           buttonText: 'Save & Continue',
                           navigateAction: () async {
-                            context.pushNamed('ProfilePage');
+                            context.goNamed('ProfilePage');
                           },
                         ),
                       ),

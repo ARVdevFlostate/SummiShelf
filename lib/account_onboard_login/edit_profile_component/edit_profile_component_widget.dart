@@ -311,16 +311,29 @@ class _EditProfileComponentWidgetState
                     !_model.formKey.currentState!.validate()) {
                   return;
                 }
+                if (widget.title == 'Create Profile') {
+                  await currentUserReference!.update(createUsersRecordData(
+                    displayName: _model.displaynameTextFieldController.text,
+                    photoUrl: _model.uploadedFileUrl != ''
+                        ? _model.uploadedFileUrl
+                        : valueOrDefault<String>(
+                            currentUserPhoto,
+                            'https://firebasestorage.googleapis.com/v0/b/summi-shelf-z6nbpi.appspot.com/o/assets%2FdefaultAvatar-v2.png?alt=media&token=706a34fc-8a48-4f5f-8831-7c860e0773a9',
+                          ),
+                    isFreeUser: true,
+                  ));
+                } else {
+                  await currentUserReference!.update(createUsersRecordData(
+                    displayName: _model.displaynameTextFieldController.text,
+                    photoUrl: _model.uploadedFileUrl != ''
+                        ? _model.uploadedFileUrl
+                        : valueOrDefault<String>(
+                            currentUserPhoto,
+                            'https://firebasestorage.googleapis.com/v0/b/summi-shelf-z6nbpi.appspot.com/o/assets%2FdefaultAvatar-v2.png?alt=media&token=706a34fc-8a48-4f5f-8831-7c860e0773a9',
+                          ),
+                  ));
+                }
 
-                await currentUserReference!.update(createUsersRecordData(
-                  displayName: _model.displaynameTextFieldController.text,
-                  photoUrl: _model.uploadedFileUrl != ''
-                      ? _model.uploadedFileUrl
-                      : valueOrDefault<String>(
-                          currentUserPhoto,
-                          'https://firebasestorage.googleapis.com/v0/b/summi-shelf-z6nbpi.appspot.com/o/assets%2FdefaultAvatar-v2.png?alt=media&token=706a34fc-8a48-4f5f-8831-7c860e0773a9',
-                        ),
-                ));
                 ScaffoldMessenger.of(context).showSnackBar(
                   SnackBar(
                     content: Text(
