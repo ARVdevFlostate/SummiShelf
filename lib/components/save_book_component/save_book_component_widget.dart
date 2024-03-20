@@ -355,7 +355,7 @@ class _SaveBookComponentWidgetState extends State<SaveBookComponentWidget> {
                   ),
                   Padding(
                     padding:
-                        const EdgeInsetsDirectional.fromSTEB(20.0, 0.0, 20.0, 0.0),
+                        const EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 16.0, 0.0),
                     child: Column(
                       mainAxisSize: MainAxisSize.max,
                       crossAxisAlignment: CrossAxisAlignment.start,
@@ -395,7 +395,7 @@ class _SaveBookComponentWidgetState extends State<SaveBookComponentWidget> {
             ),
           ),
           Padding(
-            padding: const EdgeInsetsDirectional.fromSTEB(20.0, 12.0, 20.0, 12.0),
+            padding: const EdgeInsetsDirectional.fromSTEB(16.0, 12.0, 16.0, 12.0),
             child: Row(
               mainAxisSize: MainAxisSize.max,
               mainAxisAlignment: MainAxisAlignment.center,
@@ -483,7 +483,7 @@ class _SaveBookComponentWidgetState extends State<SaveBookComponentWidget> {
 
                     setState(() {});
                   },
-                  text: 'Add to Bookshelf',
+                  text: 'Add to Shelf',
                   options: FFButtonOptions(
                     height: 44.0,
                     padding:

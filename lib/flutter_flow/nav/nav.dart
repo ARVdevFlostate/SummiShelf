@@ -356,7 +356,7 @@ class FFRoute {
                   child: Center(
                     child: Image.asset(
                       'assets/images/summishelf-appsplash-1024-v3.png',
-                      width: 256.0,
+                      width: 160.0,
                       fit: BoxFit.contain,
                     ),
                   ),

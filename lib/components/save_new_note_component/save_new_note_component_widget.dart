@@ -157,9 +157,9 @@ class _SaveNewNoteComponentWidgetState
                         autofillHints: const [AutofillHints.email],
                         obscureText: false,
                         decoration: InputDecoration(
-                          labelText: 'Title *',
+                          labelText: 'Note title *',
                           labelStyle: FlutterFlowTheme.of(context).labelLarge,
-                          hintText: 'Enter your notes title',
+                          hintText: 'Enter your note title',
                           hintStyle: FlutterFlowTheme.of(context).labelLarge,
                           enabledBorder: OutlineInputBorder(
                             borderSide: BorderSide(
@@ -229,9 +229,9 @@ class _SaveNewNoteComponentWidgetState
                         autofillHints: const [AutofillHints.email],
                         obscureText: false,
                         decoration: InputDecoration(
-                          labelText: 'Description *',
+                          labelText: 'Note description *',
                           labelStyle: FlutterFlowTheme.of(context).labelLarge,
-                          hintText: 'Enter your notes description',
+                          hintText: 'Enter your note description',
                           hintStyle: FlutterFlowTheme.of(context).labelLarge,
                           enabledBorder: OutlineInputBorder(
                             borderSide: BorderSide(
@@ -298,7 +298,7 @@ class _SaveNewNoteComponentWidgetState
             ),
           ),
           Padding(
-            padding: const EdgeInsetsDirectional.fromSTEB(20.0, 12.0, 20.0, 12.0),
+            padding: const EdgeInsetsDirectional.fromSTEB(16.0, 24.0, 16.0, 24.0),
             child: Row(
               mainAxisSize: MainAxisSize.max,
               mainAxisAlignment: MainAxisAlignment.center,

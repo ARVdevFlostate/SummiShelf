@@ -282,7 +282,7 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget>
                                         !valueOrDefault<bool>(
                                             currentUserDocument?.isFreeUser,
                                             false),
-                                    onChanged: false
+                                    onChanged: true
                                         ? null
                                         : (newValue) async {
                                             setState(() =>

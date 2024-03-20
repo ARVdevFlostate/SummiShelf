@@ -317,8 +317,11 @@ class _NotesPageWidgetState extends State<NotesPageWidget>
                                           0.0, 0.0, 4.0, 0.0),
                                       child: Text(
                                         '${valueOrDefault<String>(
-                                          notesPageNotesRecordList.length
-                                              .toString(),
+                                          valueOrDefault<String>(
+                                            notesPageNotesRecordList.length
+                                                .toString(),
+                                            '0',
+                                          ),
                                           '0',
                                         )} found',
                                         style: FlutterFlowTheme.of(context)
@@ -565,7 +568,7 @@ class _NotesPageWidgetState extends State<NotesPageWidget>
                                                             ),
                                                             Text(
                                                               dateTimeFormat(
-                                                                  'd',
+                                                                  'dd',
                                                                   notesListItem
                                                                       .lastUpdated!),
                                                               style: FlutterFlowTheme
@@ -576,7 +579,7 @@ class _NotesPageWidgetState extends State<NotesPageWidget>
                                                                         'Outfit',
                                                                     color: FlutterFlowTheme.of(
                                                                             context)
-                                                                        .primaryText,
+                                                                        .primary,
                                                                     fontWeight:
                                                                         FontWeight
                                                                             .bold,
