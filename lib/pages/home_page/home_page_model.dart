@@ -13,6 +13,9 @@ class HomePageModel extends FlutterFlowModel<HomePageWidget> {
   String? Function(BuildContext, String?)? searchTextFieldControllerValidator;
   // Stores action output result for [Backend Call - API (getBookByISBN)] action in SearchButton widget.
   ApiCallResponse? apiResultvoi;
+  var scanOutput = '';
+  // Stores action output result for [Backend Call - API (getBookByISBN)] action in ScanBarcodeContainer widget.
+  ApiCallResponse? apiResultvoiScan;
 
   /// Initialization and disposal methods.
 

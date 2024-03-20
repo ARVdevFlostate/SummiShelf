@@ -10,6 +10,7 @@ import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:easy_debounce/easy_debounce.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
+import 'package:flutter_barcode_scanner/flutter_barcode_scanner.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:provider/provider.dart';
 import 'home_page_model.dart';
@@ -438,20 +439,137 @@ class _HomePageWidgetState extends State<HomePageWidget>
                           hoverColor: Colors.transparent,
                           highlightColor: Colors.transparent,
                           onTap: () async {
-                            ScaffoldMessenger.of(context).showSnackBar(
-                              SnackBar(
-                                content: Text(
-                                  'Feature coming soon',
-                                  style: TextStyle(
-                                    color: FlutterFlowTheme.of(context)
-                                        .primaryText,
-                                  ),
-                                ),
-                                duration: const Duration(milliseconds: 4000),
-                                backgroundColor:
-                                    FlutterFlowTheme.of(context).secondary,
-                              ),
+                            var shouldSetState = false;
+                            _model.scanOutput =
+                                await FlutterBarcodeScanner.scanBarcode(
+                              '#C62828', // scanning line color
+                              'Cancel', // cancel button text
+                              true, // whether to show the flash icon
+                              ScanMode.BARCODE,
                             );
+
+                            shouldSetState = true;
+                            if (_model.scanOutput != '') {
+                              _model.apiResultvoiScan =
+                                  await GetBookByISBNCall.call(
+                                isbn:
+                                    'isbn:${_model.searchTextFieldController.text}',
+                                apiKey: FFAppState().apiKey,
+                              );
+                              shouldSetState = true;
+                              if ((_model.apiResultvoiScan?.succeeded ??
+                                  true)) {
+                                if (GetBookByISBNCall.title(
+                                          (_model.apiResultvoi?.jsonBody ?? ''),
+                                        ) !=
+                                        null &&
+                                    GetBookByISBNCall.title(
+                                          (_model.apiResultvoi?.jsonBody ?? ''),
+                                        ) !=
+                                        '') {
+                                  await showModalBottomSheet(
+                                    isScrollControlled: true,
+                                    backgroundColor: Colors.transparent,
+                                    enableDrag: false,
+                                    useSafeArea: true,
+                                    context: context,
+                                    builder: (context) {
+                                      return GestureDetector(
+                                        onTap: () => _model
+                                                .unfocusNode.canRequestFocus
+                                            ? FocusScope.of(context)
+                                                .requestFocus(
+                                                    _model.unfocusNode)
+                                            : FocusScope.of(context).unfocus(),
+                                        child: Padding(
+                                          padding:
+                                              MediaQuery.viewInsetsOf(context),
+                                          child: SizedBox(
+                                            height: MediaQuery.sizeOf(context)
+                                                    .height *
+                                                0.72,
+                                            child: SaveBookComponentWidget(
+                                              title: GetBookByISBNCall.title(
+                                                (_model.apiResultvoi
+                                                        ?.jsonBody ??
+                                                    ''),
+                                              )!,
+                                              subtitle:
+                                                  GetBookByISBNCall.subtitle(
+                                                (_model.apiResultvoi
+                                                        ?.jsonBody ??
+                                                    ''),
+                                              ),
+                                              description:
+                                                  GetBookByISBNCall.description(
+                                                (_model.apiResultvoi
+                                                        ?.jsonBody ??
+                                                    ''),
+                                              ),
+                                              thumbnail:
+                                                  GetBookByISBNCall.thumbnail(
+                                                (_model.apiResultvoi
+                                                        ?.jsonBody ??
+                                                    ''),
+                                              ),
+                                            ),
+                                          ),
+                                        ),
+                                      );
+                                    },
+                                  ).then((value) => safeSetState(() {}));
+                                } else {
+                                  ScaffoldMessenger.of(context).showSnackBar(
+                                    SnackBar(
+                                      content: Text(
+                                        'No matching book found',
+                                        style: FlutterFlowTheme.of(context)
+                                            .titleSmall
+                                            .override(
+                                              fontFamily: 'Readex Pro',
+                                              color:
+                                                  FlutterFlowTheme.of(context)
+                                                      .info,
+                                            ),
+                                      ),
+                                      duration: const Duration(milliseconds: 4000),
+                                      backgroundColor:
+                                          FlutterFlowTheme.of(context)
+                                              .secondary,
+                                    ),
+                                  );
+                                  if (shouldSetState) setState(() {});
+                                  return;
+                                }
+
+                                setState(() {
+                                  _model.searchTextFieldController?.clear();
+                                });
+                              } else {
+                                ScaffoldMessenger.of(context).showSnackBar(
+                                  SnackBar(
+                                    content: Text(
+                                      'No matching book found',
+                                      style: FlutterFlowTheme.of(context)
+                                          .titleSmall
+                                          .override(
+                                            fontFamily: 'Readex Pro',
+                                            color: FlutterFlowTheme.of(context)
+                                                .info,
+                                          ),
+                                    ),
+                                    duration: const Duration(milliseconds: 4000),
+                                    backgroundColor:
+                                        FlutterFlowTheme.of(context).secondary,
+                                  ),
+                                );
+                              }
+                            } else {
+                              if (shouldSetState) setState(() {});
+                              return;
+                            }
+
+                            if (shouldSetState) setState(() {});
                           },
                           child: Material(
                             color: Colors.transparent,
