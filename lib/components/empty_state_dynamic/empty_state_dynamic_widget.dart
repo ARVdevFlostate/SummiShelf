@@ -60,8 +60,8 @@ class _EmptyStateDynamicWidgetState extends State<EmptyStateDynamicWidget> {
       alignment: const AlignmentDirectional(0.0, -1.0),
       child: Column(
         mainAxisSize: MainAxisSize.max,
-        mainAxisAlignment: MainAxisAlignment.center,
-        crossAxisAlignment: CrossAxisAlignment.stretch,
+        mainAxisAlignment: MainAxisAlignment.start,
+        crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           widget.icon!,
           Padding(

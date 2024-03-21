@@ -292,109 +292,158 @@ class _OnboardPageWidgetState extends State<OnboardPageWidget>
       child: Scaffold(
         key: scaffoldKey,
         backgroundColor: FlutterFlowTheme.of(context).secondaryBackground,
-        body: Container(
-          width: double.infinity,
-          height: double.infinity,
-          decoration: BoxDecoration(
-            color: FlutterFlowTheme.of(context).secondaryBackground,
-          ),
-          alignment: const AlignmentDirectional(0.0, 0.0),
-          child: Column(
-            mainAxisSize: MainAxisSize.max,
-            mainAxisAlignment: MainAxisAlignment.start,
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              SizedBox(
-                width: double.infinity,
-                height: MediaQuery.sizeOf(context).height * 0.9,
-                child: Stack(
-                  children: [
-                    Padding(
-                      padding:
-                          const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 40.0),
-                      child: PageView(
-                        controller: _model.pageViewController ??=
-                            PageController(initialPage: 0),
-                        scrollDirection: Axis.horizontal,
-                        children: [
-                          Stack(
-                            alignment: const AlignmentDirectional(0.0, -1.0),
-                            children: [
-                              Align(
-                                alignment: const AlignmentDirectional(0.0, -1.0),
-                                child: Padding(
-                                  padding: const EdgeInsetsDirectional.fromSTEB(
-                                      40.0, 0.0, 20.0, 0.0),
-                                  child: Container(
-                                    decoration: const BoxDecoration(),
-                                    child: Padding(
-                                      padding: const EdgeInsetsDirectional.fromSTEB(
-                                          0.0, 40.0, 0.0, 0.0),
-                                      child: ClipRRect(
-                                        borderRadius:
-                                            BorderRadius.circular(0.0),
-                                        child: Image.asset(
-                                          'assets/images/3d-casual-life-girl-with-books.png',
-                                          width: double.infinity,
-                                          height: 356.0,
-                                          fit: BoxFit.contain,
+        body: Align(
+          alignment: const AlignmentDirectional(0.0, -1.0),
+          child: Container(
+            width: double.infinity,
+            height: double.infinity,
+            constraints: const BoxConstraints(
+              maxWidth: 570.0,
+            ),
+            decoration: BoxDecoration(
+              color: FlutterFlowTheme.of(context).secondaryBackground,
+            ),
+            alignment: const AlignmentDirectional(0.0, 0.0),
+            child: Column(
+              mainAxisSize: MainAxisSize.max,
+              mainAxisAlignment: MainAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                SizedBox(
+                  width: double.infinity,
+                  height: MediaQuery.sizeOf(context).height * 0.9,
+                  child: Stack(
+                    children: [
+                      Padding(
+                        padding:
+                            const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 40.0),
+                        child: PageView(
+                          controller: _model.pageViewController ??=
+                              PageController(initialPage: 0),
+                          scrollDirection: Axis.horizontal,
+                          children: [
+                            Stack(
+                              alignment: const AlignmentDirectional(0.0, -1.0),
+                              children: [
+                                Align(
+                                  alignment: const AlignmentDirectional(0.0, -1.0),
+                                  child: Padding(
+                                    padding: const EdgeInsetsDirectional.fromSTEB(
+                                        40.0, 0.0, 20.0, 0.0),
+                                    child: Container(
+                                      decoration: const BoxDecoration(),
+                                      child: Padding(
+                                        padding: const EdgeInsetsDirectional.fromSTEB(
+                                            0.0, 40.0, 0.0, 0.0),
+                                        child: ClipRRect(
+                                          borderRadius:
+                                              BorderRadius.circular(0.0),
+                                          child: Image.asset(
+                                            'assets/images/3d-casual-life-girl-with-books.png',
+                                            width: double.infinity,
+                                            height: 356.0,
+                                            fit: BoxFit.contain,
+                                          ),
                                         ),
                                       ),
-                                    ),
-                                  ).animateOnPageLoad(animationsMap[
-                                      'containerOnPageLoadAnimation1']!),
+                                    ).animateOnPageLoad(animationsMap[
+                                        'containerOnPageLoadAnimation1']!),
+                                  ),
                                 ),
-                              ),
-                              Align(
-                                alignment: const AlignmentDirectional(0.0, 0.0),
-                                child: Padding(
-                                  padding: const EdgeInsetsDirectional.fromSTEB(
-                                      40.0, 0.0, 40.0, 0.0),
-                                  child: Column(
-                                    mainAxisSize: MainAxisSize.max,
-                                    mainAxisAlignment: MainAxisAlignment.end,
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.center,
-                                    children: [
-                                      Text(
-                                        'SummiShelf: Your digital bookshelf',
-                                        textAlign: TextAlign.center,
-                                        style: FlutterFlowTheme.of(context)
-                                            .displaySmall
-                                            .override(
-                                              fontFamily: 'Outfit',
-                                              fontWeight: FontWeight.bold,
-                                            ),
-                                      ).animateOnPageLoad(animationsMap[
-                                          'textOnPageLoadAnimation1']!),
-                                      Padding(
-                                        padding: const EdgeInsetsDirectional.fromSTEB(
-                                            0.0, 4.0, 0.0, 0.0),
-                                        child: Text(
-                                          'Simply scan any book ISBN barcode to instantly add it to your collection',
+                                Align(
+                                  alignment: const AlignmentDirectional(0.0, 0.0),
+                                  child: Padding(
+                                    padding: const EdgeInsetsDirectional.fromSTEB(
+                                        40.0, 0.0, 40.0, 0.0),
+                                    child: Column(
+                                      mainAxisSize: MainAxisSize.max,
+                                      mainAxisAlignment: MainAxisAlignment.end,
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.center,
+                                      children: [
+                                        Text(
+                                          'SummiShelf: Your digital bookshelf',
                                           textAlign: TextAlign.center,
                                           style: FlutterFlowTheme.of(context)
-                                              .labelLarge
+                                              .displaySmall
                                               .override(
-                                                fontFamily: 'Readex Pro',
-                                                fontWeight: FontWeight.normal,
+                                                fontFamily: 'Outfit',
+                                                fontWeight: FontWeight.bold,
                                               ),
                                         ).animateOnPageLoad(animationsMap[
-                                            'textOnPageLoadAnimation2']!),
-                                      ),
-                                      Padding(
-                                        padding: const EdgeInsetsDirectional.fromSTEB(
-                                            0.0, 12.0, 0.0, 0.0),
-                                        child: FFButtonWidget(
+                                            'textOnPageLoadAnimation1']!),
+                                        Padding(
+                                          padding:
+                                              const EdgeInsetsDirectional.fromSTEB(
+                                                  0.0, 4.0, 0.0, 0.0),
+                                          child: Text(
+                                            'Simply scan any book ISBN barcode to instantly add it to your collection',
+                                            textAlign: TextAlign.center,
+                                            style: FlutterFlowTheme.of(context)
+                                                .labelLarge
+                                                .override(
+                                                  fontFamily: 'Readex Pro',
+                                                  fontWeight: FontWeight.normal,
+                                                ),
+                                          ).animateOnPageLoad(animationsMap[
+                                              'textOnPageLoadAnimation2']!),
+                                        ),
+                                        Padding(
+                                          padding:
+                                              const EdgeInsetsDirectional.fromSTEB(
+                                                  0.0, 12.0, 0.0, 0.0),
+                                          child: FFButtonWidget(
+                                            onPressed: () async {
+                                              await _model.pageViewController
+                                                  ?.nextPage(
+                                                duration:
+                                                    const Duration(milliseconds: 300),
+                                                curve: Curves.ease,
+                                              );
+                                            },
+                                            text: 'Next',
+                                            options: FFButtonOptions(
+                                              width: double.infinity,
+                                              height: 44.0,
+                                              padding: const EdgeInsetsDirectional
+                                                  .fromSTEB(0.0, 0.0, 0.0, 0.0),
+                                              iconPadding: const EdgeInsetsDirectional
+                                                  .fromSTEB(0.0, 0.0, 0.0, 0.0),
+                                              color:
+                                                  FlutterFlowTheme.of(context)
+                                                      .primary,
+                                              textStyle:
+                                                  FlutterFlowTheme.of(context)
+                                                      .titleLarge
+                                                      .override(
+                                                        fontFamily: 'Outfit',
+                                                        color:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .info,
+                                                      ),
+                                              elevation: 3.0,
+                                              borderSide: const BorderSide(
+                                                color: Colors.transparent,
+                                                width: 1.0,
+                                              ),
+                                              borderRadius:
+                                                  BorderRadius.circular(16.0),
+                                            ),
+                                            showLoadingIndicator: false,
+                                          ),
+                                        ),
+                                        FFButtonWidget(
                                           onPressed: () async {
                                             await _model.pageViewController
-                                                ?.nextPage(
+                                                ?.animateToPage(
+                                              2,
                                               duration:
-                                                  const Duration(milliseconds: 300),
+                                                  const Duration(milliseconds: 500),
                                               curve: Curves.ease,
                                             );
                                           },
-                                          text: 'Next',
+                                          text: 'Skip',
                                           options: FFButtonOptions(
                                             width: double.infinity,
                                             height: 44.0,
@@ -405,7 +454,7 @@ class _OnboardPageWidgetState extends State<OnboardPageWidget>
                                                 const EdgeInsetsDirectional.fromSTEB(
                                                     0.0, 0.0, 0.0, 0.0),
                                             color: FlutterFlowTheme.of(context)
-                                                .primary,
+                                                .secondaryBackground,
                                             textStyle:
                                                 FlutterFlowTheme.of(context)
                                                     .titleLarge
@@ -414,147 +463,149 @@ class _OnboardPageWidgetState extends State<OnboardPageWidget>
                                                       color:
                                                           FlutterFlowTheme.of(
                                                                   context)
-                                                              .info,
+                                                              .primaryText,
                                                     ),
-                                            elevation: 3.0,
+                                            elevation: 0.0,
                                             borderSide: const BorderSide(
                                               color: Colors.transparent,
                                               width: 1.0,
                                             ),
                                             borderRadius:
                                                 BorderRadius.circular(16.0),
+                                            hoverColor:
+                                                FlutterFlowTheme.of(context)
+                                                    .alternate,
                                           ),
                                           showLoadingIndicator: false,
                                         ),
-                                      ),
-                                      FFButtonWidget(
-                                        onPressed: () async {
-                                          await _model.pageViewController
-                                              ?.animateToPage(
-                                            2,
-                                            duration:
-                                                const Duration(milliseconds: 500),
-                                            curve: Curves.ease,
-                                          );
-                                        },
-                                        text: 'Skip',
-                                        options: FFButtonOptions(
-                                          width: double.infinity,
-                                          height: 44.0,
-                                          padding:
-                                              const EdgeInsetsDirectional.fromSTEB(
-                                                  0.0, 0.0, 0.0, 0.0),
-                                          iconPadding:
-                                              const EdgeInsetsDirectional.fromSTEB(
-                                                  0.0, 0.0, 0.0, 0.0),
-                                          color: FlutterFlowTheme.of(context)
-                                              .secondaryBackground,
-                                          textStyle: FlutterFlowTheme.of(
-                                                  context)
-                                              .titleLarge
-                                              .override(
-                                                fontFamily: 'Outfit',
-                                                color:
-                                                    FlutterFlowTheme.of(context)
-                                                        .primaryText,
-                                              ),
-                                          elevation: 0.0,
-                                          borderSide: const BorderSide(
-                                            color: Colors.transparent,
-                                            width: 1.0,
-                                          ),
-                                          borderRadius:
-                                              BorderRadius.circular(16.0),
-                                          hoverColor:
-                                              FlutterFlowTheme.of(context)
-                                                  .alternate,
-                                        ),
-                                        showLoadingIndicator: false,
-                                      ),
-                                    ].divide(const SizedBox(height: 12.0)),
+                                      ].divide(const SizedBox(height: 12.0)),
+                                    ),
                                   ),
                                 ),
-                              ),
-                            ],
-                          ),
-                          Stack(
-                            alignment: const AlignmentDirectional(0.0, -1.0),
-                            children: [
-                              Align(
-                                alignment: const AlignmentDirectional(0.0, -1.0),
-                                child: Padding(
-                                  padding: const EdgeInsetsDirectional.fromSTEB(
-                                      40.0, 0.0, 20.0, 0.0),
-                                  child: Container(
-                                    decoration: const BoxDecoration(),
-                                    child: Padding(
-                                      padding: const EdgeInsetsDirectional.fromSTEB(
-                                          0.0, 40.0, 0.0, 0.0),
-                                      child: ClipRRect(
-                                        borderRadius:
-                                            BorderRadius.circular(0.0),
-                                        child: Image.asset(
-                                          'assets/images/casual-life-3d-cat-sitting-on-bookshelf.png',
-                                          width: double.infinity,
-                                          height: 368.0,
-                                          fit: BoxFit.contain,
+                              ],
+                            ),
+                            Stack(
+                              alignment: const AlignmentDirectional(0.0, -1.0),
+                              children: [
+                                Align(
+                                  alignment: const AlignmentDirectional(0.0, -1.0),
+                                  child: Padding(
+                                    padding: const EdgeInsetsDirectional.fromSTEB(
+                                        40.0, 0.0, 20.0, 0.0),
+                                    child: Container(
+                                      decoration: const BoxDecoration(),
+                                      child: Padding(
+                                        padding: const EdgeInsetsDirectional.fromSTEB(
+                                            0.0, 40.0, 0.0, 0.0),
+                                        child: ClipRRect(
+                                          borderRadius:
+                                              BorderRadius.circular(0.0),
+                                          child: Image.asset(
+                                            'assets/images/casual-life-3d-cat-sitting-on-bookshelf.png',
+                                            width: double.infinity,
+                                            height: 368.0,
+                                            fit: BoxFit.contain,
+                                          ),
                                         ),
                                       ),
-                                    ),
-                                  ).animateOnPageLoad(animationsMap[
-                                      'containerOnPageLoadAnimation2']!),
+                                    ).animateOnPageLoad(animationsMap[
+                                        'containerOnPageLoadAnimation2']!),
+                                  ),
                                 ),
-                              ),
-                              Align(
-                                alignment: const AlignmentDirectional(0.0, 0.0),
-                                child: Padding(
-                                  padding: const EdgeInsetsDirectional.fromSTEB(
-                                      40.0, 0.0, 40.0, 0.0),
-                                  child: Column(
-                                    mainAxisSize: MainAxisSize.max,
-                                    mainAxisAlignment: MainAxisAlignment.end,
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.center,
-                                    children: [
-                                      Text(
-                                        'Keep your books organized',
-                                        textAlign: TextAlign.center,
-                                        style: FlutterFlowTheme.of(context)
-                                            .displaySmall
-                                            .override(
-                                              fontFamily: 'Outfit',
-                                              fontWeight: FontWeight.bold,
-                                            ),
-                                      ).animateOnPageLoad(animationsMap[
-                                          'textOnPageLoadAnimation3']!),
-                                      Padding(
-                                        padding: const EdgeInsetsDirectional.fromSTEB(
-                                            0.0, 4.0, 0.0, 0.0),
-                                        child: Text(
-                                          'Mark favorites, keep track of reading progress, in a single place',
+                                Align(
+                                  alignment: const AlignmentDirectional(0.0, 0.0),
+                                  child: Padding(
+                                    padding: const EdgeInsetsDirectional.fromSTEB(
+                                        40.0, 0.0, 40.0, 0.0),
+                                    child: Column(
+                                      mainAxisSize: MainAxisSize.max,
+                                      mainAxisAlignment: MainAxisAlignment.end,
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.center,
+                                      children: [
+                                        Text(
+                                          'Keep your books organized',
                                           textAlign: TextAlign.center,
                                           style: FlutterFlowTheme.of(context)
-                                              .labelLarge
+                                              .displaySmall
                                               .override(
-                                                fontFamily: 'Readex Pro',
-                                                fontWeight: FontWeight.normal,
+                                                fontFamily: 'Outfit',
+                                                fontWeight: FontWeight.bold,
                                               ),
                                         ).animateOnPageLoad(animationsMap[
-                                            'textOnPageLoadAnimation4']!),
-                                      ),
-                                      Padding(
-                                        padding: const EdgeInsetsDirectional.fromSTEB(
-                                            0.0, 12.0, 0.0, 0.0),
-                                        child: FFButtonWidget(
+                                            'textOnPageLoadAnimation3']!),
+                                        Padding(
+                                          padding:
+                                              const EdgeInsetsDirectional.fromSTEB(
+                                                  0.0, 4.0, 0.0, 0.0),
+                                          child: Text(
+                                            'Mark favorites, keep track of reading progress, in a single place',
+                                            textAlign: TextAlign.center,
+                                            style: FlutterFlowTheme.of(context)
+                                                .labelLarge
+                                                .override(
+                                                  fontFamily: 'Readex Pro',
+                                                  fontWeight: FontWeight.normal,
+                                                ),
+                                          ).animateOnPageLoad(animationsMap[
+                                              'textOnPageLoadAnimation4']!),
+                                        ),
+                                        Padding(
+                                          padding:
+                                              const EdgeInsetsDirectional.fromSTEB(
+                                                  0.0, 12.0, 0.0, 0.0),
+                                          child: FFButtonWidget(
+                                            onPressed: () async {
+                                              await _model.pageViewController
+                                                  ?.nextPage(
+                                                duration:
+                                                    const Duration(milliseconds: 300),
+                                                curve: Curves.ease,
+                                              );
+                                            },
+                                            text: 'Next',
+                                            options: FFButtonOptions(
+                                              width: double.infinity,
+                                              height: 44.0,
+                                              padding: const EdgeInsetsDirectional
+                                                  .fromSTEB(0.0, 0.0, 0.0, 0.0),
+                                              iconPadding: const EdgeInsetsDirectional
+                                                  .fromSTEB(0.0, 0.0, 0.0, 0.0),
+                                              color:
+                                                  FlutterFlowTheme.of(context)
+                                                      .primary,
+                                              textStyle:
+                                                  FlutterFlowTheme.of(context)
+                                                      .titleLarge
+                                                      .override(
+                                                        fontFamily: 'Outfit',
+                                                        color:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .info,
+                                                      ),
+                                              elevation: 3.0,
+                                              borderSide: const BorderSide(
+                                                color: Colors.transparent,
+                                                width: 1.0,
+                                              ),
+                                              borderRadius:
+                                                  BorderRadius.circular(16.0),
+                                            ),
+                                            showLoadingIndicator: false,
+                                          ),
+                                        ),
+                                        FFButtonWidget(
                                           onPressed: () async {
                                             await _model.pageViewController
-                                                ?.nextPage(
+                                                ?.animateToPage(
+                                              2,
                                               duration:
-                                                  const Duration(milliseconds: 300),
+                                                  const Duration(milliseconds: 500),
                                               curve: Curves.ease,
                                             );
                                           },
-                                          text: 'Next',
+                                          text: 'Skip',
                                           options: FFButtonOptions(
                                             width: double.infinity,
                                             height: 44.0,
@@ -565,7 +616,7 @@ class _OnboardPageWidgetState extends State<OnboardPageWidget>
                                                 const EdgeInsetsDirectional.fromSTEB(
                                                     0.0, 0.0, 0.0, 0.0),
                                             color: FlutterFlowTheme.of(context)
-                                                .primary,
+                                                .secondaryBackground,
                                             textStyle:
                                                 FlutterFlowTheme.of(context)
                                                     .titleLarge
@@ -574,142 +625,138 @@ class _OnboardPageWidgetState extends State<OnboardPageWidget>
                                                       color:
                                                           FlutterFlowTheme.of(
                                                                   context)
-                                                              .info,
+                                                              .primaryText,
                                                     ),
-                                            elevation: 3.0,
+                                            elevation: 0.0,
                                             borderSide: const BorderSide(
                                               color: Colors.transparent,
                                               width: 1.0,
                                             ),
                                             borderRadius:
                                                 BorderRadius.circular(16.0),
+                                            hoverColor:
+                                                FlutterFlowTheme.of(context)
+                                                    .alternate,
                                           ),
                                           showLoadingIndicator: false,
                                         ),
-                                      ),
-                                      FFButtonWidget(
-                                        onPressed: () async {
-                                          await _model.pageViewController
-                                              ?.animateToPage(
-                                            2,
-                                            duration:
-                                                const Duration(milliseconds: 500),
-                                            curve: Curves.ease,
-                                          );
-                                        },
-                                        text: 'Skip',
-                                        options: FFButtonOptions(
-                                          width: double.infinity,
-                                          height: 44.0,
-                                          padding:
-                                              const EdgeInsetsDirectional.fromSTEB(
-                                                  0.0, 0.0, 0.0, 0.0),
-                                          iconPadding:
-                                              const EdgeInsetsDirectional.fromSTEB(
-                                                  0.0, 0.0, 0.0, 0.0),
-                                          color: FlutterFlowTheme.of(context)
-                                              .secondaryBackground,
-                                          textStyle: FlutterFlowTheme.of(
-                                                  context)
-                                              .titleLarge
-                                              .override(
-                                                fontFamily: 'Outfit',
-                                                color:
-                                                    FlutterFlowTheme.of(context)
-                                                        .primaryText,
-                                              ),
-                                          elevation: 0.0,
-                                          borderSide: const BorderSide(
-                                            color: Colors.transparent,
-                                            width: 1.0,
-                                          ),
-                                          borderRadius:
-                                              BorderRadius.circular(16.0),
-                                          hoverColor:
-                                              FlutterFlowTheme.of(context)
-                                                  .alternate,
-                                        ),
-                                        showLoadingIndicator: false,
-                                      ),
-                                    ].divide(const SizedBox(height: 12.0)),
+                                      ].divide(const SizedBox(height: 12.0)),
+                                    ),
                                   ),
                                 ),
-                              ),
-                            ],
-                          ),
-                          Stack(
-                            alignment: const AlignmentDirectional(0.0, -1.0),
-                            children: [
-                              Align(
-                                alignment: const AlignmentDirectional(0.0, -1.0),
-                                child: Padding(
-                                  padding: const EdgeInsetsDirectional.fromSTEB(
-                                      40.0, 0.0, 20.0, 0.0),
-                                  child: Container(
-                                    decoration: const BoxDecoration(),
-                                    child: Padding(
-                                      padding: const EdgeInsetsDirectional.fromSTEB(
-                                          0.0, 40.0, 0.0, 0.0),
-                                      child: ClipRRect(
-                                        borderRadius:
-                                            BorderRadius.circular(0.0),
-                                        child: Image.asset(
-                                          'assets/images/3d-casual-life-cat-with-books-and-mouse.png',
-                                          width: double.infinity,
-                                          height: 368.0,
-                                          fit: BoxFit.contain,
+                              ],
+                            ),
+                            Stack(
+                              alignment: const AlignmentDirectional(0.0, -1.0),
+                              children: [
+                                Align(
+                                  alignment: const AlignmentDirectional(0.0, -1.0),
+                                  child: Padding(
+                                    padding: const EdgeInsetsDirectional.fromSTEB(
+                                        40.0, 0.0, 20.0, 0.0),
+                                    child: Container(
+                                      decoration: const BoxDecoration(),
+                                      child: Padding(
+                                        padding: const EdgeInsetsDirectional.fromSTEB(
+                                            0.0, 40.0, 0.0, 0.0),
+                                        child: ClipRRect(
+                                          borderRadius:
+                                              BorderRadius.circular(0.0),
+                                          child: Image.asset(
+                                            'assets/images/3d-casual-life-cat-with-books-and-mouse.png',
+                                            width: double.infinity,
+                                            height: 368.0,
+                                            fit: BoxFit.contain,
+                                          ),
                                         ),
                                       ),
-                                    ),
-                                  ).animateOnPageLoad(animationsMap[
-                                      'containerOnPageLoadAnimation3']!),
+                                    ).animateOnPageLoad(animationsMap[
+                                        'containerOnPageLoadAnimation3']!),
+                                  ),
                                 ),
-                              ),
-                              Align(
-                                alignment: const AlignmentDirectional(0.0, 0.0),
-                                child: Padding(
-                                  padding: const EdgeInsetsDirectional.fromSTEB(
-                                      40.0, 0.0, 40.0, 0.0),
-                                  child: Column(
-                                    mainAxisSize: MainAxisSize.max,
-                                    mainAxisAlignment: MainAxisAlignment.end,
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.center,
-                                    children: [
-                                      Text(
-                                        'Unlock hidden insights',
-                                        textAlign: TextAlign.center,
-                                        style: FlutterFlowTheme.of(context)
-                                            .displaySmall
-                                            .override(
-                                              fontFamily: 'Outfit',
-                                              fontWeight: FontWeight.bold,
-                                            ),
-                                      ).animateOnPageLoad(animationsMap[
-                                          'textOnPageLoadAnimation5']!),
-                                      Padding(
-                                        padding: const EdgeInsetsDirectional.fromSTEB(
-                                            0.0, 4.0, 0.0, 0.0),
-                                        child: Text(
-                                          'Using AI, category, and basic summary gets generated in the background',
+                                Align(
+                                  alignment: const AlignmentDirectional(0.0, 0.0),
+                                  child: Padding(
+                                    padding: const EdgeInsetsDirectional.fromSTEB(
+                                        40.0, 0.0, 40.0, 0.0),
+                                    child: Column(
+                                      mainAxisSize: MainAxisSize.max,
+                                      mainAxisAlignment: MainAxisAlignment.end,
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.center,
+                                      children: [
+                                        Text(
+                                          'Unlock hidden insights',
                                           textAlign: TextAlign.center,
                                           style: FlutterFlowTheme.of(context)
-                                              .labelLarge
+                                              .displaySmall
                                               .override(
-                                                fontFamily: 'Readex Pro',
-                                                fontWeight: FontWeight.normal,
+                                                fontFamily: 'Outfit',
+                                                fontWeight: FontWeight.bold,
                                               ),
                                         ).animateOnPageLoad(animationsMap[
-                                            'textOnPageLoadAnimation6']!),
-                                      ),
-                                      Padding(
-                                        padding: const EdgeInsetsDirectional.fromSTEB(
-                                            0.0, 12.0, 0.0, 0.0),
-                                        child: FFButtonWidget(
+                                            'textOnPageLoadAnimation5']!),
+                                        Padding(
+                                          padding:
+                                              const EdgeInsetsDirectional.fromSTEB(
+                                                  0.0, 4.0, 0.0, 0.0),
+                                          child: Text(
+                                            'Using AI, category, and basic summary gets generated in the background',
+                                            textAlign: TextAlign.center,
+                                            style: FlutterFlowTheme.of(context)
+                                                .labelLarge
+                                                .override(
+                                                  fontFamily: 'Readex Pro',
+                                                  fontWeight: FontWeight.normal,
+                                                ),
+                                          ).animateOnPageLoad(animationsMap[
+                                              'textOnPageLoadAnimation6']!),
+                                        ),
+                                        Padding(
+                                          padding:
+                                              const EdgeInsetsDirectional.fromSTEB(
+                                                  0.0, 12.0, 0.0, 0.0),
+                                          child: FFButtonWidget(
+                                            onPressed: () async {
+                                              context.goNamed('GetStartedPage');
+                                            },
+                                            text: 'Get Started',
+                                            options: FFButtonOptions(
+                                              width: double.infinity,
+                                              height: 44.0,
+                                              padding: const EdgeInsetsDirectional
+                                                  .fromSTEB(0.0, 0.0, 0.0, 0.0),
+                                              iconPadding: const EdgeInsetsDirectional
+                                                  .fromSTEB(0.0, 0.0, 0.0, 0.0),
+                                              color:
+                                                  FlutterFlowTheme.of(context)
+                                                      .primary,
+                                              textStyle:
+                                                  FlutterFlowTheme.of(context)
+                                                      .titleLarge
+                                                      .override(
+                                                        fontFamily: 'Outfit',
+                                                        color:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .info,
+                                                      ),
+                                              elevation: 3.0,
+                                              borderSide: const BorderSide(
+                                                color: Colors.transparent,
+                                                width: 1.0,
+                                              ),
+                                              borderRadius:
+                                                  BorderRadius.circular(16.0),
+                                            ),
+                                            showLoadingIndicator: false,
+                                          ),
+                                        ),
+                                        FFButtonWidget(
                                           onPressed: () async {
-                                            context.goNamed('GetStartedPage');
+                                            context.goNamed('LoginPage');
                                           },
-                                          text: 'Get Started',
+                                          text: 'Login',
                                           options: FFButtonOptions(
                                             width: double.infinity,
                                             height: 44.0,
@@ -720,99 +767,64 @@ class _OnboardPageWidgetState extends State<OnboardPageWidget>
                                                 const EdgeInsetsDirectional.fromSTEB(
                                                     0.0, 0.0, 0.0, 0.0),
                                             color: FlutterFlowTheme.of(context)
-                                                .primary,
+                                                .secondaryBackground,
                                             textStyle:
                                                 FlutterFlowTheme.of(context)
-                                                    .titleLarge
-                                                    .override(
-                                                      fontFamily: 'Outfit',
-                                                      color:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .info,
-                                                    ),
-                                            elevation: 3.0,
+                                                    .titleLarge,
+                                            elevation: 0.0,
                                             borderSide: const BorderSide(
                                               color: Colors.transparent,
                                               width: 1.0,
                                             ),
                                             borderRadius:
                                                 BorderRadius.circular(16.0),
+                                            hoverColor:
+                                                FlutterFlowTheme.of(context)
+                                                    .alternate,
                                           ),
                                           showLoadingIndicator: false,
                                         ),
-                                      ),
-                                      FFButtonWidget(
-                                        onPressed: () async {
-                                          context.goNamed('LoginPage');
-                                        },
-                                        text: 'Login',
-                                        options: FFButtonOptions(
-                                          width: double.infinity,
-                                          height: 44.0,
-                                          padding:
-                                              const EdgeInsetsDirectional.fromSTEB(
-                                                  0.0, 0.0, 0.0, 0.0),
-                                          iconPadding:
-                                              const EdgeInsetsDirectional.fromSTEB(
-                                                  0.0, 0.0, 0.0, 0.0),
-                                          color: FlutterFlowTheme.of(context)
-                                              .secondaryBackground,
-                                          textStyle:
-                                              FlutterFlowTheme.of(context)
-                                                  .titleLarge,
-                                          elevation: 0.0,
-                                          borderSide: const BorderSide(
-                                            color: Colors.transparent,
-                                            width: 1.0,
-                                          ),
-                                          borderRadius:
-                                              BorderRadius.circular(16.0),
-                                          hoverColor:
-                                              FlutterFlowTheme.of(context)
-                                                  .alternate,
-                                        ),
-                                        showLoadingIndicator: false,
-                                      ),
-                                    ].divide(const SizedBox(height: 12.0)),
+                                      ].divide(const SizedBox(height: 12.0)),
+                                    ),
                                   ),
                                 ),
-                              ),
-                            ],
-                          ),
-                        ],
-                      ),
-                    ),
-                    Align(
-                      alignment: const AlignmentDirectional(0.0, 0.1),
-                      child: smooth_page_indicator.SmoothPageIndicator(
-                        controller: _model.pageViewController ??=
-                            PageController(initialPage: 0),
-                        count: 3,
-                        axisDirection: Axis.horizontal,
-                        onDotClicked: (i) async {
-                          await _model.pageViewController!.animateToPage(
-                            i,
-                            duration: const Duration(milliseconds: 500),
-                            curve: Curves.ease,
-                          );
-                        },
-                        effect: smooth_page_indicator.ExpandingDotsEffect(
-                          expansionFactor: 3.0,
-                          spacing: 8.0,
-                          radius: 10.0,
-                          dotWidth: 10.0,
-                          dotHeight: 8.0,
-                          dotColor: const Color(0xFFC0C0C0),
-                          activeDotColor: FlutterFlowTheme.of(context).primary,
-                          paintStyle: PaintingStyle.fill,
+                              ],
+                            ),
+                          ],
                         ),
                       ),
-                    ),
-                  ],
+                      Align(
+                        alignment: const AlignmentDirectional(0.0, 0.1),
+                        child: smooth_page_indicator.SmoothPageIndicator(
+                          controller: _model.pageViewController ??=
+                              PageController(initialPage: 0),
+                          count: 3,
+                          axisDirection: Axis.horizontal,
+                          onDotClicked: (i) async {
+                            await _model.pageViewController!.animateToPage(
+                              i,
+                              duration: const Duration(milliseconds: 500),
+                              curve: Curves.ease,
+                            );
+                          },
+                          effect: smooth_page_indicator.ExpandingDotsEffect(
+                            expansionFactor: 3.0,
+                            spacing: 8.0,
+                            radius: 10.0,
+                            dotWidth: 10.0,
+                            dotHeight: 8.0,
+                            dotColor: const Color(0xFFC0C0C0),
+                            activeDotColor:
+                                FlutterFlowTheme.of(context).primary,
+                            paintStyle: PaintingStyle.fill,
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
                 ),
-              ),
-            ],
+              ],
+            ),
           ),
         ),
       ),

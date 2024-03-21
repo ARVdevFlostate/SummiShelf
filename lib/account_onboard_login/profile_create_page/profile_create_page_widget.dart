@@ -59,60 +59,66 @@ class _ProfileCreatePageWidgetState extends State<ProfileCreatePageWidget>
       child: Scaffold(
         key: scaffoldKey,
         backgroundColor: FlutterFlowTheme.of(context).secondaryBackground,
-        body: Container(
-          width: double.infinity,
-          height: double.infinity,
-          decoration: const BoxDecoration(),
-          alignment: const AlignmentDirectional(0.0, 0.0),
-          child: Align(
-            alignment: const AlignmentDirectional(0.0, -1.0),
-            child: Form(
-              key: _model.formKey,
-              autovalidateMode: AutovalidateMode.disabled,
-              child: Padding(
-                padding: const EdgeInsetsDirectional.fromSTEB(40.0, 0.0, 40.0, 0.0),
-                child: SingleChildScrollView(
-                  child: Column(
-                    mainAxisSize: MainAxisSize.max,
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Padding(
-                        padding: const EdgeInsetsDirectional.fromSTEB(
-                            40.0, 0.0, 20.0, 0.0),
-                        child: Container(
-                          height: 200.0,
-                          decoration: const BoxDecoration(),
-                          child: Align(
-                            alignment: const AlignmentDirectional(0.0, 1.0),
-                            child: Padding(
-                              padding: const EdgeInsetsDirectional.fromSTEB(
-                                  40.0, 0.0, 20.0, 0.0),
-                              child: ClipRRect(
-                                borderRadius: BorderRadius.circular(0.0),
-                                child: Image.asset(
-                                  'assets/images/3d-casual-life-design-composition-monitor.png',
-                                  height: 140.0,
-                                  fit: BoxFit.contain,
+        body: Align(
+          alignment: const AlignmentDirectional(0.0, -1.0),
+          child: Container(
+            width: double.infinity,
+            height: double.infinity,
+            constraints: const BoxConstraints(
+              maxWidth: 570.0,
+            ),
+            decoration: const BoxDecoration(),
+            alignment: const AlignmentDirectional(0.0, 0.0),
+            child: Align(
+              alignment: const AlignmentDirectional(0.0, -1.0),
+              child: Form(
+                key: _model.formKey,
+                autovalidateMode: AutovalidateMode.disabled,
+                child: Padding(
+                  padding: const EdgeInsetsDirectional.fromSTEB(40.0, 0.0, 40.0, 0.0),
+                  child: SingleChildScrollView(
+                    child: Column(
+                      mainAxisSize: MainAxisSize.max,
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Padding(
+                          padding: const EdgeInsetsDirectional.fromSTEB(
+                              40.0, 0.0, 20.0, 0.0),
+                          child: Container(
+                            height: 200.0,
+                            decoration: const BoxDecoration(),
+                            child: Align(
+                              alignment: const AlignmentDirectional(0.0, 1.0),
+                              child: Padding(
+                                padding: const EdgeInsetsDirectional.fromSTEB(
+                                    40.0, 0.0, 20.0, 0.0),
+                                child: ClipRRect(
+                                  borderRadius: BorderRadius.circular(0.0),
+                                  child: Image.asset(
+                                    'assets/images/3d-casual-life-design-composition-monitor.png',
+                                    height: 140.0,
+                                    fit: BoxFit.contain,
+                                  ),
                                 ),
                               ),
                             ),
-                          ),
-                        ).animateOnPageLoad(
-                            animationsMap['containerOnPageLoadAnimation']!),
-                      ),
-                      wrapWithModel(
-                        model: _model.editProfileComponentModel,
-                        updateCallback: () => setState(() {}),
-                        child: EditProfileComponentWidget(
-                          title: 'Create Profile',
-                          buttonText: 'Save & Continue',
-                          navigateAction: () async {
-                            context.goNamed('ProfilePage');
-                          },
+                          ).animateOnPageLoad(
+                              animationsMap['containerOnPageLoadAnimation']!),
                         ),
-                      ),
-                    ].divide(const SizedBox(height: 16.0)),
+                        wrapWithModel(
+                          model: _model.editProfileComponentModel,
+                          updateCallback: () => setState(() {}),
+                          child: EditProfileComponentWidget(
+                            title: 'Create Profile',
+                            buttonText: 'Save & Continue',
+                            navigateAction: () async {
+                              context.goNamed('ProfilePage');
+                            },
+                          ),
+                        ),
+                      ].divide(const SizedBox(height: 16.0)),
+                    ),
                   ),
                 ),
               ),

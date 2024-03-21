@@ -78,15 +78,17 @@ class _HomePageWidgetState extends State<HomePageWidget>
       child: Scaffold(
         key: scaffoldKey,
         backgroundColor: FlutterFlowTheme.of(context).secondaryBackground,
-        body: Container(
-          width: double.infinity,
-          constraints: const BoxConstraints(
-            maxWidth: 530.0,
-          ),
-          decoration: const BoxDecoration(),
-          child: Padding(
-            padding: const EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 24.0, 0.0),
-            child: SingleChildScrollView(
+        body: Align(
+          alignment: const AlignmentDirectional(0.0, -1.0),
+          child: Container(
+            width: double.infinity,
+            height: double.infinity,
+            constraints: const BoxConstraints(
+              maxWidth: 570.0,
+            ),
+            decoration: const BoxDecoration(),
+            child: Padding(
+              padding: const EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 24.0, 0.0),
               child: Column(
                 mainAxisSize: MainAxisSize.max,
                 mainAxisAlignment: MainAxisAlignment.start,
@@ -116,7 +118,7 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                   fontWeight: FontWeight.bold,
                                 ),
                       ),
-                    ].divide(const SizedBox(width: 12.0)),
+                    ].divide(const SizedBox(width: 16.0)),
                   ),
                   Row(
                     mainAxisSize: MainAxisSize.max,
@@ -183,7 +185,8 @@ class _HomePageWidgetState extends State<HomePageWidget>
                     padding: const EdgeInsetsDirectional.fromSTEB(8.0, 0.0, 8.0, 0.0),
                     child: Column(
                       mainAxisSize: MainAxisSize.min,
-                      mainAxisAlignment: MainAxisAlignment.center,
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
                         Padding(
                           padding: const EdgeInsetsDirectional.fromSTEB(
@@ -452,8 +455,7 @@ class _HomePageWidgetState extends State<HomePageWidget>
                             if (_model.scanOutput != '') {
                               _model.apiResultvoiScan =
                                   await GetBookByISBNCall.call(
-                                isbn:
-                                    'isbn:${_model.searchTextFieldController.text}',
+                                isbn: 'isbn:${_model.scanOutput}',
                                 apiKey: FFAppState().apiKey,
                               );
                               shouldSetState = true;
@@ -549,7 +551,7 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                 ScaffoldMessenger.of(context).showSnackBar(
                                   SnackBar(
                                     content: Text(
-                                      'No matching book found',
+                                      'No matching book found.',
                                       style: FlutterFlowTheme.of(context)
                                           .titleSmall
                                           .override(
@@ -622,6 +624,9 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                   Expanded(
                                     child: Container(
                                       height: 50.0,
+                                      constraints: const BoxConstraints(
+                                        minWidth: 530.0,
+                                      ),
                                       decoration: const BoxDecoration(),
                                       child: FlutterFlowAdBanner(
                                         width:

@@ -117,191 +117,224 @@ class _InsightsPageWidgetState extends State<InsightsPageWidget>
       child: Scaffold(
         key: scaffoldKey,
         backgroundColor: FlutterFlowTheme.of(context).secondaryBackground,
-        body: Container(
-          width: double.infinity,
-          height: double.infinity,
-          decoration: BoxDecoration(
-            color: FlutterFlowTheme.of(context).secondaryBackground,
-          ),
-          child: Padding(
-            padding: const EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 24.0, 24.0),
-            child: Column(
-              mainAxisSize: MainAxisSize.max,
-              mainAxisAlignment: MainAxisAlignment.start,
-              children: [
-                Align(
-                  alignment: const AlignmentDirectional(-1.0, -1.0),
-                  child: Padding(
-                    padding: const EdgeInsetsDirectional.fromSTEB(8.0, 0.0, 8.0, 0.0),
-                    child: Text(
-                      'A Glimpse into Your Bookshelf',
-                      style:
-                          FlutterFlowTheme.of(context).displayMedium.override(
-                                fontFamily: 'Outfit',
-                                fontWeight: FontWeight.bold,
-                              ),
-                    ),
-                  ),
-                ),
-                Padding(
-                  padding: const EdgeInsetsDirectional.fromSTEB(0.0, 16.0, 0.0, 0.0),
-                  child: Wrap(
-                    spacing: 0.0,
-                    runSpacing: 0.0,
-                    alignment: WrapAlignment.start,
-                    crossAxisAlignment: WrapCrossAlignment.start,
-                    direction: Axis.horizontal,
-                    runAlignment: WrapAlignment.start,
-                    verticalDirection: VerticalDirection.down,
-                    clipBehavior: Clip.none,
+        body: Align(
+          alignment: const AlignmentDirectional(0.0, -1.0),
+          child: Container(
+            width: double.infinity,
+            height: double.infinity,
+            constraints: const BoxConstraints(
+              maxWidth: 570.0,
+            ),
+            decoration: BoxDecoration(
+              color: FlutterFlowTheme.of(context).secondaryBackground,
+            ),
+            alignment: const AlignmentDirectional(0.0, -1.0),
+            child: Align(
+              alignment: const AlignmentDirectional(0.0, -1.0),
+              child: Padding(
+                padding: const EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 24.0, 24.0),
+                child: SingleChildScrollView(
+                  child: Column(
+                    mainAxisSize: MainAxisSize.max,
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
+                      Align(
+                        alignment: const AlignmentDirectional(0.0, -1.0),
+                        child: Padding(
+                          padding: const EdgeInsetsDirectional.fromSTEB(
+                              8.0, 0.0, 8.0, 0.0),
+                          child: Text(
+                            'A Glimpse into Your Bookshelf',
+                            style: FlutterFlowTheme.of(context)
+                                .displayMedium
+                                .override(
+                                  fontFamily: 'Outfit',
+                                  fontWeight: FontWeight.bold,
+                                ),
+                          ),
+                        ),
+                      ),
                       Padding(
                         padding:
-                            const EdgeInsetsDirectional.fromSTEB(8.0, 0.0, 8.0, 0.0),
-                        child: Row(
-                          mainAxisSize: MainAxisSize.max,
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          crossAxisAlignment: CrossAxisAlignment.center,
+                            const EdgeInsetsDirectional.fromSTEB(0.0, 16.0, 0.0, 0.0),
+                        child: Wrap(
+                          spacing: 0.0,
+                          runSpacing: 0.0,
+                          alignment: WrapAlignment.start,
+                          crossAxisAlignment: WrapCrossAlignment.start,
+                          direction: Axis.horizontal,
+                          runAlignment: WrapAlignment.start,
+                          verticalDirection: VerticalDirection.down,
+                          clipBehavior: Clip.none,
                           children: [
-                            Container(
-                              width: MediaQuery.sizeOf(context).width * 0.4,
-                              decoration: BoxDecoration(
-                                color: FlutterFlowTheme.of(context).accent4,
-                                boxShadow: const [
-                                  BoxShadow(
-                                    blurRadius: 4.0,
-                                    color: Color(0x2B202529),
-                                    offset: Offset(0.0, 2.0),
-                                  )
-                                ],
-                                borderRadius: BorderRadius.circular(16.0),
-                                border: Border.all(
-                                  color: FlutterFlowTheme.of(context).alternate,
-                                  width: 2.0,
-                                ),
-                              ),
-                              child: Padding(
-                                padding: const EdgeInsetsDirectional.fromSTEB(
-                                    12.0, 12.0, 12.0, 12.0),
-                                child: Column(
-                                  mainAxisSize: MainAxisSize.max,
-                                  mainAxisAlignment: MainAxisAlignment.center,
-                                  children: [
-                                    Icon(
-                                      Icons.book_outlined,
+                            Padding(
+                              padding: const EdgeInsetsDirectional.fromSTEB(
+                                  8.0, 0.0, 8.0, 0.0),
+                              child: Row(
+                                mainAxisSize: MainAxisSize.max,
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                crossAxisAlignment: CrossAxisAlignment.center,
+                                children: [
+                                  Container(
+                                    width: 150.0,
+                                    decoration: BoxDecoration(
                                       color:
-                                          FlutterFlowTheme.of(context).primary,
-                                      size: 40.0,
-                                    ),
-                                    Padding(
-                                      padding: const EdgeInsetsDirectional.fromSTEB(
-                                          0.0, 12.0, 0.0, 4.0),
-                                      child: Text(
-                                        valueOrDefault<String>(
-                                          _model.psvBooks.toString(),
-                                          '0',
-                                        ),
-                                        textAlign: TextAlign.center,
-                                        style: FlutterFlowTheme.of(context)
-                                            .headlineLarge
-                                            .override(
-                                              fontFamily: 'Outfit',
-                                              fontWeight: FontWeight.bold,
-                                            ),
+                                          FlutterFlowTheme.of(context).accent4,
+                                      boxShadow: const [
+                                        BoxShadow(
+                                          blurRadius: 4.0,
+                                          color: Color(0x2B202529),
+                                          offset: Offset(0.0, 2.0),
+                                        )
+                                      ],
+                                      borderRadius: BorderRadius.circular(16.0),
+                                      border: Border.all(
+                                        color: FlutterFlowTheme.of(context)
+                                            .alternate,
+                                        width: 2.0,
                                       ),
                                     ),
-                                    Text(
-                                      'Books',
-                                      textAlign: TextAlign.center,
-                                      style: FlutterFlowTheme.of(context)
-                                          .labelMedium
-                                          .override(
-                                            fontFamily: 'Plus Jakarta Sans',
-                                            color: FlutterFlowTheme.of(context)
-                                                .secondaryText,
-                                            fontSize: 14.0,
-                                            fontWeight: FontWeight.w500,
-                                          ),
-                                    ),
-                                  ],
-                                ),
-                              ),
-                            ).animateOnPageLoad(animationsMap[
-                                'containerOnPageLoadAnimation1']!),
-                            Container(
-                              width: MediaQuery.sizeOf(context).width * 0.4,
-                              decoration: BoxDecoration(
-                                color: FlutterFlowTheme.of(context).accent4,
-                                boxShadow: const [
-                                  BoxShadow(
-                                    blurRadius: 4.0,
-                                    color: Color(0x2B202529),
-                                    offset: Offset(0.0, 2.0),
-                                  )
-                                ],
-                                borderRadius: BorderRadius.circular(16.0),
-                                border: Border.all(
-                                  color: FlutterFlowTheme.of(context).alternate,
-                                  width: 2.0,
-                                ),
-                              ),
-                              child: Padding(
-                                padding: const EdgeInsetsDirectional.fromSTEB(
-                                    12.0, 12.0, 12.0, 12.0),
-                                child: Column(
-                                  mainAxisSize: MainAxisSize.max,
-                                  mainAxisAlignment: MainAxisAlignment.center,
-                                  children: [
-                                    Icon(
-                                      Icons.favorite,
-                                      color: FlutterFlowTheme.of(context).error,
-                                      size: 40.0,
-                                    ),
-                                    Padding(
+                                    child: Padding(
                                       padding: const EdgeInsetsDirectional.fromSTEB(
-                                          0.0, 12.0, 0.0, 4.0),
-                                      child: Text(
-                                        valueOrDefault<String>(
-                                          _model.psvFavs.toString(),
-                                          '0',
-                                        ),
-                                        textAlign: TextAlign.center,
-                                        style: FlutterFlowTheme.of(context)
-                                            .headlineLarge
-                                            .override(
-                                              fontFamily: 'Outfit',
-                                              fontWeight: FontWeight.bold,
+                                          12.0, 12.0, 12.0, 12.0),
+                                      child: Column(
+                                        mainAxisSize: MainAxisSize.max,
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.center,
+                                        children: [
+                                          Icon(
+                                            Icons.book_outlined,
+                                            color: FlutterFlowTheme.of(context)
+                                                .primary,
+                                            size: 40.0,
+                                          ),
+                                          Padding(
+                                            padding:
+                                                const EdgeInsetsDirectional.fromSTEB(
+                                                    0.0, 12.0, 0.0, 4.0),
+                                            child: Text(
+                                              valueOrDefault<String>(
+                                                _model.psvBooks.toString(),
+                                                '0',
+                                              ),
+                                              textAlign: TextAlign.center,
+                                              style:
+                                                  FlutterFlowTheme.of(context)
+                                                      .headlineLarge
+                                                      .override(
+                                                        fontFamily: 'Outfit',
+                                                        fontWeight:
+                                                            FontWeight.bold,
+                                                      ),
                                             ),
+                                          ),
+                                          Text(
+                                            'Books',
+                                            textAlign: TextAlign.center,
+                                            style: FlutterFlowTheme.of(context)
+                                                .labelMedium
+                                                .override(
+                                                  fontFamily:
+                                                      'Plus Jakarta Sans',
+                                                  color: FlutterFlowTheme.of(
+                                                          context)
+                                                      .secondaryText,
+                                                  fontSize: 14.0,
+                                                  fontWeight: FontWeight.w500,
+                                                ),
+                                          ),
+                                        ],
                                       ),
                                     ),
-                                    Text(
-                                      'Favorites',
-                                      textAlign: TextAlign.center,
-                                      style: FlutterFlowTheme.of(context)
-                                          .labelMedium
-                                          .override(
-                                            fontFamily: 'Plus Jakarta Sans',
-                                            color: FlutterFlowTheme.of(context)
-                                                .secondaryText,
-                                            fontSize: 14.0,
-                                            fontWeight: FontWeight.w500,
-                                          ),
+                                  ).animateOnPageLoad(animationsMap[
+                                      'containerOnPageLoadAnimation1']!),
+                                  Container(
+                                    width: 150.0,
+                                    decoration: BoxDecoration(
+                                      color:
+                                          FlutterFlowTheme.of(context).accent4,
+                                      boxShadow: const [
+                                        BoxShadow(
+                                          blurRadius: 4.0,
+                                          color: Color(0x2B202529),
+                                          offset: Offset(0.0, 2.0),
+                                        )
+                                      ],
+                                      borderRadius: BorderRadius.circular(16.0),
+                                      border: Border.all(
+                                        color: FlutterFlowTheme.of(context)
+                                            .alternate,
+                                        width: 2.0,
+                                      ),
                                     ),
-                                  ],
-                                ),
+                                    child: Padding(
+                                      padding: const EdgeInsetsDirectional.fromSTEB(
+                                          12.0, 12.0, 12.0, 12.0),
+                                      child: Column(
+                                        mainAxisSize: MainAxisSize.max,
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.center,
+                                        children: [
+                                          Icon(
+                                            Icons.favorite,
+                                            color: FlutterFlowTheme.of(context)
+                                                .error,
+                                            size: 40.0,
+                                          ),
+                                          Padding(
+                                            padding:
+                                                const EdgeInsetsDirectional.fromSTEB(
+                                                    0.0, 12.0, 0.0, 4.0),
+                                            child: Text(
+                                              valueOrDefault<String>(
+                                                _model.psvFavs.toString(),
+                                                '0',
+                                              ),
+                                              textAlign: TextAlign.center,
+                                              style:
+                                                  FlutterFlowTheme.of(context)
+                                                      .headlineLarge
+                                                      .override(
+                                                        fontFamily: 'Outfit',
+                                                        fontWeight:
+                                                            FontWeight.bold,
+                                                      ),
+                                            ),
+                                          ),
+                                          Text(
+                                            'Favorites',
+                                            textAlign: TextAlign.center,
+                                            style: FlutterFlowTheme.of(context)
+                                                .labelMedium
+                                                .override(
+                                                  fontFamily:
+                                                      'Plus Jakarta Sans',
+                                                  color: FlutterFlowTheme.of(
+                                                          context)
+                                                      .secondaryText,
+                                                  fontSize: 14.0,
+                                                  fontWeight: FontWeight.w500,
+                                                ),
+                                          ),
+                                        ],
+                                      ),
+                                    ),
+                                  ).animateOnPageLoad(animationsMap[
+                                      'containerOnPageLoadAnimation2']!),
+                                ].divide(const SizedBox(width: 16.0)),
                               ),
-                            ).animateOnPageLoad(animationsMap[
-                                'containerOnPageLoadAnimation2']!),
+                            ),
                           ],
                         ),
                       ),
-                    ],
+                    ]
+                        .divide(const SizedBox(height: 16.0))
+                        .addToStart(const SizedBox(height: 64.0))
+                        .addToEnd(const SizedBox(height: 24.0)),
                   ),
                 ),
-              ]
-                  .divide(const SizedBox(height: 16.0))
-                  .addToStart(const SizedBox(height: 64.0))
-                  .addToEnd(const SizedBox(height: 24.0)),
+              ),
             ),
           ),
         ),

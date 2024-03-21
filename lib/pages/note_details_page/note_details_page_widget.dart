@@ -57,40 +57,36 @@ class _NoteDetailsPageWidgetState extends State<NoteDetailsPageWidget> {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 // This row exists for when the "app bar" is hidden on desktop, having a way back for the user can work well.
-                if (responsiveVisibility(
-                  context: context,
-                  desktop: false,
-                ))
-                  Padding(
-                    padding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 8.0),
-                    child: InkWell(
-                      splashColor: Colors.transparent,
-                      focusColor: Colors.transparent,
-                      hoverColor: Colors.transparent,
-                      highlightColor: Colors.transparent,
-                      onTap: () async {
-                        context.goNamed('NotesPage');
-                      },
-                      child: Row(
-                        mainAxisSize: MainAxisSize.max,
-                        children: [
-                          FlutterFlowIconButton(
-                            borderColor: Colors.transparent,
-                            borderRadius: 16.0,
-                            buttonSize: 60.0,
-                            icon: Icon(
-                              Icons.arrow_back_outlined,
-                              color: FlutterFlowTheme.of(context).primaryText,
-                              size: 30.0,
-                            ),
-                            onPressed: () async {
-                              context.goNamed('NotesPage');
-                            },
+                Padding(
+                  padding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 8.0),
+                  child: InkWell(
+                    splashColor: Colors.transparent,
+                    focusColor: Colors.transparent,
+                    hoverColor: Colors.transparent,
+                    highlightColor: Colors.transparent,
+                    onTap: () async {
+                      context.goNamed('NotesPage');
+                    },
+                    child: Row(
+                      mainAxisSize: MainAxisSize.max,
+                      children: [
+                        FlutterFlowIconButton(
+                          borderColor: Colors.transparent,
+                          borderRadius: 16.0,
+                          buttonSize: 60.0,
+                          icon: Icon(
+                            Icons.arrow_back_outlined,
+                            color: FlutterFlowTheme.of(context).primaryText,
+                            size: 30.0,
                           ),
-                        ],
-                      ),
+                          onPressed: () async {
+                            context.goNamed('NotesPage');
+                          },
+                        ),
+                      ],
                     ),
                   ),
+                ),
                 Padding(
                   padding: const EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 16.0, 0.0),
                   child: Text(
