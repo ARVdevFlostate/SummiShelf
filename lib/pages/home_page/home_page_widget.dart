@@ -9,6 +9,7 @@ import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:easy_debounce/easy_debounce.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/scheduler.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_barcode_scanner/flutter_barcode_scanner.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -55,6 +56,13 @@ class _HomePageWidgetState extends State<HomePageWidget>
   void initState() {
     super.initState();
     _model = createModel(context, () => HomePageModel());
+
+    // On page load action.
+    SchedulerBinding.instance.addPostFrameCallback((_) async {
+      setState(() {
+        _model.psvScanOutput = '0';
+      });
+    });
 
     _model.searchTextFieldController ??= TextEditingController();
     _model.searchTextFieldFocusNode ??= FocusNode();
@@ -452,38 +460,26 @@ class _HomePageWidgetState extends State<HomePageWidget>
                             );
 
                             shouldSetState = true;
-                            await showDialog(
-                              context: context,
-                              builder: (alertDialogContext) {
-                                return AlertDialog(
-                                  title: const Text('Scan Output'),
-                                  content: Text(
-                                      'ISBN barcode [${_model.scanOutput}]'),
-                                  actions: [
-                                    TextButton(
-                                      onPressed: () =>
-                                          Navigator.pop(alertDialogContext),
-                                      child: const Text('Ok'),
-                                    ),
-                                  ],
-                                );
-                              },
-                            );
-                            if (_model.scanOutput != '') {
+                            setState(() {
+                              _model.psvScanOutput = _model.scanOutput;
+                            });
+                            if (_model.psvScanOutput != '') {
                               _model.apiResultvoiScan =
                                   await GetBookByISBNCall.call(
-                                isbn: 'isbn:${_model.scanOutput}',
+                                isbn: 'isbn:${_model.psvScanOutput}',
                                 apiKey: FFAppState().apiKey,
                               );
                               shouldSetState = true;
                               if ((_model.apiResultvoiScan?.succeeded ??
                                   true)) {
                                 if (GetBookByISBNCall.title(
-                                          (_model.apiResultvoi?.jsonBody ?? ''),
+                                          (_model.apiResultvoiScan?.jsonBody ??
+                                              ''),
                                         ) !=
                                         null &&
                                     GetBookByISBNCall.title(
-                                          (_model.apiResultvoi?.jsonBody ?? ''),
+                                          (_model.apiResultvoiScan?.jsonBody ??
+                                              ''),
                                         ) !=
                                         '') {
                                   await showModalBottomSheet(
@@ -509,25 +505,25 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                                 0.72,
                                             child: SaveBookComponentWidget(
                                               title: GetBookByISBNCall.title(
-                                                (_model.apiResultvoi
+                                                (_model.apiResultvoiScan
                                                         ?.jsonBody ??
                                                     ''),
                                               )!,
                                               subtitle:
                                                   GetBookByISBNCall.subtitle(
-                                                (_model.apiResultvoi
+                                                (_model.apiResultvoiScan
                                                         ?.jsonBody ??
                                                     ''),
                                               ),
                                               description:
                                                   GetBookByISBNCall.description(
-                                                (_model.apiResultvoi
+                                                (_model.apiResultvoiScan
                                                         ?.jsonBody ??
                                                     ''),
                                               ),
                                               thumbnail:
                                                   GetBookByISBNCall.thumbnail(
-                                                (_model.apiResultvoi
+                                                (_model.apiResultvoiScan
                                                         ?.jsonBody ??
                                                     ''),
                                               ),
@@ -537,7 +533,14 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                       );
                                     },
                                   ).then((value) => safeSetState(() {}));
+
+                                  setState(() {
+                                    _model.psvScanOutput = '0';
+                                  });
                                 } else {
+                                  setState(() {
+                                    _model.psvScanOutput = '0';
+                                  });
                                   ScaffoldMessenger.of(context).showSnackBar(
                                     SnackBar(
                                       content: Text(
@@ -560,15 +563,11 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                   if (shouldSetState) setState(() {});
                                   return;
                                 }
-
-                                setState(() {
-                                  _model.searchTextFieldController?.clear();
-                                });
                               } else {
                                 ScaffoldMessenger.of(context).showSnackBar(
                                   SnackBar(
                                     content: Text(
-                                      'No matching book found...',
+                                      'An error has occured. Failed to get book information',
                                       style: FlutterFlowTheme.of(context)
                                           .titleSmall
                                           .override(
@@ -579,7 +578,7 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                     ),
                                     duration: const Duration(milliseconds: 4000),
                                     backgroundColor:
-                                        FlutterFlowTheme.of(context).secondary,
+                                        FlutterFlowTheme.of(context).error,
                                   ),
                                 );
                               }
