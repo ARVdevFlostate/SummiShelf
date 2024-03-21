@@ -452,6 +452,23 @@ class _HomePageWidgetState extends State<HomePageWidget>
                             );
 
                             shouldSetState = true;
+                            await showDialog(
+                              context: context,
+                              builder: (alertDialogContext) {
+                                return AlertDialog(
+                                  title: const Text('Scan Output'),
+                                  content: Text(
+                                      'ISBN barcode [${_model.scanOutput}]'),
+                                  actions: [
+                                    TextButton(
+                                      onPressed: () =>
+                                          Navigator.pop(alertDialogContext),
+                                      child: const Text('Ok'),
+                                    ),
+                                  ],
+                                );
+                              },
+                            );
                             if (_model.scanOutput != '') {
                               _model.apiResultvoiScan =
                                   await GetBookByISBNCall.call(
@@ -551,7 +568,7 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                 ScaffoldMessenger.of(context).showSnackBar(
                                   SnackBar(
                                     content: Text(
-                                      'No matching book found.',
+                                      'No matching book found...',
                                       style: FlutterFlowTheme.of(context)
                                           .titleSmall
                                           .override(
