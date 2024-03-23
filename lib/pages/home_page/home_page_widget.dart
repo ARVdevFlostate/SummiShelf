@@ -466,23 +466,6 @@ class _HomePageWidgetState extends State<HomePageWidget>
                             setState(() {
                               _model.psvScanOutput = _model.scanOutput;
                             });
-                            await showDialog(
-                              context: context,
-                              builder: (alertDialogContext) {
-                                return AlertDialog(
-                                  title: const Text('Scanned barcode value'),
-                                  content: Text(
-                                      'Value = [ ${_model.psvScanOutput} ]'),
-                                  actions: [
-                                    TextButton(
-                                      onPressed: () =>
-                                          Navigator.pop(alertDialogContext),
-                                      child: const Text('Ok'),
-                                    ),
-                                  ],
-                                );
-                              },
-                            );
                             if (_model.psvScanOutput != '') {
                               _model.apiResultvoiScan =
                                   await GetBookByISBNCall.call(
@@ -502,29 +485,6 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                               ''),
                                         ) !=
                                         '') {
-                                  await showDialog(
-                                    context: context,
-                                    builder: (alertDialogContext) {
-                                      return AlertDialog(
-                                        title: const Text('Post Books API Success'),
-                                        content: Text(
-                                            'Title = [${GetBookByISBNCall.title(
-                                          (_model.apiResultvoiScan?.jsonBody ??
-                                              ''),
-                                        )}], Subtitle = [${GetBookByISBNCall.subtitle(
-                                          (_model.apiResultvoiScan?.jsonBody ??
-                                              ''),
-                                        )}]'),
-                                        actions: [
-                                          TextButton(
-                                            onPressed: () => Navigator.pop(
-                                                alertDialogContext),
-                                            child: const Text('Ok'),
-                                          ),
-                                        ],
-                                      );
-                                    },
-                                  );
                                   await showModalBottomSheet(
                                     isScrollControlled: true,
                                     backgroundColor: Colors.transparent,
@@ -555,22 +515,17 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                                 ),
                                                 'Nada',
                                               ),
-                                              subtitle: valueOrDefault<String>(
-                                                GetBookByISBNCall.subtitle(
-                                                  (_model.apiResultvoiScan
-                                                          ?.jsonBody ??
-                                                      ''),
-                                                ),
-                                                'Nada',
+                                              subtitle:
+                                                  GetBookByISBNCall.subtitle(
+                                                (_model.apiResultvoiScan
+                                                        ?.jsonBody ??
+                                                    ''),
                                               ),
                                               description:
-                                                  valueOrDefault<String>(
-                                                GetBookByISBNCall.description(
-                                                  (_model.apiResultvoiScan
-                                                          ?.jsonBody ??
-                                                      ''),
-                                                ),
-                                                'Nada',
+                                                  GetBookByISBNCall.description(
+                                                (_model.apiResultvoiScan
+                                                        ?.jsonBody ??
+                                                    ''),
                                               ),
                                               thumbnail:
                                                   GetBookByISBNCall.thumbnail(
@@ -589,13 +544,10 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                     _model.psvScanOutput = '0';
                                   });
                                 } else {
-                                  setState(() {
-                                    _model.psvScanOutput = '0';
-                                  });
                                   ScaffoldMessenger.of(context).showSnackBar(
                                     SnackBar(
                                       content: Text(
-                                        'No matching book found',
+                                        'No matches found for ISBN [${_model.psvScanOutput}]. Try manual search by using ISBN printed on book.',
                                         style: FlutterFlowTheme.of(context)
                                             .titleSmall
                                             .override(
@@ -611,9 +563,13 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                               .secondary,
                                     ),
                                   );
-                                  if (shouldSetState) setState(() {});
-                                  return;
+                                  setState(() {
+                                    _model.psvScanOutput = '0';
+                                  });
                                 }
+
+                                if (shouldSetState) setState(() {});
+                                return;
                               } else {
                                 ScaffoldMessenger.of(context).showSnackBar(
                                   SnackBar(

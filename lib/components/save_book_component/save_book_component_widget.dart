@@ -15,15 +15,17 @@ class SaveBookComponentWidget extends StatefulWidget {
     String? title,
     String? subtitle,
     String? description,
-    this.thumbnail,
+    String? thumbnail,
   })  : title = title ?? 'No title available',
         subtitle = subtitle ?? ' No subtitle available',
-        description = description ?? ' No subtitle available';
+        description = description ?? ' No subtitle available',
+        thumbnail = thumbnail ??
+            'https://firebasestorage.googleapis.com/v0/b/summi-shelf-z6nbpi.appspot.com/o/assets%2Fno-book-thumbnail.png?alt=media&token=77815141-a082-4a86-9801-d9034e5f2a26';
 
   final String title;
   final String subtitle;
   final String description;
-  final String? thumbnail;
+  final String thumbnail;
 
   @override
   State<SaveBookComponentWidget> createState() =>
@@ -168,7 +170,7 @@ class _SaveBookComponentWidgetState extends State<SaveBookComponentWidget> {
                               topRight: Radius.circular(8.0),
                             ),
                             child: Image.network(
-                              widget.thumbnail!,
+                              widget.thumbnail,
                               width: 128.0,
                               height: 195.0,
                               fit: BoxFit.cover,
