@@ -153,7 +153,7 @@ class _NavBarPageState extends State<NavBarPage> {
         }),
         backgroundColor: const Color(0xF1FCF4FF),
         selectedItemColor: FlutterFlowTheme.of(context).primary,
-        unselectedItemColor: const Color(0x8A000000),
+        unselectedItemColor: const Color(0x65000000),
         selectedBackgroundColor: const Color(0x00000000),
         borderRadius: 32.0,
         itemBorderRadius: 8.0,
@@ -170,7 +170,7 @@ class _NavBarPageState extends State<NavBarPage> {
                   Icons.home_outlined,
                   color: currentIndex == 0
                       ? FlutterFlowTheme.of(context).primary
-                      : const Color(0x8A000000),
+                      : const Color(0x65000000),
                   size: 24.0,
                 ),
                 Text(
@@ -179,7 +179,7 @@ class _NavBarPageState extends State<NavBarPage> {
                   style: TextStyle(
                     color: currentIndex == 0
                         ? FlutterFlowTheme.of(context).primary
-                        : const Color(0x8A000000),
+                        : const Color(0x65000000),
                     fontSize: 11.0,
                   ),
                 ),
@@ -194,7 +194,7 @@ class _NavBarPageState extends State<NavBarPage> {
                   Icons.shelves,
                   color: currentIndex == 1
                       ? FlutterFlowTheme.of(context).primary
-                      : const Color(0x8A000000),
+                      : const Color(0x65000000),
                   size: 24.0,
                 ),
                 Text(
@@ -203,7 +203,7 @@ class _NavBarPageState extends State<NavBarPage> {
                   style: TextStyle(
                     color: currentIndex == 1
                         ? FlutterFlowTheme.of(context).primary
-                        : const Color(0x8A000000),
+                        : const Color(0x65000000),
                     fontSize: 11.0,
                   ),
                 ),
@@ -218,7 +218,7 @@ class _NavBarPageState extends State<NavBarPage> {
                   Icons.article_outlined,
                   color: currentIndex == 2
                       ? FlutterFlowTheme.of(context).primary
-                      : const Color(0x8A000000),
+                      : const Color(0x65000000),
                   size: 24.0,
                 ),
                 Text(
@@ -227,7 +227,7 @@ class _NavBarPageState extends State<NavBarPage> {
                   style: TextStyle(
                     color: currentIndex == 2
                         ? FlutterFlowTheme.of(context).primary
-                        : const Color(0x8A000000),
+                        : const Color(0x65000000),
                     fontSize: 11.0,
                   ),
                 ),
@@ -242,7 +242,7 @@ class _NavBarPageState extends State<NavBarPage> {
                   Icons.insights_outlined,
                   color: currentIndex == 3
                       ? FlutterFlowTheme.of(context).primary
-                      : const Color(0x8A000000),
+                      : const Color(0x65000000),
                   size: 24.0,
                 ),
                 Text(
@@ -251,7 +251,7 @@ class _NavBarPageState extends State<NavBarPage> {
                   style: TextStyle(
                     color: currentIndex == 3
                         ? FlutterFlowTheme.of(context).primary
-                        : const Color(0x8A000000),
+                        : const Color(0x65000000),
                     fontSize: 11.0,
                   ),
                 ),
@@ -266,7 +266,7 @@ class _NavBarPageState extends State<NavBarPage> {
                   Icons.manage_accounts_outlined,
                   color: currentIndex == 4
                       ? FlutterFlowTheme.of(context).primary
-                      : const Color(0x8A000000),
+                      : const Color(0x65000000),
                   size: 24.0,
                 ),
                 Text(
@@ -275,7 +275,7 @@ class _NavBarPageState extends State<NavBarPage> {
                   style: TextStyle(
                     color: currentIndex == 4
                         ? FlutterFlowTheme.of(context).primary
-                        : const Color(0x8A000000),
+                        : const Color(0x65000000),
                     fontSize: 11.0,
                   ),
                 ),

@@ -58,7 +58,7 @@ class FFAppState extends ChangeNotifier {
     prefs.setString('ff_asvAppVersion', value);
   }
 
-  String _asvAppBuild = '4';
+  String _asvAppBuild = '5';
   String get asvAppBuild => _asvAppBuild;
   set asvAppBuild(String value) {
     _asvAppBuild = value;

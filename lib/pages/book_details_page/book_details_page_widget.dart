@@ -259,7 +259,7 @@ class _BookDetailsPageWidgetState extends State<BookDetailsPageWidget>
                                                   color: Colors.transparent,
                                                   elevation: 0.0,
                                                   child: Container(
-                                                    width: 88.0,
+                                                    width: 96.0,
                                                     height: 44.0,
                                                     decoration: BoxDecoration(
                                                       color: FlutterFlowTheme
@@ -289,7 +289,7 @@ class _BookDetailsPageWidgetState extends State<BookDetailsPageWidget>
                                                             : FlutterFlowTheme
                                                                     .of(context)
                                                                 .alternate,
-                                                        size: 16.0,
+                                                        size: 18.0,
                                                       ),
                                                       incrementIconBuilder:
                                                           (enabled) => FaIcon(
@@ -301,7 +301,7 @@ class _BookDetailsPageWidgetState extends State<BookDetailsPageWidget>
                                                             : FlutterFlowTheme
                                                                     .of(context)
                                                                 .alternate,
-                                                        size: 16.0,
+                                                        size: 18.0,
                                                       ),
                                                       countBuilder: (count) =>
                                                           Text(

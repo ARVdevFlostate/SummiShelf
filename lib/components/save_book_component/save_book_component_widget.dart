@@ -12,14 +12,15 @@ export 'save_book_component_model.dart';
 class SaveBookComponentWidget extends StatefulWidget {
   const SaveBookComponentWidget({
     super.key,
-    required this.title,
+    String? title,
     String? subtitle,
     String? description,
     this.thumbnail,
-  })  : subtitle = subtitle ?? ' ',
-        description = description ?? ' ';
+  })  : title = title ?? 'No title available',
+        subtitle = subtitle ?? ' No subtitle available',
+        description = description ?? ' No subtitle available';
 
-  final String? title;
+  final String title;
   final String subtitle;
   final String description;
   final String? thumbnail;
@@ -45,7 +46,7 @@ class _SaveBookComponentWidgetState extends State<SaveBookComponentWidget> {
 
     // On component load action.
     SchedulerBinding.instance.addPostFrameCallback((_) async {
-      if (widget.title == null || widget.title == '') {
+      if (widget.title == '') {
         Navigator.pop(context);
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(
@@ -183,7 +184,10 @@ class _SaveBookComponentWidgetState extends State<SaveBookComponentWidget> {
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 Text(
-                                  widget.title!,
+                                  valueOrDefault<String>(
+                                    widget.title,
+                                    'No title available',
+                                  ),
                                   style:
                                       FlutterFlowTheme.of(context).titleLarge,
                                 ),

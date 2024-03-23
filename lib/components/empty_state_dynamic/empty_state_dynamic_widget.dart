@@ -1,7 +1,9 @@
+import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_animate/flutter_animate.dart';
 import 'empty_state_dynamic_model.dart';
 export 'empty_state_dynamic_model.dart';
 
@@ -32,8 +34,31 @@ class EmptyStateDynamicWidget extends StatefulWidget {
       _EmptyStateDynamicWidgetState();
 }
 
-class _EmptyStateDynamicWidgetState extends State<EmptyStateDynamicWidget> {
+class _EmptyStateDynamicWidgetState extends State<EmptyStateDynamicWidget>
+    with TickerProviderStateMixin {
   late EmptyStateDynamicModel _model;
+
+  final animationsMap = {
+    'columnOnPageLoadAnimation': AnimationInfo(
+      trigger: AnimationTrigger.onPageLoad,
+      effects: [
+        FadeEffect(
+          curve: Curves.easeInOut,
+          delay: 0.ms,
+          duration: 600.ms,
+          begin: 0.0,
+          end: 1.0,
+        ),
+        MoveEffect(
+          curve: Curves.easeInOut,
+          delay: 0.ms,
+          duration: 600.ms,
+          begin: const Offset(0.0, 90.0),
+          end: const Offset(0.0, 0.0),
+        ),
+      ],
+    ),
+  };
 
   @override
   void setState(VoidCallback callback) {
@@ -57,10 +82,10 @@ class _EmptyStateDynamicWidgetState extends State<EmptyStateDynamicWidget> {
   @override
   Widget build(BuildContext context) {
     return Align(
-      alignment: const AlignmentDirectional(0.0, -1.0),
+      alignment: const AlignmentDirectional(0.0, 0.0),
       child: Column(
-        mainAxisSize: MainAxisSize.max,
-        mainAxisAlignment: MainAxisAlignment.start,
+        mainAxisSize: MainAxisSize.min,
+        mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           widget.icon!,
@@ -112,7 +137,7 @@ class _EmptyStateDynamicWidgetState extends State<EmptyStateDynamicWidget> {
               ),
             ),
         ].divide(const SizedBox(height: 8.0)),
-      ),
+      ).animateOnPageLoad(animationsMap['columnOnPageLoadAnimation']!),
     );
   }
 }

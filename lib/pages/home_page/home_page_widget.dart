@@ -451,6 +451,9 @@ class _HomePageWidgetState extends State<HomePageWidget>
                           highlightColor: Colors.transparent,
                           onTap: () async {
                             var shouldSetState = false;
+                            setState(() {
+                              _model.psvScanOutput = '0';
+                            });
                             _model.scanOutput =
                                 await FlutterBarcodeScanner.scanBarcode(
                               '#C62828', // scanning line color
@@ -463,6 +466,23 @@ class _HomePageWidgetState extends State<HomePageWidget>
                             setState(() {
                               _model.psvScanOutput = _model.scanOutput;
                             });
+                            await showDialog(
+                              context: context,
+                              builder: (alertDialogContext) {
+                                return AlertDialog(
+                                  title: const Text('Scanned barcode value'),
+                                  content: Text(
+                                      'Value = [ ${_model.psvScanOutput} ]'),
+                                  actions: [
+                                    TextButton(
+                                      onPressed: () =>
+                                          Navigator.pop(alertDialogContext),
+                                      child: const Text('Ok'),
+                                    ),
+                                  ],
+                                );
+                              },
+                            );
                             if (_model.psvScanOutput != '') {
                               _model.apiResultvoiScan =
                                   await GetBookByISBNCall.call(
@@ -482,6 +502,29 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                               ''),
                                         ) !=
                                         '') {
+                                  await showDialog(
+                                    context: context,
+                                    builder: (alertDialogContext) {
+                                      return AlertDialog(
+                                        title: const Text('Post Books API Success'),
+                                        content: Text(
+                                            'Title = [${GetBookByISBNCall.title(
+                                          (_model.apiResultvoiScan?.jsonBody ??
+                                              ''),
+                                        )}], Subtitle = [${GetBookByISBNCall.subtitle(
+                                          (_model.apiResultvoiScan?.jsonBody ??
+                                              ''),
+                                        )}]'),
+                                        actions: [
+                                          TextButton(
+                                            onPressed: () => Navigator.pop(
+                                                alertDialogContext),
+                                            child: const Text('Ok'),
+                                          ),
+                                        ],
+                                      );
+                                    },
+                                  );
                                   await showModalBottomSheet(
                                     isScrollControlled: true,
                                     backgroundColor: Colors.transparent,
@@ -504,22 +547,30 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                                     .height *
                                                 0.72,
                                             child: SaveBookComponentWidget(
-                                              title: GetBookByISBNCall.title(
-                                                (_model.apiResultvoiScan
-                                                        ?.jsonBody ??
-                                                    ''),
-                                              )!,
-                                              subtitle:
-                                                  GetBookByISBNCall.subtitle(
-                                                (_model.apiResultvoiScan
-                                                        ?.jsonBody ??
-                                                    ''),
+                                              title: valueOrDefault<String>(
+                                                GetBookByISBNCall.title(
+                                                  (_model.apiResultvoiScan
+                                                          ?.jsonBody ??
+                                                      ''),
+                                                ),
+                                                'Nada',
+                                              ),
+                                              subtitle: valueOrDefault<String>(
+                                                GetBookByISBNCall.subtitle(
+                                                  (_model.apiResultvoiScan
+                                                          ?.jsonBody ??
+                                                      ''),
+                                                ),
+                                                'Nada',
                                               ),
                                               description:
-                                                  GetBookByISBNCall.description(
-                                                (_model.apiResultvoiScan
-                                                        ?.jsonBody ??
-                                                    ''),
+                                                  valueOrDefault<String>(
+                                                GetBookByISBNCall.description(
+                                                  (_model.apiResultvoiScan
+                                                          ?.jsonBody ??
+                                                      ''),
+                                                ),
+                                                'Nada',
                                               ),
                                               thumbnail:
                                                   GetBookByISBNCall.thumbnail(
@@ -567,7 +618,7 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                 ScaffoldMessenger.of(context).showSnackBar(
                                   SnackBar(
                                     content: Text(
-                                      'An error has occured. Failed to get book information',
+                                      'A Books API error has occured. Failed to get book information',
                                       style: FlutterFlowTheme.of(context)
                                           .titleSmall
                                           .override(
@@ -581,6 +632,8 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                         FlutterFlowTheme.of(context).error,
                                   ),
                                 );
+                                if (shouldSetState) setState(() {});
+                                return;
                               }
                             } else {
                               if (shouldSetState) setState(() {});
