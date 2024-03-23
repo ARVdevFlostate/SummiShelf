@@ -18,7 +18,7 @@ class SaveBookComponentWidget extends StatefulWidget {
     String? thumbnail,
   })  : title = title ?? 'No title available',
         subtitle = subtitle ?? ' No subtitle available',
-        description = description ?? ' No subtitle available',
+        description = description ?? ' No description available',
         thumbnail = thumbnail ??
             'https://firebasestorage.googleapis.com/v0/b/summi-shelf-z6nbpi.appspot.com/o/assets%2Fno-book-thumbnail.png?alt=media&token=77815141-a082-4a86-9801-d9034e5f2a26';
 

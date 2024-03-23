@@ -507,14 +507,11 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                                     .height *
                                                 0.72,
                                             child: SaveBookComponentWidget(
-                                              title: valueOrDefault<String>(
-                                                GetBookByISBNCall.title(
-                                                  (_model.apiResultvoiScan
-                                                          ?.jsonBody ??
-                                                      ''),
-                                                ),
-                                                'Nada',
-                                              ),
+                                              title: GetBookByISBNCall.title(
+                                                (_model.apiResultvoiScan
+                                                        ?.jsonBody ??
+                                                    ''),
+                                              )!,
                                               subtitle:
                                                   GetBookByISBNCall.subtitle(
                                                 (_model.apiResultvoiScan
