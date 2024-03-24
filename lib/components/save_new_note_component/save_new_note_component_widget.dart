@@ -3,9 +3,13 @@ import '/backend/backend.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:easy_debounce/easy_debounce.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
 import 'save_new_note_component_model.dart';
 export 'save_new_note_component_model.dart';
 
@@ -16,9 +20,9 @@ class SaveNewNoteComponentWidget extends StatefulWidget {
     String? actionSubtitle,
     String? buttonTitle,
     this.currentNoteDocument,
-  })  : actionTitle = actionTitle ?? '',
-        actionSubtitle = actionSubtitle ?? ' ',
-        buttonTitle = buttonTitle ?? 'Create / Save';
+  })  : this.actionTitle = actionTitle ?? '',
+        this.actionSubtitle = actionSubtitle ?? ' ',
+        this.buttonTitle = buttonTitle ?? 'Create / Save';
 
   final String actionTitle;
   final String actionSubtitle;
@@ -73,19 +77,19 @@ class _SaveNewNoteComponentWidgetState
     return Container(
       width: double.infinity,
       height: double.infinity,
-      constraints: const BoxConstraints(
+      constraints: BoxConstraints(
         maxWidth: 530.0,
       ),
       decoration: BoxDecoration(
         color: FlutterFlowTheme.of(context).secondaryBackground,
-        boxShadow: const [
+        boxShadow: [
           BoxShadow(
             blurRadius: 3.0,
             color: Color(0x33000000),
             offset: Offset(0.0, 1.0),
           )
         ],
-        borderRadius: const BorderRadius.only(
+        borderRadius: BorderRadius.only(
           bottomLeft: Radius.circular(0.0),
           bottomRight: Radius.circular(0.0),
           topLeft: Radius.circular(24.0),
@@ -102,7 +106,7 @@ class _SaveNewNoteComponentWidgetState
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Padding(
-            padding: const EdgeInsetsDirectional.fromSTEB(20.0, 0.0, 20.0, 0.0),
+            padding: EdgeInsetsDirectional.fromSTEB(20.0, 0.0, 20.0, 0.0),
             child: Row(
               mainAxisSize: MainAxisSize.max,
               mainAxisAlignment: MainAxisAlignment.center,
@@ -119,7 +123,7 @@ class _SaveNewNoteComponentWidgetState
             ),
           ),
           Padding(
-            padding: const EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 16.0, 0.0),
+            padding: EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 16.0, 0.0),
             child: Column(
               mainAxisSize: MainAxisSize.max,
               crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -140,21 +144,21 @@ class _SaveNewNoteComponentWidgetState
               key: _model.formKey,
               autovalidateMode: AutovalidateMode.disabled,
               child: Padding(
-                padding: const EdgeInsetsDirectional.fromSTEB(16.0, 12.0, 16.0, 0.0),
+                padding: EdgeInsetsDirectional.fromSTEB(16.0, 12.0, 16.0, 0.0),
                 child: Column(
                   mainAxisSize: MainAxisSize.max,
                   children: [
-                    SizedBox(
+                    Container(
                       width: double.infinity,
                       child: TextFormField(
                         controller: _model.notesTitleTextFieldController,
                         focusNode: _model.notesTitleTextFieldFocusNode,
                         onChanged: (_) => EasyDebounce.debounce(
                           '_model.notesTitleTextFieldController',
-                          const Duration(milliseconds: 2000),
+                          Duration(milliseconds: 2000),
                           () => setState(() {}),
                         ),
-                        autofillHints: const [AutofillHints.email],
+                        autofillHints: [AutofillHints.email],
                         obscureText: false,
                         decoration: InputDecoration(
                           labelText: 'Note title *',
@@ -192,7 +196,7 @@ class _SaveNewNoteComponentWidgetState
                           filled: true,
                           fillColor:
                               FlutterFlowTheme.of(context).primaryBackground,
-                          contentPadding: const EdgeInsetsDirectional.fromSTEB(
+                          contentPadding: EdgeInsetsDirectional.fromSTEB(
                               20.0, 20.0, 0.0, 20.0),
                           suffixIcon: _model.notesTitleTextFieldController!.text
                                   .isNotEmpty
@@ -202,7 +206,7 @@ class _SaveNewNoteComponentWidgetState
                                         ?.clear();
                                     setState(() {});
                                   },
-                                  child: const Icon(
+                                  child: Icon(
                                     Icons.clear,
                                     color: Color(0xFF757575),
                                     size: 18.0,
@@ -216,17 +220,17 @@ class _SaveNewNoteComponentWidgetState
                             .asValidator(context),
                       ),
                     ),
-                    SizedBox(
+                    Container(
                       width: double.infinity,
                       child: TextFormField(
                         controller: _model.notesDescriptionTextFieldController,
                         focusNode: _model.notesDescriptionTextFieldFocusNode,
                         onChanged: (_) => EasyDebounce.debounce(
                           '_model.notesDescriptionTextFieldController',
-                          const Duration(milliseconds: 2000),
+                          Duration(milliseconds: 2000),
                           () => setState(() {}),
                         ),
-                        autofillHints: const [AutofillHints.email],
+                        autofillHints: [AutofillHints.email],
                         obscureText: false,
                         decoration: InputDecoration(
                           labelText: 'Note description *',
@@ -264,7 +268,7 @@ class _SaveNewNoteComponentWidgetState
                           filled: true,
                           fillColor:
                               FlutterFlowTheme.of(context).primaryBackground,
-                          contentPadding: const EdgeInsetsDirectional.fromSTEB(
+                          contentPadding: EdgeInsetsDirectional.fromSTEB(
                               20.0, 20.0, 0.0, 24.0),
                           suffixIcon: _model
                                   .notesDescriptionTextFieldController!
@@ -276,7 +280,7 @@ class _SaveNewNoteComponentWidgetState
                                         ?.clear();
                                     setState(() {});
                                   },
-                                  child: const Icon(
+                                  child: Icon(
                                     Icons.clear,
                                     color: Color(0xFF757575),
                                     size: 18.0,
@@ -292,13 +296,13 @@ class _SaveNewNoteComponentWidgetState
                             .asValidator(context),
                       ),
                     ),
-                  ].divide(const SizedBox(height: 24.0)),
+                  ].divide(SizedBox(height: 24.0)),
                 ),
               ),
             ),
           ),
           Padding(
-            padding: const EdgeInsetsDirectional.fromSTEB(16.0, 24.0, 16.0, 24.0),
+            padding: EdgeInsetsDirectional.fromSTEB(16.0, 24.0, 16.0, 24.0),
             child: Row(
               mainAxisSize: MainAxisSize.max,
               mainAxisAlignment: MainAxisAlignment.center,
@@ -311,9 +315,9 @@ class _SaveNewNoteComponentWidgetState
                   options: FFButtonOptions(
                     height: 44.0,
                     padding:
-                        const EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 24.0, 0.0),
+                        EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 24.0, 0.0),
                     iconPadding:
-                        const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                        EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
                     color: FlutterFlowTheme.of(context).primaryBackground,
                     textStyle: FlutterFlowTheme.of(context).titleSmall.override(
                           fontFamily: 'Readex Pro',
@@ -381,7 +385,7 @@ class _SaveNewNoteComponentWidgetState
                                   color: FlutterFlowTheme.of(context).info,
                                 ),
                           ),
-                          duration: const Duration(milliseconds: 4000),
+                          duration: Duration(milliseconds: 4000),
                           backgroundColor:
                               FlutterFlowTheme.of(context).secondary,
                         ),
@@ -405,7 +409,7 @@ class _SaveNewNoteComponentWidgetState
                                   color: FlutterFlowTheme.of(context).info,
                                 ),
                           ),
-                          duration: const Duration(milliseconds: 4000),
+                          duration: Duration(milliseconds: 4000),
                           backgroundColor:
                               FlutterFlowTheme.of(context).secondary,
                         ),
@@ -418,16 +422,16 @@ class _SaveNewNoteComponentWidgetState
                   options: FFButtonOptions(
                     height: 44.0,
                     padding:
-                        const EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 24.0, 0.0),
+                        EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 24.0, 0.0),
                     iconPadding:
-                        const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                        EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
                     color: FlutterFlowTheme.of(context).primary,
                     textStyle: FlutterFlowTheme.of(context).titleSmall.override(
                           fontFamily: 'Readex Pro',
                           color: Colors.white,
                         ),
                     elevation: 3.0,
-                    borderSide: const BorderSide(
+                    borderSide: BorderSide(
                       color: Colors.transparent,
                       width: 1.0,
                     ),
@@ -435,13 +439,13 @@ class _SaveNewNoteComponentWidgetState
                   ),
                   showLoadingIndicator: false,
                 ),
-              ].divide(const SizedBox(width: 16.0)),
+              ].divide(SizedBox(width: 16.0)),
             ),
           ),
         ]
-            .divide(const SizedBox(height: 12.0))
-            .addToStart(const SizedBox(height: 12.0))
-            .addToEnd(const SizedBox(height: 12.0)),
+            .divide(SizedBox(height: 12.0))
+            .addToStart(SizedBox(height: 12.0))
+            .addToEnd(SizedBox(height: 12.0)),
       ),
     );
   }

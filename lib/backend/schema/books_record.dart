@@ -10,9 +10,9 @@ import '/flutter_flow/flutter_flow_util.dart';
 
 class BooksRecord extends FirestoreRecord {
   BooksRecord._(
-    super.reference,
-    super.data,
-  ) {
+    DocumentReference reference,
+    Map<String, dynamic> data,
+  ) : super(reference, data) {
     _initializeFields();
   }
 

@@ -3,7 +3,11 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/scheduler.dart';
 import 'package:flutter_animate/flutter_animate.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
 import 'empty_state_dynamic_model.dart';
 export 'empty_state_dynamic_model.dart';
 
@@ -16,11 +20,11 @@ class EmptyStateDynamicWidget extends StatefulWidget {
     bool? showActionButton,
     this.buttonAction,
     String? buttonText,
-  })  : title = title ?? 'No Friends',
-        body = body ??
+  })  : this.title = title ?? 'No Friends',
+        this.body = body ??
             'It seems that you dont\' have  any friends, find friends from searching users below.',
-        showActionButton = showActionButton ?? false,
-        buttonText = buttonText ?? 'Find friends';
+        this.showActionButton = showActionButton ?? false,
+        this.buttonText = buttonText ?? 'Find friends';
 
   final Widget? icon;
   final String title;
@@ -53,8 +57,8 @@ class _EmptyStateDynamicWidgetState extends State<EmptyStateDynamicWidget>
           curve: Curves.easeInOut,
           delay: 0.ms,
           duration: 600.ms,
-          begin: const Offset(0.0, 90.0),
-          end: const Offset(0.0, 0.0),
+          begin: Offset(0.0, 90.0),
+          end: Offset(0.0, 0.0),
         ),
       ],
     ),
@@ -82,7 +86,7 @@ class _EmptyStateDynamicWidgetState extends State<EmptyStateDynamicWidget>
   @override
   Widget build(BuildContext context) {
     return Align(
-      alignment: const AlignmentDirectional(0.0, 0.0),
+      alignment: AlignmentDirectional(0.0, 0.0),
       child: Column(
         mainAxisSize: MainAxisSize.min,
         mainAxisAlignment: MainAxisAlignment.center,
@@ -90,7 +94,7 @@ class _EmptyStateDynamicWidgetState extends State<EmptyStateDynamicWidget>
         children: [
           widget.icon!,
           Padding(
-            padding: const EdgeInsetsDirectional.fromSTEB(0.0, 8.0, 0.0, 0.0),
+            padding: EdgeInsetsDirectional.fromSTEB(0.0, 8.0, 0.0, 0.0),
             child: Text(
               widget.title,
               textAlign: TextAlign.center,
@@ -101,7 +105,7 @@ class _EmptyStateDynamicWidgetState extends State<EmptyStateDynamicWidget>
             ),
           ),
           Padding(
-            padding: const EdgeInsetsDirectional.fromSTEB(32.0, 0.0, 32.0, 0.0),
+            padding: EdgeInsetsDirectional.fromSTEB(32.0, 0.0, 32.0, 0.0),
             child: Text(
               widget.body,
               textAlign: TextAlign.center,
@@ -110,7 +114,7 @@ class _EmptyStateDynamicWidgetState extends State<EmptyStateDynamicWidget>
           ),
           if (widget.showActionButton == true)
             Padding(
-              padding: const EdgeInsetsDirectional.fromSTEB(0.0, 16.0, 0.0, 0.0),
+              padding: EdgeInsetsDirectional.fromSTEB(0.0, 16.0, 0.0, 0.0),
               child: FFButtonWidget(
                 onPressed: () async {
                   await widget.buttonAction?.call();
@@ -118,16 +122,16 @@ class _EmptyStateDynamicWidgetState extends State<EmptyStateDynamicWidget>
                 text: widget.buttonText,
                 options: FFButtonOptions(
                   height: 44.0,
-                  padding: const EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 24.0, 0.0),
+                  padding: EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 24.0, 0.0),
                   iconPadding:
-                      const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                      EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
                   color: FlutterFlowTheme.of(context).primary,
                   textStyle: FlutterFlowTheme.of(context).titleSmall.override(
                         fontFamily: 'Readex Pro',
                         color: Colors.white,
                       ),
                   elevation: 3.0,
-                  borderSide: const BorderSide(
+                  borderSide: BorderSide(
                     color: Colors.transparent,
                     width: 1.0,
                   ),
@@ -136,7 +140,7 @@ class _EmptyStateDynamicWidgetState extends State<EmptyStateDynamicWidget>
                 showLoadingIndicator: false,
               ),
             ),
-        ].divide(const SizedBox(height: 8.0)),
+        ].divide(SizedBox(height: 8.0)),
       ).animateOnPageLoad(animationsMap['columnOnPageLoadAnimation']!),
     );
   }

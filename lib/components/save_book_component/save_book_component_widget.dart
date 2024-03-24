@@ -4,8 +4,12 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_toggle_icon.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
 import 'save_book_component_model.dart';
 export 'save_book_component_model.dart';
 
@@ -16,10 +20,10 @@ class SaveBookComponentWidget extends StatefulWidget {
     String? subtitle,
     String? description,
     String? thumbnail,
-  })  : title = title ?? 'No title available',
-        subtitle = subtitle ?? ' No subtitle available',
-        description = description ?? ' No description available',
-        thumbnail = thumbnail ??
+  })  : this.title = title ?? 'No title available',
+        this.subtitle = subtitle ?? ' No subtitle available',
+        this.description = description ?? ' No description available',
+        this.thumbnail = thumbnail ??
             'https://firebasestorage.googleapis.com/v0/b/summi-shelf-z6nbpi.appspot.com/o/assets%2Fno-book-thumbnail.png?alt=media&token=77815141-a082-4a86-9801-d9034e5f2a26';
 
   final String title;
@@ -48,7 +52,7 @@ class _SaveBookComponentWidgetState extends State<SaveBookComponentWidget> {
 
     // On component load action.
     SchedulerBinding.instance.addPostFrameCallback((_) async {
-      if (widget.title == '') {
+      if (widget.title == null || widget.title == '') {
         Navigator.pop(context);
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(
@@ -59,7 +63,7 @@ class _SaveBookComponentWidgetState extends State<SaveBookComponentWidget> {
                     color: FlutterFlowTheme.of(context).info,
                   ),
             ),
-            duration: const Duration(milliseconds: 4000),
+            duration: Duration(milliseconds: 4000),
             backgroundColor: FlutterFlowTheme.of(context).secondary,
           ),
         );
@@ -81,19 +85,19 @@ class _SaveBookComponentWidgetState extends State<SaveBookComponentWidget> {
     return Container(
       width: double.infinity,
       height: double.infinity,
-      constraints: const BoxConstraints(
+      constraints: BoxConstraints(
         maxWidth: 530.0,
       ),
       decoration: BoxDecoration(
         color: FlutterFlowTheme.of(context).secondaryBackground,
-        boxShadow: const [
+        boxShadow: [
           BoxShadow(
             blurRadius: 3.0,
             color: Color(0x33000000),
             offset: Offset(0.0, 1.0),
           )
         ],
-        borderRadius: const BorderRadius.only(
+        borderRadius: BorderRadius.only(
           bottomLeft: Radius.circular(0.0),
           bottomRight: Radius.circular(0.0),
           topLeft: Radius.circular(24.0),
@@ -109,7 +113,7 @@ class _SaveBookComponentWidgetState extends State<SaveBookComponentWidget> {
         mainAxisAlignment: MainAxisAlignment.start,
         children: [
           Padding(
-            padding: const EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 24.0, 0.0),
+            padding: EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 24.0, 0.0),
             child: Row(
               mainAxisSize: MainAxisSize.max,
               mainAxisAlignment: MainAxisAlignment.center,
@@ -134,7 +138,7 @@ class _SaveBookComponentWidgetState extends State<SaveBookComponentWidget> {
                 children: [
                   Padding(
                     padding:
-                        const EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 16.0, 0.0),
+                        EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 16.0, 0.0),
                     child: Row(
                       mainAxisSize: MainAxisSize.max,
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -146,14 +150,14 @@ class _SaveBookComponentWidgetState extends State<SaveBookComponentWidget> {
                           decoration: BoxDecoration(
                             color:
                                 FlutterFlowTheme.of(context).primaryBackground,
-                            boxShadow: const [
+                            boxShadow: [
                               BoxShadow(
                                 blurRadius: 4.0,
                                 color: Color(0x33000000),
                                 offset: Offset(0.0, 2.0),
                               )
                             ],
-                            borderRadius: const BorderRadius.only(
+                            borderRadius: BorderRadius.only(
                               bottomLeft: Radius.circular(0.0),
                               bottomRight: Radius.circular(8.0),
                               topLeft: Radius.circular(0.0),
@@ -161,9 +165,9 @@ class _SaveBookComponentWidgetState extends State<SaveBookComponentWidget> {
                             ),
                             shape: BoxShape.rectangle,
                           ),
-                          alignment: const AlignmentDirectional(0.0, 0.0),
+                          alignment: AlignmentDirectional(0.0, 0.0),
                           child: ClipRRect(
-                            borderRadius: const BorderRadius.only(
+                            borderRadius: BorderRadius.only(
                               bottomLeft: Radius.circular(0.0),
                               bottomRight: Radius.circular(8.0),
                               topLeft: Radius.circular(0.0),
@@ -179,7 +183,7 @@ class _SaveBookComponentWidgetState extends State<SaveBookComponentWidget> {
                         ),
                         Expanded(
                           child: Padding(
-                            padding: const EdgeInsetsDirectional.fromSTEB(
+                            padding: EdgeInsetsDirectional.fromSTEB(
                                 12.0, 0.0, 0.0, 0.0),
                             child: Column(
                               mainAxisSize: MainAxisSize.max,
@@ -194,7 +198,7 @@ class _SaveBookComponentWidgetState extends State<SaveBookComponentWidget> {
                                       FlutterFlowTheme.of(context).titleLarge,
                                 ),
                                 Padding(
-                                  padding: const EdgeInsetsDirectional.fromSTEB(
+                                  padding: EdgeInsetsDirectional.fromSTEB(
                                       0.0, 4.0, 0.0, 0.0),
                                   child: Text(
                                     valueOrDefault<String>(
@@ -221,7 +225,7 @@ class _SaveBookComponentWidgetState extends State<SaveBookComponentWidget> {
                   ),
                   Padding(
                     padding:
-                        const EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 16.0, 0.0),
+                        EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 16.0, 0.0),
                     child: Material(
                       color: Colors.transparent,
                       elevation: 0.0,
@@ -232,7 +236,7 @@ class _SaveBookComponentWidgetState extends State<SaveBookComponentWidget> {
                         width: double.infinity,
                         height: 56.0,
                         decoration: BoxDecoration(
-                          gradient: const LinearGradient(
+                          gradient: LinearGradient(
                             colors: [Color(0x12FF0099), Color(0x1E9900FF)],
                             stops: [0.3, 0.7],
                             begin: AlignmentDirectional(0.5, 1.0),
@@ -249,7 +253,7 @@ class _SaveBookComponentWidgetState extends State<SaveBookComponentWidget> {
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
                             Padding(
-                              padding: const EdgeInsetsDirectional.fromSTEB(
+                              padding: EdgeInsetsDirectional.fromSTEB(
                                   16.0, 0.0, 0.0, 0.0),
                               child: Row(
                                 mainAxisSize: MainAxisSize.max,
@@ -266,7 +270,7 @@ class _SaveBookComponentWidgetState extends State<SaveBookComponentWidget> {
                                         ),
                                   ),
                                   Padding(
-                                    padding: const EdgeInsetsDirectional.fromSTEB(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
                                         4.0, 0.0, 0.0, 0.0),
                                     child: ToggleIcon(
                                       onPressed: () async {
@@ -292,7 +296,7 @@ class _SaveBookComponentWidgetState extends State<SaveBookComponentWidget> {
                               ),
                             ),
                             Padding(
-                              padding: const EdgeInsetsDirectional.fromSTEB(
+                              padding: EdgeInsetsDirectional.fromSTEB(
                                   0.0, 0.0, 12.0, 0.0),
                               child: Row(
                                 mainAxisSize: MainAxisSize.max,
@@ -309,7 +313,7 @@ class _SaveBookComponentWidgetState extends State<SaveBookComponentWidget> {
                                         ),
                                   ),
                                   Padding(
-                                    padding: const EdgeInsetsDirectional.fromSTEB(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
                                         4.0, 0.0, 0.0, 0.0),
                                     child: Theme(
                                       data: ThemeData(
@@ -361,7 +365,7 @@ class _SaveBookComponentWidgetState extends State<SaveBookComponentWidget> {
                   ),
                   Padding(
                     padding:
-                        const EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 16.0, 0.0),
+                        EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 16.0, 0.0),
                     child: Column(
                       mainAxisSize: MainAxisSize.max,
                       crossAxisAlignment: CrossAxisAlignment.start,
@@ -377,7 +381,7 @@ class _SaveBookComponentWidgetState extends State<SaveBookComponentWidget> {
                               ),
                         ),
                         Padding(
-                          padding: const EdgeInsetsDirectional.fromSTEB(
+                          padding: EdgeInsetsDirectional.fromSTEB(
                               0.0, 4.0, 0.0, 0.0),
                           child: Text(
                             valueOrDefault<String>(
@@ -396,12 +400,12 @@ class _SaveBookComponentWidgetState extends State<SaveBookComponentWidget> {
                       ],
                     ),
                   ),
-                ].divide(const SizedBox(height: 12.0)).around(const SizedBox(height: 12.0)),
+                ].divide(SizedBox(height: 12.0)).around(SizedBox(height: 12.0)),
               ),
             ),
           ),
           Padding(
-            padding: const EdgeInsetsDirectional.fromSTEB(16.0, 12.0, 16.0, 12.0),
+            padding: EdgeInsetsDirectional.fromSTEB(16.0, 12.0, 16.0, 12.0),
             child: Row(
               mainAxisSize: MainAxisSize.max,
               mainAxisAlignment: MainAxisAlignment.center,
@@ -414,9 +418,9 @@ class _SaveBookComponentWidgetState extends State<SaveBookComponentWidget> {
                   options: FFButtonOptions(
                     height: 44.0,
                     padding:
-                        const EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 24.0, 0.0),
+                        EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 24.0, 0.0),
                     iconPadding:
-                        const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                        EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
                     color: FlutterFlowTheme.of(context).primaryBackground,
                     textStyle: FlutterFlowTheme.of(context).titleSmall.override(
                           fontFamily: 'Readex Pro',
@@ -482,7 +486,7 @@ class _SaveBookComponentWidgetState extends State<SaveBookComponentWidget> {
                                     color: FlutterFlowTheme.of(context).info,
                                   ),
                         ),
-                        duration: const Duration(milliseconds: 4000),
+                        duration: Duration(milliseconds: 4000),
                         backgroundColor: FlutterFlowTheme.of(context).secondary,
                       ),
                     );
@@ -493,16 +497,16 @@ class _SaveBookComponentWidgetState extends State<SaveBookComponentWidget> {
                   options: FFButtonOptions(
                     height: 44.0,
                     padding:
-                        const EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 24.0, 0.0),
+                        EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 24.0, 0.0),
                     iconPadding:
-                        const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                        EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
                     color: FlutterFlowTheme.of(context).primary,
                     textStyle: FlutterFlowTheme.of(context).titleSmall.override(
                           fontFamily: 'Readex Pro',
                           color: Colors.white,
                         ),
                     elevation: 3.0,
-                    borderSide: const BorderSide(
+                    borderSide: BorderSide(
                       color: Colors.transparent,
                       width: 1.0,
                     ),
@@ -510,13 +514,13 @@ class _SaveBookComponentWidgetState extends State<SaveBookComponentWidget> {
                   ),
                   showLoadingIndicator: false,
                 ),
-              ].divide(const SizedBox(width: 16.0)),
+              ].divide(SizedBox(width: 16.0)),
             ),
           ),
         ]
-            .divide(const SizedBox(height: 12.0))
-            .addToStart(const SizedBox(height: 12.0))
-            .addToEnd(const SizedBox(height: 12.0)),
+            .divide(SizedBox(height: 12.0))
+            .addToStart(SizedBox(height: 12.0))
+            .addToEnd(SizedBox(height: 12.0)),
       ),
     );
   }

@@ -1,6 +1,9 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
+import 'package:go_router/go_router.dart';
+import 'package:page_transition/page_transition.dart';
 import 'package:provider/provider.dart';
 import '/backend/backend.dart';
 
@@ -8,7 +11,11 @@ import '/auth/base_auth_user_provider.dart';
 
 import '/index.dart';
 import '/main.dart';
+import '/flutter_flow/flutter_flow_theme.dart';
+import '/flutter_flow/lat_lng.dart';
+import '/flutter_flow/place.dart';
 import '/flutter_flow/flutter_flow_util.dart';
+import 'serialization_util.dart';
 
 export 'package:go_router/go_router.dart';
 export 'serialization_util.dart';
@@ -73,62 +80,62 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
       debugLogDiagnostics: true,
       refreshListenable: appStateNotifier,
       errorBuilder: (context, state) =>
-          appStateNotifier.loggedIn ? const NavBarPage() : const OnboardPageWidget(),
+          appStateNotifier.loggedIn ? NavBarPage() : OnboardPageWidget(),
       routes: [
         FFRoute(
           name: '_initialize',
           path: '/',
           builder: (context, _) =>
-              appStateNotifier.loggedIn ? const NavBarPage() : const OnboardPageWidget(),
+              appStateNotifier.loggedIn ? NavBarPage() : OnboardPageWidget(),
         ),
         FFRoute(
           name: 'OnboardPage',
           path: '/onboardPage',
-          builder: (context, params) => const OnboardPageWidget(),
+          builder: (context, params) => OnboardPageWidget(),
         ),
         FFRoute(
           name: 'HomePage',
           path: '/homePage',
           builder: (context, params) => params.isEmpty
-              ? const NavBarPage(initialPage: 'HomePage')
-              : const HomePageWidget(),
+              ? NavBarPage(initialPage: 'HomePage')
+              : HomePageWidget(),
         ),
         FFRoute(
           name: 'GetStartedPage',
           path: '/getStartedPage',
-          builder: (context, params) => const GetStartedPageWidget(),
+          builder: (context, params) => GetStartedPageWidget(),
         ),
         FFRoute(
           name: 'LoginPage',
           path: '/loginPage',
-          builder: (context, params) => const LoginPageWidget(),
+          builder: (context, params) => LoginPageWidget(),
         ),
         FFRoute(
           name: 'ProfileCreatePage',
           path: '/profileCreatePage',
-          builder: (context, params) => const ProfileCreatePageWidget(),
+          builder: (context, params) => ProfileCreatePageWidget(),
         ),
         FFRoute(
           name: 'LegalInfoPage',
           path: '/legalInfoPage',
-          builder: (context, params) => const LegalInfoPageWidget(),
+          builder: (context, params) => LegalInfoPageWidget(),
         ),
         FFRoute(
           name: 'ResetPasswordPage',
           path: '/resetPasswordPage',
-          builder: (context, params) => const ResetPasswordPageWidget(),
+          builder: (context, params) => ResetPasswordPageWidget(),
         ),
         FFRoute(
           name: 'ProfilePage',
           path: '/profilePage',
           builder: (context, params) => params.isEmpty
-              ? const NavBarPage(initialPage: 'ProfilePage')
-              : const ProfilePageWidget(),
+              ? NavBarPage(initialPage: 'ProfilePage')
+              : ProfilePageWidget(),
         ),
         FFRoute(
           name: 'ProfileEditPage',
           path: '/profileEditPage',
-          builder: (context, params) => const ProfileEditPageWidget(),
+          builder: (context, params) => ProfileEditPageWidget(),
         ),
         FFRoute(
           name: 'BookDetailsPage',
@@ -144,22 +151,22 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           name: 'BookshelfGridPage',
           path: '/bookshelfGridPage',
           builder: (context, params) => params.isEmpty
-              ? const NavBarPage(initialPage: 'BookshelfGridPage')
-              : const BookshelfGridPageWidget(),
+              ? NavBarPage(initialPage: 'BookshelfGridPage')
+              : BookshelfGridPageWidget(),
         ),
         FFRoute(
           name: 'InsightsPage',
           path: '/insightsPage',
           builder: (context, params) => params.isEmpty
-              ? const NavBarPage(initialPage: 'InsightsPage')
-              : const InsightsPageWidget(),
+              ? NavBarPage(initialPage: 'InsightsPage')
+              : InsightsPageWidget(),
         ),
         FFRoute(
           name: 'NotesPage',
           path: '/notesPage',
           builder: (context, params) => params.isEmpty
-              ? const NavBarPage(initialPage: 'NotesPage')
-              : const NotesPageWidget(),
+              ? NavBarPage(initialPage: 'NotesPage')
+              : NotesPageWidget(),
         ),
         FFRoute(
           name: 'NoteDetailsPage',
@@ -352,7 +359,7 @@ class FFRoute {
               : builder(context, ffParams);
           final child = appStateNotifier.loading
               ? Container(
-                  color: const Color(0xFF9900FF),
+                  color: Color(0xFF9900FF),
                   child: Center(
                     child: Image.asset(
                       'assets/images/summishelf-appsplash-1024-v3.png',
@@ -403,7 +410,7 @@ class TransitionInfo {
   final Duration duration;
   final Alignment? alignment;
 
-  static TransitionInfo appDefault() => const TransitionInfo(hasTransition: false);
+  static TransitionInfo appDefault() => TransitionInfo(hasTransition: false);
 }
 
 class RootPageContext {

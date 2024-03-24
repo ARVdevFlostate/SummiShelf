@@ -2,8 +2,11 @@ import '/backend/backend.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
+import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
 import 'note_details_page_model.dart';
 export 'note_details_page_model.dart';
 
@@ -43,15 +46,15 @@ class _NoteDetailsPageWidgetState extends State<NoteDetailsPageWidget> {
       key: scaffoldKey,
       backgroundColor: FlutterFlowTheme.of(context).secondaryBackground,
       body: Align(
-        alignment: const AlignmentDirectional(0.0, -1.0),
+        alignment: AlignmentDirectional(0.0, -1.0),
         child: Container(
           width: double.infinity,
-          constraints: const BoxConstraints(
+          constraints: BoxConstraints(
             maxWidth: 570.0,
           ),
-          decoration: const BoxDecoration(),
+          decoration: BoxDecoration(),
           child: Padding(
-            padding: const EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 16.0, 0.0),
+            padding: EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 16.0, 0.0),
             child: SingleChildScrollView(
               child: Column(
                 mainAxisSize: MainAxisSize.max,
@@ -59,7 +62,7 @@ class _NoteDetailsPageWidgetState extends State<NoteDetailsPageWidget> {
                 children: [
                   // This row exists for when the "app bar" is hidden on desktop, having a way back for the user can work well.
                   Padding(
-                    padding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 8.0),
+                    padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 8.0),
                     child: InkWell(
                       splashColor: Colors.transparent,
                       focusColor: Colors.transparent,
@@ -90,7 +93,7 @@ class _NoteDetailsPageWidgetState extends State<NoteDetailsPageWidget> {
                   ),
                   Padding(
                     padding:
-                        const EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 16.0, 0.0),
+                        EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 16.0, 0.0),
                     child: Text(
                       'Note Details',
                       style: FlutterFlowTheme.of(context).displaySmall,
@@ -98,7 +101,7 @@ class _NoteDetailsPageWidgetState extends State<NoteDetailsPageWidget> {
                   ),
                   Padding(
                     padding:
-                        const EdgeInsetsDirectional.fromSTEB(16.0, 24.0, 16.0, 0.0),
+                        EdgeInsetsDirectional.fromSTEB(16.0, 24.0, 16.0, 0.0),
                     child: Column(
                       mainAxisSize: MainAxisSize.max,
                       crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -118,7 +121,7 @@ class _NoteDetailsPageWidgetState extends State<NoteDetailsPageWidget> {
                           style: FlutterFlowTheme.of(context).labelMedium,
                         ),
                         Padding(
-                          padding: const EdgeInsetsDirectional.fromSTEB(
+                          padding: EdgeInsetsDirectional.fromSTEB(
                               0.0, 16.0, 0.0, 0.0),
                           child: Text(
                             'Created on',
@@ -136,7 +139,7 @@ class _NoteDetailsPageWidgetState extends State<NoteDetailsPageWidget> {
                           style: FlutterFlowTheme.of(context).labelMedium,
                         ),
                         Padding(
-                          padding: const EdgeInsetsDirectional.fromSTEB(
+                          padding: EdgeInsetsDirectional.fromSTEB(
                               0.0, 16.0, 0.0, 0.0),
                           child: Text(
                             'Last updated on',
@@ -158,7 +161,7 @@ class _NoteDetailsPageWidgetState extends State<NoteDetailsPageWidget> {
                               style: FlutterFlowTheme.of(context).labelMedium,
                             ),
                             Padding(
-                              padding: const EdgeInsetsDirectional.fromSTEB(
+                              padding: EdgeInsetsDirectional.fromSTEB(
                                   0.0, 0.0, 12.0, 0.0),
                               child: Text(
                                 dateTimeFormat('relative',
@@ -173,12 +176,12 @@ class _NoteDetailsPageWidgetState extends State<NoteDetailsPageWidget> {
                             ),
                           ],
                         ),
-                      ].divide(const SizedBox(height: 8.0)),
+                      ].divide(SizedBox(height: 8.0)),
                     ),
                   ),
                   Padding(
                     padding:
-                        const EdgeInsetsDirectional.fromSTEB(16.0, 24.0, 0.0, 0.0),
+                        EdgeInsetsDirectional.fromSTEB(16.0, 24.0, 0.0, 0.0),
                     child: Text(
                       'Recent Updates',
                       style: FlutterFlowTheme.of(context).titleLarge,
@@ -186,12 +189,12 @@ class _NoteDetailsPageWidgetState extends State<NoteDetailsPageWidget> {
                   ),
                   Padding(
                     padding:
-                        const EdgeInsetsDirectional.fromSTEB(16.0, 16.0, 16.0, 24.0),
+                        EdgeInsetsDirectional.fromSTEB(16.0, 16.0, 16.0, 24.0),
                     child: Container(
                       width: double.infinity,
                       decoration: BoxDecoration(
                         color: FlutterFlowTheme.of(context).primaryBackground,
-                        borderRadius: const BorderRadius.only(
+                        borderRadius: BorderRadius.only(
                           bottomLeft: Radius.circular(16.0),
                           bottomRight: Radius.circular(16.0),
                           topLeft: Radius.circular(16.0),
@@ -232,13 +235,13 @@ class _NoteDetailsPageWidgetState extends State<NoteDetailsPageWidget> {
                             scrollDirection: Axis.vertical,
                             itemCount:
                                 updationsListViewUpdationsRecordList.length,
-                            separatorBuilder: (_, __) => const SizedBox(height: 2.0),
+                            separatorBuilder: (_, __) => SizedBox(height: 2.0),
                             itemBuilder: (context, updationsListViewIndex) {
                               final updationsListViewUpdationsRecord =
                                   updationsListViewUpdationsRecordList[
                                       updationsListViewIndex];
                               return Padding(
-                                padding: const EdgeInsetsDirectional.fromSTEB(
+                                padding: EdgeInsetsDirectional.fromSTEB(
                                     8.0, 0.0, 8.0, 0.0),
                                 child: Container(
                                   width: double.infinity,
@@ -251,7 +254,7 @@ class _NoteDetailsPageWidgetState extends State<NoteDetailsPageWidget> {
                                         blurRadius: 0.0,
                                         color: FlutterFlowTheme.of(context)
                                             .alternate,
-                                        offset: const Offset(0.0, 2.0),
+                                        offset: Offset(0.0, 2.0),
                                       )
                                     ],
                                     borderRadius: BorderRadius.circular(0.0),
@@ -292,7 +295,7 @@ class _NoteDetailsPageWidgetState extends State<NoteDetailsPageWidget> {
                       ),
                     ),
                   ),
-                ].addToStart(const SizedBox(height: 64.0)),
+                ].addToStart(SizedBox(height: 64.0)),
               ),
             ),
           ),

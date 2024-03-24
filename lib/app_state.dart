@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import '/backend/backend.dart';
+import 'backend/api_requests/api_manager.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'flutter_flow/flutter_flow_util.dart';
 
 class FFAppState extends ChangeNotifier {
   static FFAppState _instance = FFAppState._internal();
@@ -39,30 +42,30 @@ class FFAppState extends ChangeNotifier {
 
   bool _isDarkMode = false;
   bool get isDarkMode => _isDarkMode;
-  set isDarkMode(bool value) {
-    _isDarkMode = value;
-    prefs.setBool('ff_isDarkMode', value);
+  set isDarkMode(bool _value) {
+    _isDarkMode = _value;
+    prefs.setBool('ff_isDarkMode', _value);
   }
 
   String _apiKey = 'AIzaSyCP2wcyxMmCkxz4G1dDs2ber4e3MN1LgPA';
   String get apiKey => _apiKey;
-  set apiKey(String value) {
-    _apiKey = value;
-    prefs.setString('ff_apiKey', value);
+  set apiKey(String _value) {
+    _apiKey = _value;
+    prefs.setString('ff_apiKey', _value);
   }
 
   String _asvAppVersion = '1.0.0';
   String get asvAppVersion => _asvAppVersion;
-  set asvAppVersion(String value) {
-    _asvAppVersion = value;
-    prefs.setString('ff_asvAppVersion', value);
+  set asvAppVersion(String _value) {
+    _asvAppVersion = _value;
+    prefs.setString('ff_asvAppVersion', _value);
   }
 
-  String _asvAppBuild = '7';
+  String _asvAppBuild = '8';
   String get asvAppBuild => _asvAppBuild;
-  set asvAppBuild(String value) {
-    _asvAppBuild = value;
-    prefs.setString('ff_asvAppBuild', value);
+  set asvAppBuild(String _value) {
+    _asvAppBuild = _value;
+    prefs.setString('ff_asvAppBuild', _value);
   }
 }
 

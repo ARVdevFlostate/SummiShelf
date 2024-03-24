@@ -12,7 +12,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_barcode_scanner/flutter_barcode_scanner.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'home_page_model.dart';
 export 'home_page_model.dart';
@@ -45,8 +47,8 @@ class _HomePageWidgetState extends State<HomePageWidget>
           curve: Curves.easeInOut,
           delay: 0.ms,
           duration: 600.ms,
-          begin: const Offset(0.0, -30.0),
-          end: const Offset(0.0, 0.0),
+          begin: Offset(0.0, -30.0),
+          end: Offset(0.0, 0.0),
         ),
       ],
     ),
@@ -87,16 +89,16 @@ class _HomePageWidgetState extends State<HomePageWidget>
         key: scaffoldKey,
         backgroundColor: FlutterFlowTheme.of(context).secondaryBackground,
         body: Align(
-          alignment: const AlignmentDirectional(0.0, -1.0),
+          alignment: AlignmentDirectional(0.0, -1.0),
           child: Container(
             width: double.infinity,
             height: double.infinity,
-            constraints: const BoxConstraints(
+            constraints: BoxConstraints(
               maxWidth: 570.0,
             ),
-            decoration: const BoxDecoration(),
+            decoration: BoxDecoration(),
             child: Padding(
-              padding: const EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 24.0, 0.0),
+              padding: EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 24.0, 0.0),
               child: Column(
                 mainAxisSize: MainAxisSize.max,
                 mainAxisAlignment: MainAxisAlignment.start,
@@ -126,7 +128,7 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                   fontWeight: FontWeight.bold,
                                 ),
                       ),
-                    ].divide(const SizedBox(width: 16.0)),
+                    ].divide(SizedBox(width: 16.0)),
                   ),
                   Row(
                     mainAxisSize: MainAxisSize.max,
@@ -134,7 +136,7 @@ class _HomePageWidgetState extends State<HomePageWidget>
                     children: [
                       Expanded(
                         child: Padding(
-                          padding: const EdgeInsetsDirectional.fromSTEB(
+                          padding: EdgeInsetsDirectional.fromSTEB(
                               8.0, 0.0, 8.0, 0.0),
                           child: Column(
                             mainAxisSize: MainAxisSize.max,
@@ -142,7 +144,7 @@ class _HomePageWidgetState extends State<HomePageWidget>
                             children: [
                               AuthUserStreamWidget(
                                 builder: (context) => Text(
-                                  'Hi, $currentUserDisplayName',
+                                  'Hi, ${currentUserDisplayName}',
                                   style: FlutterFlowTheme.of(context)
                                       .headlineSmall
                                       .override(
@@ -164,17 +166,17 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                       fontWeight: FontWeight.w500,
                                     ),
                               ),
-                            ].divide(const SizedBox(height: 4.0)),
+                            ].divide(SizedBox(height: 4.0)),
                           ),
                         ),
                       ),
                     ],
                   ),
                   Align(
-                    alignment: const AlignmentDirectional(-1.0, 0.0),
+                    alignment: AlignmentDirectional(-1.0, 0.0),
                     child: Padding(
                       padding:
-                          const EdgeInsetsDirectional.fromSTEB(8.0, 8.0, 8.0, 0.0),
+                          EdgeInsetsDirectional.fromSTEB(8.0, 8.0, 8.0, 0.0),
                       child: Text(
                         valueOrDefault<String>(
                           functions.getRandomMessage(),
@@ -190,23 +192,23 @@ class _HomePageWidgetState extends State<HomePageWidget>
                     ),
                   ),
                   Padding(
-                    padding: const EdgeInsetsDirectional.fromSTEB(8.0, 0.0, 8.0, 0.0),
+                    padding: EdgeInsetsDirectional.fromSTEB(8.0, 0.0, 8.0, 0.0),
                     child: Column(
                       mainAxisSize: MainAxisSize.min,
                       mainAxisAlignment: MainAxisAlignment.start,
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
                         Padding(
-                          padding: const EdgeInsetsDirectional.fromSTEB(
+                          padding: EdgeInsetsDirectional.fromSTEB(
                               0.0, 0.0, 0.0, 4.0),
-                          child: SizedBox(
+                          child: Container(
                             width: double.infinity,
                             child: TextFormField(
                               controller: _model.searchTextFieldController,
                               focusNode: _model.searchTextFieldFocusNode,
                               onChanged: (_) => EasyDebounce.debounce(
                                 '_model.searchTextFieldController',
-                                const Duration(milliseconds: 2000),
+                                Duration(milliseconds: 2000),
                                 () => setState(() {}),
                               ),
                               obscureText: false,
@@ -250,7 +252,7 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                 filled: true,
                                 fillColor: FlutterFlowTheme.of(context)
                                     .primaryBackground,
-                                contentPadding: const EdgeInsetsDirectional.fromSTEB(
+                                contentPadding: EdgeInsetsDirectional.fromSTEB(
                                     0.0, 20.0, 0.0, 20.0),
                                 prefixIcon: Icon(
                                   Icons.book_outlined,
@@ -265,7 +267,7 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                               ?.clear();
                                           setState(() {});
                                         },
-                                        child: const Icon(
+                                        child: Icon(
                                           Icons.clear,
                                           color: Color(0xFF757575),
                                           size: 18.0,
@@ -284,15 +286,16 @@ class _HomePageWidgetState extends State<HomePageWidget>
                         ),
                         FFButtonWidget(
                           onPressed: () async {
-                            var shouldSetState = false;
-                            if (_model.searchTextFieldController.text != '') {
+                            var _shouldSetState = false;
+                            if (_model.searchTextFieldController.text != null &&
+                                _model.searchTextFieldController.text != '') {
                               _model.apiResultvoi =
                                   await GetBookByISBNCall.call(
                                 isbn:
                                     'isbn:${_model.searchTextFieldController.text}',
                                 apiKey: FFAppState().apiKey,
                               );
-                              shouldSetState = true;
+                              _shouldSetState = true;
                               if ((_model.apiResultvoi?.succeeded ?? true)) {
                                 if (GetBookByISBNCall.title(
                                           (_model.apiResultvoi?.jsonBody ?? ''),
@@ -319,7 +322,7 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                         child: Padding(
                                           padding:
                                               MediaQuery.viewInsetsOf(context),
-                                          child: SizedBox(
+                                          child: Container(
                                             height: MediaQuery.sizeOf(context)
                                                     .height *
                                                 0.72,
@@ -367,13 +370,13 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                                       .info,
                                             ),
                                       ),
-                                      duration: const Duration(milliseconds: 4000),
+                                      duration: Duration(milliseconds: 4000),
                                       backgroundColor:
                                           FlutterFlowTheme.of(context)
                                               .secondary,
                                     ),
                                   );
-                                  if (shouldSetState) setState(() {});
+                                  if (_shouldSetState) setState(() {});
                                   return;
                                 }
 
@@ -393,26 +396,26 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                                 .info,
                                           ),
                                     ),
-                                    duration: const Duration(milliseconds: 4000),
+                                    duration: Duration(milliseconds: 4000),
                                     backgroundColor:
                                         FlutterFlowTheme.of(context).secondary,
                                   ),
                                 );
                               }
                             } else {
-                              if (shouldSetState) setState(() {});
+                              if (_shouldSetState) setState(() {});
                               return;
                             }
 
-                            if (shouldSetState) setState(() {});
+                            if (_shouldSetState) setState(() {});
                           },
                           text: 'Search',
                           options: FFButtonOptions(
                             width: 140.0,
                             height: 44.0,
-                            padding: const EdgeInsetsDirectional.fromSTEB(
+                            padding: EdgeInsetsDirectional.fromSTEB(
                                 24.0, 0.0, 24.0, 0.0),
-                            iconPadding: const EdgeInsetsDirectional.fromSTEB(
+                            iconPadding: EdgeInsetsDirectional.fromSTEB(
                                 0.0, 0.0, 0.0, 0.0),
                             color: FlutterFlowTheme.of(context).primary,
                             textStyle: FlutterFlowTheme.of(context)
@@ -422,7 +425,7 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                   color: Colors.white,
                                 ),
                             elevation: 3.0,
-                            borderSide: const BorderSide(
+                            borderSide: BorderSide(
                               color: Colors.transparent,
                               width: 1.0,
                             ),
@@ -431,7 +434,7 @@ class _HomePageWidgetState extends State<HomePageWidget>
                           showLoadingIndicator: false,
                         ),
                         Padding(
-                          padding: const EdgeInsetsDirectional.fromSTEB(
+                          padding: EdgeInsetsDirectional.fromSTEB(
                               0.0, 16.0, 0.0, 4.0),
                           child: Text(
                             'Or search using barcode',
@@ -450,7 +453,7 @@ class _HomePageWidgetState extends State<HomePageWidget>
                           hoverColor: Colors.transparent,
                           highlightColor: Colors.transparent,
                           onTap: () async {
-                            var shouldSetState = false;
+                            var _shouldSetState = false;
                             setState(() {
                               _model.psvScanOutput = '0';
                             });
@@ -462,17 +465,18 @@ class _HomePageWidgetState extends State<HomePageWidget>
                               ScanMode.BARCODE,
                             );
 
-                            shouldSetState = true;
+                            _shouldSetState = true;
                             setState(() {
-                              _model.psvScanOutput = _model.scanOutput;
+                              _model.psvScanOutput = _model.scanOutput!;
                             });
-                            if (_model.psvScanOutput != '') {
+                            if (_model.psvScanOutput != null &&
+                                _model.psvScanOutput != '') {
                               _model.apiResultvoiScan =
                                   await GetBookByISBNCall.call(
                                 isbn: 'isbn:${_model.psvScanOutput}',
                                 apiKey: FFAppState().apiKey,
                               );
-                              shouldSetState = true;
+                              _shouldSetState = true;
                               if ((_model.apiResultvoiScan?.succeeded ??
                                   true)) {
                                 if (GetBookByISBNCall.title(
@@ -502,7 +506,7 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                         child: Padding(
                                           padding:
                                               MediaQuery.viewInsetsOf(context),
-                                          child: SizedBox(
+                                          child: Container(
                                             height: MediaQuery.sizeOf(context)
                                                     .height *
                                                 0.72,
@@ -554,7 +558,7 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                                       .info,
                                             ),
                                       ),
-                                      duration: const Duration(milliseconds: 4000),
+                                      duration: Duration(milliseconds: 4000),
                                       backgroundColor:
                                           FlutterFlowTheme.of(context)
                                               .secondary,
@@ -565,7 +569,7 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                   });
                                 }
 
-                                if (shouldSetState) setState(() {});
+                                if (_shouldSetState) setState(() {});
                                 return;
                               } else {
                                 ScaffoldMessenger.of(context).showSnackBar(
@@ -580,20 +584,20 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                                 .info,
                                           ),
                                     ),
-                                    duration: const Duration(milliseconds: 4000),
+                                    duration: Duration(milliseconds: 4000),
                                     backgroundColor:
                                         FlutterFlowTheme.of(context).error,
                                   ),
                                 );
-                                if (shouldSetState) setState(() {});
+                                if (_shouldSetState) setState(() {});
                                 return;
                               }
                             } else {
-                              if (shouldSetState) setState(() {});
+                              if (_shouldSetState) setState(() {});
                               return;
                             }
 
-                            if (shouldSetState) setState(() {});
+                            if (_shouldSetState) setState(() {});
                           },
                           child: Material(
                             color: Colors.transparent,
@@ -614,7 +618,7 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                 ),
                               ),
                               child: Padding(
-                                padding: const EdgeInsetsDirectional.fromSTEB(
+                                padding: EdgeInsetsDirectional.fromSTEB(
                                     8.0, 8.0, 8.0, 8.0),
                                 child: ClipRRect(
                                   borderRadius: BorderRadius.circular(0.0),
@@ -636,7 +640,7 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                 currentUserDocument?.isFreeUser, false) ==
                             true)
                           Padding(
-                            padding: const EdgeInsetsDirectional.fromSTEB(
+                            padding: EdgeInsetsDirectional.fromSTEB(
                                 0.0, 40.0, 0.0, 0.0),
                             child: AuthUserStreamWidget(
                               builder: (context) => Row(
@@ -646,10 +650,10 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                   Expanded(
                                     child: Container(
                                       height: 50.0,
-                                      constraints: const BoxConstraints(
+                                      constraints: BoxConstraints(
                                         minWidth: 530.0,
                                       ),
-                                      decoration: const BoxDecoration(),
+                                      decoration: BoxDecoration(),
                                       child: FlutterFlowAdBanner(
                                         width:
                                             MediaQuery.sizeOf(context).width *
@@ -665,12 +669,12 @@ class _HomePageWidgetState extends State<HomePageWidget>
                               ),
                             ),
                           ),
-                      ].divide(const SizedBox(height: 12.0)),
+                      ].divide(SizedBox(height: 12.0)),
                     ),
                   ),
                 ]
-                    .divide(const SizedBox(height: 24.0))
-                    .addToStart(const SizedBox(height: 64.0)),
+                    .divide(SizedBox(height: 24.0))
+                    .addToStart(SizedBox(height: 64.0)),
               ),
             ),
           ),

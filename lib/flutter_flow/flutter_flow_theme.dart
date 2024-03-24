@@ -145,8 +145,8 @@ class LightModeTheme extends FlutterFlowTheme {
   late Color error = const Color(0xFFFF5963);
   late Color info = const Color(0xFFFFFFFF);
 
-  late Color navBarColor = const Color(0xFF9900FF);
-  late Color navBarIconText = const Color(0xF1FCF4FF);
+  late Color navBarColor = Color(0xFF9900FF);
+  late Color navBarIconText = Color(0xF1FCF4FF);
 }
 
 abstract class Typography {
@@ -319,8 +319,8 @@ class DarkModeTheme extends FlutterFlowTheme {
   late Color error = const Color(0xFFFF5963);
   late Color info = const Color(0xFFFFFFFF);
 
-  late Color navBarColor = const Color(0xF1FCF4FF);
-  late Color navBarIconText = const Color(0xFF9900FF);
+  late Color navBarColor = Color(0xF1FCF4FF);
+  late Color navBarIconText = Color(0xFF9900FF);
 }
 
 extension TextStyleHelper on TextStyle {
