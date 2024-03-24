@@ -6,12 +6,8 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/upload_data.dart';
 import 'package:cached_network_image/cached_network_image.dart';
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:easy_debounce/easy_debounce.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_spinkit/flutter_spinkit.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:provider/provider.dart';
 import 'edit_profile_component_model.dart';
 export 'edit_profile_component_model.dart';
 
@@ -21,8 +17,8 @@ class EditProfileComponentWidget extends StatefulWidget {
     String? title,
     String? buttonText,
     required this.navigateAction,
-  })  : this.title = title ?? 'Create/ Edit Profile',
-        this.buttonText = buttonText ?? 'Create / Save';
+  })  : title = title ?? 'Create/ Edit Profile',
+        buttonText = buttonText ?? 'Create / Save';
 
   final String title;
   final String buttonText;
@@ -74,16 +70,16 @@ class _EditProfileComponentWidgetState
             style: FlutterFlowTheme.of(context).displaySmall,
           ),
           Padding(
-            padding: EdgeInsetsDirectional.fromSTEB(0.0, 8.0, 0.0, 8.0),
+            padding: const EdgeInsetsDirectional.fromSTEB(0.0, 8.0, 0.0, 8.0),
             child: Text(
               'Change the details of your profile',
               style: FlutterFlowTheme.of(context).labelLarge,
             ),
           ),
           Align(
-            alignment: AlignmentDirectional(0.0, -1.0),
+            alignment: const AlignmentDirectional(0.0, -1.0),
             child: Padding(
-              padding: EdgeInsetsDirectional.fromSTEB(0.0, 16.0, 0.0, 0.0),
+              padding: const EdgeInsetsDirectional.fromSTEB(0.0, 16.0, 0.0, 0.0),
               child: Container(
                 width: 100.0,
                 height: 100.0,
@@ -107,15 +103,13 @@ class _EditProfileComponentWidgetState
                     ),
                     Builder(
                       builder: (context) {
-                        if ((currentUserPhoto != null &&
-                                currentUserPhoto != '') &&
-                            (_model.uploadedFileUrl == null ||
-                                _model.uploadedFileUrl == '')) {
+                        if ((currentUserPhoto != '') &&
+                            (_model.uploadedFileUrl == '')) {
                           return ClipRRect(
                             borderRadius: BorderRadius.circular(50.0),
                             child: CachedNetworkImage(
-                              fadeInDuration: Duration(milliseconds: 200),
-                              fadeOutDuration: Duration(milliseconds: 200),
+                              fadeInDuration: const Duration(milliseconds: 200),
+                              fadeOutDuration: const Duration(milliseconds: 200),
                               imageUrl: valueOrDefault<String>(
                                 currentUserPhoto,
                                 'https://firebasestorage.googleapis.com/v0/b/summi-shelf-z6nbpi.appspot.com/o/assets%2FdefaultAvatar-v2.png?alt=media&token=706a34fc-8a48-4f5f-8831-7c860e0773a9',
@@ -128,8 +122,8 @@ class _EditProfileComponentWidgetState
                           return ClipRRect(
                             borderRadius: BorderRadius.circular(50.0),
                             child: CachedNetworkImage(
-                              fadeInDuration: Duration(milliseconds: 200),
-                              fadeOutDuration: Duration(milliseconds: 200),
+                              fadeInDuration: const Duration(milliseconds: 200),
+                              fadeOutDuration: const Duration(milliseconds: 200),
                               imageUrl: valueOrDefault<String>(
                                 _model.uploadedFileUrl,
                                 'https://firebasestorage.googleapis.com/v0/b/summi-shelf-z6nbpi.appspot.com/o/assets%2FdefaultAvatar-v2.png?alt=media&token=706a34fc-8a48-4f5f-8831-7c860e0773a9',
@@ -147,9 +141,9 @@ class _EditProfileComponentWidgetState
             ),
           ),
           Align(
-            alignment: AlignmentDirectional(0.0, -1.0),
+            alignment: const AlignmentDirectional(0.0, -1.0),
             child: Padding(
-              padding: EdgeInsetsDirectional.fromSTEB(0.0, 12.0, 0.0, 32.0),
+              padding: const EdgeInsetsDirectional.fromSTEB(0.0, 12.0, 0.0, 32.0),
               child: FFButtonWidget(
                 onPressed: () async {
                   final selectedMedia = await selectMedia(
@@ -212,9 +206,9 @@ class _EditProfileComponentWidgetState
                 text: 'Change Photo',
                 options: FFButtonOptions(
                   height: 44.0,
-                  padding: EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 24.0, 0.0),
+                  padding: const EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 24.0, 0.0),
                   iconPadding:
-                      EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                      const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
                   color: FlutterFlowTheme.of(context).accent2,
                   textStyle: FlutterFlowTheme.of(context).titleSmall.override(
                         fontFamily: 'Readex Pro',
@@ -232,17 +226,17 @@ class _EditProfileComponentWidgetState
             ),
           ),
           AuthUserStreamWidget(
-            builder: (context) => Container(
+            builder: (context) => SizedBox(
               width: double.infinity,
               child: TextFormField(
                 controller: _model.displaynameTextFieldController,
                 focusNode: _model.displaynameTextFieldFocusNode,
                 onChanged: (_) => EasyDebounce.debounce(
                   '_model.displaynameTextFieldController',
-                  Duration(milliseconds: 2000),
+                  const Duration(milliseconds: 2000),
                   () => setState(() {}),
                 ),
-                autofillHints: [AutofillHints.email],
+                autofillHints: const [AutofillHints.email],
                 textInputAction: TextInputAction.done,
                 obscureText: false,
                 decoration: InputDecoration(
@@ -281,7 +275,7 @@ class _EditProfileComponentWidgetState
                   filled: true,
                   fillColor: FlutterFlowTheme.of(context).primaryBackground,
                   contentPadding:
-                      EdgeInsetsDirectional.fromSTEB(0.0, 20.0, 0.0, 20.0),
+                      const EdgeInsetsDirectional.fromSTEB(0.0, 20.0, 0.0, 20.0),
                   prefixIcon: Icon(
                     Icons.person_outlined,
                     color: FlutterFlowTheme.of(context).primary,
@@ -294,7 +288,7 @@ class _EditProfileComponentWidgetState
                                 _model.displaynameTextFieldController?.clear();
                                 setState(() {});
                               },
-                              child: Icon(
+                              child: const Icon(
                                 Icons.clear,
                                 color: Color(0xFF757575),
                                 size: 18.0,
@@ -310,7 +304,7 @@ class _EditProfileComponentWidgetState
             ),
           ),
           Padding(
-            padding: EdgeInsetsDirectional.fromSTEB(0.0, 48.0, 0.0, 0.0),
+            padding: const EdgeInsetsDirectional.fromSTEB(0.0, 48.0, 0.0, 0.0),
             child: FFButtonWidget(
               onPressed: () async {
                 if (_model.formKey.currentState == null ||
@@ -320,8 +314,7 @@ class _EditProfileComponentWidgetState
                 if (widget.title == 'Create Profile') {
                   await currentUserReference!.update(createUsersRecordData(
                     displayName: _model.displaynameTextFieldController.text,
-                    photoUrl: _model.uploadedFileUrl != null &&
-                            _model.uploadedFileUrl != ''
+                    photoUrl: _model.uploadedFileUrl != ''
                         ? _model.uploadedFileUrl
                         : valueOrDefault<String>(
                             currentUserPhoto,
@@ -332,8 +325,7 @@ class _EditProfileComponentWidgetState
                 } else {
                   await currentUserReference!.update(createUsersRecordData(
                     displayName: _model.displaynameTextFieldController.text,
-                    photoUrl: _model.uploadedFileUrl != null &&
-                            _model.uploadedFileUrl != ''
+                    photoUrl: _model.uploadedFileUrl != ''
                         ? _model.uploadedFileUrl
                         : valueOrDefault<String>(
                             currentUserPhoto,
@@ -351,7 +343,7 @@ class _EditProfileComponentWidgetState
                             color: FlutterFlowTheme.of(context).info,
                           ),
                     ),
-                    duration: Duration(milliseconds: 4000),
+                    duration: const Duration(milliseconds: 4000),
                     backgroundColor: FlutterFlowTheme.of(context).secondary,
                   ),
                 );
@@ -361,15 +353,15 @@ class _EditProfileComponentWidgetState
               options: FFButtonOptions(
                 width: double.infinity,
                 height: 44.0,
-                padding: EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 24.0, 0.0),
-                iconPadding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                padding: const EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 24.0, 0.0),
+                iconPadding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
                 color: FlutterFlowTheme.of(context).primary,
                 textStyle: FlutterFlowTheme.of(context).titleSmall.override(
                       fontFamily: 'Readex Pro',
                       color: Colors.white,
                     ),
                 elevation: 3.0,
-                borderSide: BorderSide(
+                borderSide: const BorderSide(
                   color: Colors.transparent,
                   width: 1.0,
                 ),

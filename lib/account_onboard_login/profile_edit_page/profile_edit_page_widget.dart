@@ -2,11 +2,7 @@ import '/account_onboard_login/edit_profile_component/edit_profile_component_wid
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
-import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_spinkit/flutter_spinkit.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:provider/provider.dart';
 import 'profile_edit_page_model.dart';
 export 'profile_edit_page_model.dart';
 
@@ -41,18 +37,18 @@ class _ProfileEditPageWidgetState extends State<ProfileEditPageWidget> {
       key: scaffoldKey,
       backgroundColor: FlutterFlowTheme.of(context).secondaryBackground,
       body: Align(
-        alignment: AlignmentDirectional(0.0, -1.0),
+        alignment: const AlignmentDirectional(0.0, -1.0),
         child: Container(
           width: double.infinity,
-          constraints: BoxConstraints(
+          constraints: const BoxConstraints(
             maxWidth: 570.0,
           ),
-          decoration: BoxDecoration(),
+          decoration: const BoxDecoration(),
           child: Form(
             key: _model.formKey,
             autovalidateMode: AutovalidateMode.disabled,
             child: Padding(
-              padding: EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 16.0, 0.0),
+              padding: const EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 16.0, 0.0),
               child: Column(
                 mainAxisSize: MainAxisSize.max,
                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -60,7 +56,7 @@ class _ProfileEditPageWidgetState extends State<ProfileEditPageWidget> {
                   // This row exists for when the "app bar" is hidden on desktop, having a way back for the user can work well.
                   Padding(
                     padding:
-                        EdgeInsetsDirectional.fromSTEB(0.0, 64.0, 0.0, 8.0),
+                        const EdgeInsetsDirectional.fromSTEB(0.0, 64.0, 0.0, 8.0),
                     child: InkWell(
                       splashColor: Colors.transparent,
                       focusColor: Colors.transparent,
@@ -91,7 +87,7 @@ class _ProfileEditPageWidgetState extends State<ProfileEditPageWidget> {
                   ),
                   Padding(
                     padding:
-                        EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 16.0, 0.0),
+                        const EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 16.0, 0.0),
                     child: wrapWithModel(
                       model: _model.editProfileComponentModel,
                       updateCallback: () => setState(() {}),

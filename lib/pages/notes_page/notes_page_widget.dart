@@ -7,17 +7,13 @@ import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
-import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/custom_functions.dart' as functions;
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:easy_debounce/easy_debounce.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:provider/provider.dart';
 import 'notes_page_model.dart';
 export 'notes_page_model.dart';
 
@@ -49,8 +45,8 @@ class _NotesPageWidgetState extends State<NotesPageWidget>
           curve: Curves.easeInOut,
           delay: 0.ms,
           duration: 600.ms,
-          begin: Offset(0.0, 90.0),
-          end: Offset(0.0, 0.0),
+          begin: const Offset(0.0, 90.0),
+          end: const Offset(0.0, 0.0),
         ),
       ],
     ),
@@ -117,11 +113,11 @@ class _NotesPageWidgetState extends State<NotesPageWidget>
             key: scaffoldKey,
             backgroundColor: FlutterFlowTheme.of(context).secondaryBackground,
             body: Align(
-              alignment: AlignmentDirectional(0.0, -1.0),
+              alignment: const AlignmentDirectional(0.0, -1.0),
               child: Container(
                 width: double.infinity,
                 height: double.infinity,
-                constraints: BoxConstraints(
+                constraints: const BoxConstraints(
                   maxWidth: 570.0,
                 ),
                 decoration: BoxDecoration(
@@ -129,7 +125,7 @@ class _NotesPageWidgetState extends State<NotesPageWidget>
                 ),
                 child: Padding(
                   padding:
-                      EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 24.0, 24.0),
+                      const EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 24.0, 24.0),
                   child: Column(
                     mainAxisSize: MainAxisSize.max,
                     mainAxisAlignment: MainAxisAlignment.start,
@@ -175,7 +171,7 @@ class _NotesPageWidgetState extends State<NotesPageWidget>
                                         : FocusScope.of(context).unfocus(),
                                     child: Padding(
                                       padding: MediaQuery.viewInsetsOf(context),
-                                      child: Container(
+                                      child: const SizedBox(
                                         height: 500.0,
                                         child: SaveNewNoteComponentWidget(
                                           actionTitle: 'Create Note',
@@ -194,7 +190,7 @@ class _NotesPageWidgetState extends State<NotesPageWidget>
                       ),
                       Padding(
                         padding:
-                            EdgeInsetsDirectional.fromSTEB(0.0, 8.0, 0.0, 0.0),
+                            const EdgeInsetsDirectional.fromSTEB(0.0, 8.0, 0.0, 0.0),
                         child: Row(
                           mainAxisSize: MainAxisSize.max,
                           children: [
@@ -204,10 +200,9 @@ class _NotesPageWidgetState extends State<NotesPageWidget>
                                 focusNode: _model.textFieldFocusNode,
                                 onChanged: (_) => EasyDebounce.debounce(
                                   '_model.textController',
-                                  Duration(milliseconds: 2000),
+                                  const Duration(milliseconds: 2000),
                                   () async {
-                                    if (_model.textController.text != null &&
-                                        _model.textController.text != '') {
+                                    if (_model.textController.text != '') {
                                       setState(() {
                                         _model.psvShowSearchResults = true;
                                       });
@@ -257,7 +252,7 @@ class _NotesPageWidgetState extends State<NotesPageWidget>
                                   fillColor: FlutterFlowTheme.of(context)
                                       .primaryBackground,
                                   contentPadding:
-                                      EdgeInsetsDirectional.fromSTEB(
+                                      const EdgeInsetsDirectional.fromSTEB(
                                           0.0, 20.0, 0.0, 20.0),
                                   prefixIcon: Icon(
                                     Icons.search_outlined,
@@ -271,8 +266,6 @@ class _NotesPageWidgetState extends State<NotesPageWidget>
                                           onTap: () async {
                                             _model.textController?.clear();
                                             if (_model.textController.text !=
-                                                    null &&
-                                                _model.textController.text !=
                                                     '') {
                                               setState(() {
                                                 _model.psvShowSearchResults =
@@ -287,7 +280,7 @@ class _NotesPageWidgetState extends State<NotesPageWidget>
 
                                             setState(() {});
                                           },
-                                          child: Icon(
+                                          child: const Icon(
                                             Icons.clear,
                                             color: Color(0xFF757575),
                                             size: 18.0,
@@ -307,11 +300,11 @@ class _NotesPageWidgetState extends State<NotesPageWidget>
                       ),
                       Expanded(
                         child: Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(
+                          padding: const EdgeInsetsDirectional.fromSTEB(
                               0.0, 0.0, 0.0, 24.0),
                           child: Container(
                             width: double.infinity,
-                            decoration: BoxDecoration(),
+                            decoration: const BoxDecoration(),
                             child: Column(
                               mainAxisSize: MainAxisSize.max,
                               crossAxisAlignment: CrossAxisAlignment.start,
@@ -329,7 +322,7 @@ class _NotesPageWidgetState extends State<NotesPageWidget>
                                     ),
                                     if (_model.psvShowSearchResults == true)
                                       Padding(
-                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                        padding: const EdgeInsetsDirectional.fromSTEB(
                                             0.0, 0.0, 4.0, 0.0),
                                         child: Text(
                                           '${valueOrDefault<String>(
@@ -353,10 +346,7 @@ class _NotesPageWidgetState extends State<NotesPageWidget>
                                 Expanded(
                                   child: Builder(
                                     builder: (context) {
-                                      final notesList = (_model.textController
-                                                          .text !=
-                                                      null &&
-                                                  _model.textController.text !=
+                                      final notesList = (_model.textController.text !=
                                                       ''
                                               ? notesPageNotesRecordList
                                                   .where((e) => functions
@@ -371,7 +361,7 @@ class _NotesPageWidgetState extends State<NotesPageWidget>
                                       if (notesList.isEmpty) {
                                         return Center(
                                           child: EmptyStateDynamicWidget(
-                                            icon: Icon(
+                                            icon: const Icon(
                                               Icons.notes_outlined,
                                               color: Color(0x7F9900FF),
                                               size: 90.0,
@@ -384,7 +374,7 @@ class _NotesPageWidgetState extends State<NotesPageWidget>
                                         );
                                       }
                                       return ListView.separated(
-                                        padding: EdgeInsets.fromLTRB(
+                                        padding: const EdgeInsets.fromLTRB(
                                           0,
                                           0,
                                           0,
@@ -393,7 +383,7 @@ class _NotesPageWidgetState extends State<NotesPageWidget>
                                         scrollDirection: Axis.vertical,
                                         itemCount: notesList.length,
                                         separatorBuilder: (_, __) =>
-                                            SizedBox(height: 16.0),
+                                            const SizedBox(height: 16.0),
                                         itemBuilder: (context, notesListIndex) {
                                           final notesListItem =
                                               notesList[notesListIndex];
@@ -459,7 +449,7 @@ class _NotesPageWidgetState extends State<NotesPageWidget>
                                                               .info,
                                                         ),
                                                   ),
-                                                  duration: Duration(
+                                                  duration: const Duration(
                                                       milliseconds: 4000),
                                                   backgroundColor:
                                                       FlutterFlowTheme.of(
@@ -498,7 +488,7 @@ class _NotesPageWidgetState extends State<NotesPageWidget>
                                                     children: [
                                                       Padding(
                                                         padding:
-                                                            EdgeInsetsDirectional
+                                                            const EdgeInsetsDirectional
                                                                 .fromSTEB(
                                                                     8.0,
                                                                     8.0,
@@ -530,11 +520,11 @@ class _NotesPageWidgetState extends State<NotesPageWidget>
                                                             children: [
                                                               Align(
                                                                 alignment:
-                                                                    AlignmentDirectional(
+                                                                    const AlignmentDirectional(
                                                                         0.0,
                                                                         0.0),
                                                                 child: Padding(
-                                                                  padding: EdgeInsetsDirectional
+                                                                  padding: const EdgeInsetsDirectional
                                                                       .fromSTEB(
                                                                           6.0,
                                                                           0.0,
@@ -564,12 +554,12 @@ class _NotesPageWidgetState extends State<NotesPageWidget>
                                                                     child:
                                                                         Align(
                                                                       alignment:
-                                                                          AlignmentDirectional(
+                                                                          const AlignmentDirectional(
                                                                               0.0,
                                                                               0.0),
                                                                       child:
                                                                           Padding(
-                                                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                                                        padding: const EdgeInsetsDirectional.fromSTEB(
                                                                             0.0,
                                                                             2.0,
                                                                             0.0,
@@ -630,15 +620,15 @@ class _NotesPageWidgetState extends State<NotesPageWidget>
                                                                     ),
                                                               ),
                                                             ]
-                                                                .divide(SizedBox(
+                                                                .divide(const SizedBox(
                                                                     height:
                                                                         1.0))
                                                                 .addToStart(
-                                                                    SizedBox(
+                                                                    const SizedBox(
                                                                         height:
                                                                             6.0))
                                                                 .addToEnd(
-                                                                    SizedBox(
+                                                                    const SizedBox(
                                                                         height:
                                                                             6.0)),
                                                           ),
@@ -647,7 +637,7 @@ class _NotesPageWidgetState extends State<NotesPageWidget>
                                                       Expanded(
                                                         child: Padding(
                                                           padding:
-                                                              EdgeInsetsDirectional
+                                                              const EdgeInsetsDirectional
                                                                   .fromSTEB(
                                                                       0.0,
                                                                       8.0,
@@ -695,14 +685,14 @@ class _NotesPageWidgetState extends State<NotesPageWidget>
                                                                         context)
                                                                     .labelSmall,
                                                               ),
-                                                            ].divide(SizedBox(
+                                                            ].divide(const SizedBox(
                                                                 height: 4.0)),
                                                           ),
                                                         ),
                                                       ),
                                                       Padding(
                                                         padding:
-                                                            EdgeInsetsDirectional
+                                                            const EdgeInsetsDirectional
                                                                 .fromSTEB(
                                                                     0.0,
                                                                     10.0,
@@ -718,7 +708,7 @@ class _NotesPageWidgetState extends State<NotesPageWidget>
                                                         ),
                                                       ),
                                                     ].divide(
-                                                        SizedBox(width: 10.0)),
+                                                        const SizedBox(width: 10.0)),
                                                   ),
                                                   Divider(
                                                     height: 2.0,
@@ -734,7 +724,7 @@ class _NotesPageWidgetState extends State<NotesPageWidget>
                                                                   context)
                                                               .accent4,
                                                       borderRadius:
-                                                          BorderRadius.only(
+                                                          const BorderRadius.only(
                                                         bottomLeft:
                                                             Radius.circular(
                                                                 16.0),
@@ -751,7 +741,7 @@ class _NotesPageWidgetState extends State<NotesPageWidget>
                                                     ),
                                                     child: Padding(
                                                       padding:
-                                                          EdgeInsetsDirectional
+                                                          const EdgeInsetsDirectional
                                                               .fromSTEB(
                                                                   8.0,
                                                                   8.0,
@@ -802,7 +792,7 @@ class _NotesPageWidgetState extends State<NotesPageWidget>
                                                                           .viewInsetsOf(
                                                                               context),
                                                                       child:
-                                                                          Container(
+                                                                          SizedBox(
                                                                         height:
                                                                             500.0,
                                                                         child:
@@ -857,7 +847,7 @@ class _NotesPageWidgetState extends State<NotesPageWidget>
                                                                       backgroundColor:
                                                                           Colors
                                                                               .transparent,
-                                                                      alignment: AlignmentDirectional(
+                                                                      alignment: const AlignmentDirectional(
                                                                               0.0,
                                                                               0.0)
                                                                           .resolve(
@@ -868,7 +858,7 @@ class _NotesPageWidgetState extends State<NotesPageWidget>
                                                                             ? FocusScope.of(context).requestFocus(_model.unfocusNode)
                                                                             : FocusScope.of(context).unfocus(),
                                                                         child:
-                                                                            Container(
+                                                                            SizedBox(
                                                                           height:
                                                                               290.0,
                                                                           child:
@@ -889,7 +879,7 @@ class _NotesPageWidgetState extends State<NotesPageWidget>
                                                           Expanded(
                                                             child: Align(
                                                               alignment:
-                                                                  AlignmentDirectional(
+                                                                  const AlignmentDirectional(
                                                                       1.0, 1.0),
                                                               child: Text(
                                                                 dateTimeFormat(
@@ -909,7 +899,7 @@ class _NotesPageWidgetState extends State<NotesPageWidget>
                                                               ),
                                                             ),
                                                           ),
-                                                        ].divide(SizedBox(
+                                                        ].divide(const SizedBox(
                                                             width: 16.0)),
                                                       ),
                                                     ),
@@ -924,15 +914,15 @@ class _NotesPageWidgetState extends State<NotesPageWidget>
                                     },
                                   ),
                                 ),
-                              ].divide(SizedBox(height: 12.0)),
+                              ].divide(const SizedBox(height: 12.0)),
                             ),
                           ),
                         ),
                       ),
                     ]
-                        .divide(SizedBox(height: 16.0))
-                        .addToStart(SizedBox(height: 64.0))
-                        .addToEnd(SizedBox(height: 24.0)),
+                        .divide(const SizedBox(height: 16.0))
+                        .addToStart(const SizedBox(height: 64.0))
+                        .addToEnd(const SizedBox(height: 24.0)),
                   ),
                 ),
               ),

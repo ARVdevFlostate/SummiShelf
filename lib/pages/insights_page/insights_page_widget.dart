@@ -3,15 +3,9 @@ import '/backend/backend.dart';
 import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
-import '/flutter_flow/flutter_flow_widgets.dart';
-import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:collection/collection.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter_animate/flutter_animate.dart';
-import 'package:flutter_spinkit/flutter_spinkit.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:provider/provider.dart';
 import 'insights_page_model.dart';
 export 'insights_page_model.dart';
 
@@ -43,8 +37,8 @@ class _InsightsPageWidgetState extends State<InsightsPageWidget>
           curve: Curves.easeInOut,
           delay: 0.ms,
           duration: 600.ms,
-          begin: Offset(0.0, 90.0),
-          end: Offset(0.0, 0.0),
+          begin: const Offset(0.0, 90.0),
+          end: const Offset(0.0, 0.0),
         ),
       ],
     ),
@@ -62,8 +56,8 @@ class _InsightsPageWidgetState extends State<InsightsPageWidget>
           curve: Curves.easeInOut,
           delay: 0.ms,
           duration: 600.ms,
-          begin: Offset(0.0, 90.0),
-          end: Offset(0.0, 0.0),
+          begin: const Offset(0.0, 90.0),
+          end: const Offset(0.0, 0.0),
         ),
       ],
     ),
@@ -89,7 +83,7 @@ class _InsightsPageWidgetState extends State<InsightsPageWidget>
       );
       setState(() {
         _model.psvBooks = valueOrDefault<int>(
-          (currentUserDocument?.libraryBooks?.toList() ?? []).length,
+          (currentUserDocument?.libraryBooks.toList() ?? []).length,
           0,
         );
         _model.psvFavs = valueOrDefault<int>(
@@ -124,21 +118,21 @@ class _InsightsPageWidgetState extends State<InsightsPageWidget>
         key: scaffoldKey,
         backgroundColor: FlutterFlowTheme.of(context).secondaryBackground,
         body: Align(
-          alignment: AlignmentDirectional(0.0, -1.0),
+          alignment: const AlignmentDirectional(0.0, -1.0),
           child: Container(
             width: double.infinity,
             height: double.infinity,
-            constraints: BoxConstraints(
+            constraints: const BoxConstraints(
               maxWidth: 570.0,
             ),
             decoration: BoxDecoration(
               color: FlutterFlowTheme.of(context).secondaryBackground,
             ),
-            alignment: AlignmentDirectional(0.0, -1.0),
+            alignment: const AlignmentDirectional(0.0, -1.0),
             child: Align(
-              alignment: AlignmentDirectional(0.0, -1.0),
+              alignment: const AlignmentDirectional(0.0, -1.0),
               child: Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 24.0, 24.0),
+                padding: const EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 24.0, 24.0),
                 child: SingleChildScrollView(
                   child: Column(
                     mainAxisSize: MainAxisSize.max,
@@ -146,9 +140,9 @@ class _InsightsPageWidgetState extends State<InsightsPageWidget>
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
                       Align(
-                        alignment: AlignmentDirectional(0.0, -1.0),
+                        alignment: const AlignmentDirectional(0.0, -1.0),
                         child: Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(
+                          padding: const EdgeInsetsDirectional.fromSTEB(
                               8.0, 0.0, 8.0, 0.0),
                           child: Text(
                             'A Glimpse into Your Bookshelf',
@@ -163,7 +157,7 @@ class _InsightsPageWidgetState extends State<InsightsPageWidget>
                       ),
                       Padding(
                         padding:
-                            EdgeInsetsDirectional.fromSTEB(0.0, 16.0, 0.0, 0.0),
+                            const EdgeInsetsDirectional.fromSTEB(0.0, 16.0, 0.0, 0.0),
                         child: Wrap(
                           spacing: 0.0,
                           runSpacing: 0.0,
@@ -175,7 +169,7 @@ class _InsightsPageWidgetState extends State<InsightsPageWidget>
                           clipBehavior: Clip.none,
                           children: [
                             Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
+                              padding: const EdgeInsetsDirectional.fromSTEB(
                                   8.0, 0.0, 8.0, 0.0),
                               child: Row(
                                 mainAxisSize: MainAxisSize.max,
@@ -187,7 +181,7 @@ class _InsightsPageWidgetState extends State<InsightsPageWidget>
                                     decoration: BoxDecoration(
                                       color:
                                           FlutterFlowTheme.of(context).accent4,
-                                      boxShadow: [
+                                      boxShadow: const [
                                         BoxShadow(
                                           blurRadius: 4.0,
                                           color: Color(0x2B202529),
@@ -202,7 +196,7 @@ class _InsightsPageWidgetState extends State<InsightsPageWidget>
                                       ),
                                     ),
                                     child: Padding(
-                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                      padding: const EdgeInsetsDirectional.fromSTEB(
                                           12.0, 12.0, 12.0, 12.0),
                                       child: Column(
                                         mainAxisSize: MainAxisSize.max,
@@ -217,7 +211,7 @@ class _InsightsPageWidgetState extends State<InsightsPageWidget>
                                           ),
                                           Padding(
                                             padding:
-                                                EdgeInsetsDirectional.fromSTEB(
+                                                const EdgeInsetsDirectional.fromSTEB(
                                                     0.0, 12.0, 0.0, 4.0),
                                             child: Text(
                                               valueOrDefault<String>(
@@ -260,7 +254,7 @@ class _InsightsPageWidgetState extends State<InsightsPageWidget>
                                     decoration: BoxDecoration(
                                       color:
                                           FlutterFlowTheme.of(context).accent4,
-                                      boxShadow: [
+                                      boxShadow: const [
                                         BoxShadow(
                                           blurRadius: 4.0,
                                           color: Color(0x2B202529),
@@ -275,7 +269,7 @@ class _InsightsPageWidgetState extends State<InsightsPageWidget>
                                       ),
                                     ),
                                     child: Padding(
-                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                      padding: const EdgeInsetsDirectional.fromSTEB(
                                           12.0, 12.0, 12.0, 12.0),
                                       child: Column(
                                         mainAxisSize: MainAxisSize.max,
@@ -290,7 +284,7 @@ class _InsightsPageWidgetState extends State<InsightsPageWidget>
                                           ),
                                           Padding(
                                             padding:
-                                                EdgeInsetsDirectional.fromSTEB(
+                                                const EdgeInsetsDirectional.fromSTEB(
                                                     0.0, 12.0, 0.0, 4.0),
                                             child: Text(
                                               valueOrDefault<String>(
@@ -328,16 +322,16 @@ class _InsightsPageWidgetState extends State<InsightsPageWidget>
                                     ),
                                   ).animateOnPageLoad(animationsMap[
                                       'containerOnPageLoadAnimation2']!),
-                                ].divide(SizedBox(width: 16.0)),
+                                ].divide(const SizedBox(width: 16.0)),
                               ),
                             ),
                           ],
                         ),
                       ),
                     ]
-                        .divide(SizedBox(height: 16.0))
-                        .addToStart(SizedBox(height: 64.0))
-                        .addToEnd(SizedBox(height: 24.0)),
+                        .divide(const SizedBox(height: 16.0))
+                        .addToStart(const SizedBox(height: 64.0))
+                        .addToEnd(const SizedBox(height: 24.0)),
                   ),
                 ),
               ),

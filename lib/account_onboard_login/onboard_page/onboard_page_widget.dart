@@ -7,8 +7,6 @@ import 'package:smooth_page_indicator/smooth_page_indicator.dart'
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter_animate/flutter_animate.dart';
-import 'package:flutter_spinkit/flutter_spinkit.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'onboard_page_model.dart';
 export 'onboard_page_model.dart';
@@ -37,15 +35,15 @@ class _OnboardPageWidgetState extends State<OnboardPageWidget>
           curve: Curves.easeOut,
           delay: 0.ms,
           duration: 3200.ms,
-          begin: Offset(0.0, -80.0),
-          end: Offset(0.0, 0.0),
+          begin: const Offset(0.0, -80.0),
+          end: const Offset(0.0, 0.0),
         ),
         MoveEffect(
           curve: Curves.easeInOut,
           delay: 3200.ms,
           duration: 3200.ms,
-          begin: Offset(0.0, 0.0),
-          end: Offset(0.0, -80.0),
+          begin: const Offset(0.0, 0.0),
+          end: const Offset(0.0, -80.0),
         ),
       ],
     ),
@@ -64,15 +62,15 @@ class _OnboardPageWidgetState extends State<OnboardPageWidget>
           curve: Curves.easeInOut,
           delay: 200.ms,
           duration: 300.ms,
-          begin: Offset(0.0, 20.0),
-          end: Offset(0.0, 0.0),
+          begin: const Offset(0.0, 20.0),
+          end: const Offset(0.0, 0.0),
         ),
         ScaleEffect(
           curve: Curves.easeInOut,
           delay: 200.ms,
           duration: 300.ms,
-          begin: Offset(0.9, 0.9),
-          end: Offset(1.0, 1.0),
+          begin: const Offset(0.9, 0.9),
+          end: const Offset(1.0, 1.0),
         ),
       ],
     ),
@@ -91,15 +89,15 @@ class _OnboardPageWidgetState extends State<OnboardPageWidget>
           curve: Curves.easeInOut,
           delay: 200.ms,
           duration: 300.ms,
-          begin: Offset(0.0, 20.0),
-          end: Offset(0.0, 0.0),
+          begin: const Offset(0.0, 20.0),
+          end: const Offset(0.0, 0.0),
         ),
         ScaleEffect(
           curve: Curves.easeInOut,
           delay: 200.ms,
           duration: 300.ms,
-          begin: Offset(0.9, 0.9),
-          end: Offset(1.0, 1.0),
+          begin: const Offset(0.9, 0.9),
+          end: const Offset(1.0, 1.0),
         ),
       ],
     ),
@@ -113,15 +111,15 @@ class _OnboardPageWidgetState extends State<OnboardPageWidget>
           curve: Curves.easeOut,
           delay: 0.ms,
           duration: 3200.ms,
-          begin: Offset(0.0, -80.0),
-          end: Offset(0.0, 0.0),
+          begin: const Offset(0.0, -80.0),
+          end: const Offset(0.0, 0.0),
         ),
         MoveEffect(
           curve: Curves.easeInOut,
           delay: 3200.ms,
           duration: 3200.ms,
-          begin: Offset(0.0, 0.0),
-          end: Offset(0.0, -80.0),
+          begin: const Offset(0.0, 0.0),
+          end: const Offset(0.0, -80.0),
         ),
       ],
     ),
@@ -140,15 +138,15 @@ class _OnboardPageWidgetState extends State<OnboardPageWidget>
           curve: Curves.easeInOut,
           delay: 200.ms,
           duration: 300.ms,
-          begin: Offset(0.0, 20.0),
-          end: Offset(0.0, 0.0),
+          begin: const Offset(0.0, 20.0),
+          end: const Offset(0.0, 0.0),
         ),
         ScaleEffect(
           curve: Curves.easeInOut,
           delay: 200.ms,
           duration: 300.ms,
-          begin: Offset(0.9, 0.9),
-          end: Offset(1.0, 1.0),
+          begin: const Offset(0.9, 0.9),
+          end: const Offset(1.0, 1.0),
         ),
       ],
     ),
@@ -167,15 +165,15 @@ class _OnboardPageWidgetState extends State<OnboardPageWidget>
           curve: Curves.easeInOut,
           delay: 200.ms,
           duration: 300.ms,
-          begin: Offset(0.0, 20.0),
-          end: Offset(0.0, 0.0),
+          begin: const Offset(0.0, 20.0),
+          end: const Offset(0.0, 0.0),
         ),
         ScaleEffect(
           curve: Curves.easeInOut,
           delay: 200.ms,
           duration: 300.ms,
-          begin: Offset(0.9, 0.9),
-          end: Offset(1.0, 1.0),
+          begin: const Offset(0.9, 0.9),
+          end: const Offset(1.0, 1.0),
         ),
       ],
     ),
@@ -189,15 +187,15 @@ class _OnboardPageWidgetState extends State<OnboardPageWidget>
           curve: Curves.easeOut,
           delay: 0.ms,
           duration: 3200.ms,
-          begin: Offset(0.0, -80.0),
-          end: Offset(0.0, 0.0),
+          begin: const Offset(0.0, -80.0),
+          end: const Offset(0.0, 0.0),
         ),
         MoveEffect(
           curve: Curves.easeInOut,
           delay: 3200.ms,
           duration: 3200.ms,
-          begin: Offset(0.0, 0.0),
-          end: Offset(0.0, -80.0),
+          begin: const Offset(0.0, 0.0),
+          end: const Offset(0.0, -80.0),
         ),
       ],
     ),
@@ -216,15 +214,15 @@ class _OnboardPageWidgetState extends State<OnboardPageWidget>
           curve: Curves.easeInOut,
           delay: 200.ms,
           duration: 300.ms,
-          begin: Offset(0.0, 20.0),
-          end: Offset(0.0, 0.0),
+          begin: const Offset(0.0, 20.0),
+          end: const Offset(0.0, 0.0),
         ),
         ScaleEffect(
           curve: Curves.easeInOut,
           delay: 200.ms,
           duration: 300.ms,
-          begin: Offset(0.9, 0.9),
-          end: Offset(1.0, 1.0),
+          begin: const Offset(0.9, 0.9),
+          end: const Offset(1.0, 1.0),
         ),
       ],
     ),
@@ -243,15 +241,15 @@ class _OnboardPageWidgetState extends State<OnboardPageWidget>
           curve: Curves.easeInOut,
           delay: 200.ms,
           duration: 300.ms,
-          begin: Offset(0.0, 20.0),
-          end: Offset(0.0, 0.0),
+          begin: const Offset(0.0, 20.0),
+          end: const Offset(0.0, 0.0),
         ),
         ScaleEffect(
           curve: Curves.easeInOut,
           delay: 200.ms,
           duration: 300.ms,
-          begin: Offset(0.9, 0.9),
-          end: Offset(1.0, 1.0),
+          begin: const Offset(0.9, 0.9),
+          end: const Offset(1.0, 1.0),
         ),
       ],
     ),
@@ -295,47 +293,47 @@ class _OnboardPageWidgetState extends State<OnboardPageWidget>
         key: scaffoldKey,
         backgroundColor: FlutterFlowTheme.of(context).secondaryBackground,
         body: Align(
-          alignment: AlignmentDirectional(0.0, -1.0),
+          alignment: const AlignmentDirectional(0.0, -1.0),
           child: Container(
             width: double.infinity,
             height: double.infinity,
-            constraints: BoxConstraints(
+            constraints: const BoxConstraints(
               maxWidth: 570.0,
             ),
             decoration: BoxDecoration(
               color: FlutterFlowTheme.of(context).secondaryBackground,
             ),
-            alignment: AlignmentDirectional(0.0, 0.0),
+            alignment: const AlignmentDirectional(0.0, 0.0),
             child: Column(
               mainAxisSize: MainAxisSize.max,
               mainAxisAlignment: MainAxisAlignment.start,
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                Container(
+                SizedBox(
                   width: double.infinity,
                   height: MediaQuery.sizeOf(context).height * 0.9,
                   child: Stack(
                     children: [
                       Padding(
                         padding:
-                            EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 40.0),
+                            const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 40.0),
                         child: PageView(
                           controller: _model.pageViewController ??=
                               PageController(initialPage: 0),
                           scrollDirection: Axis.horizontal,
                           children: [
                             Stack(
-                              alignment: AlignmentDirectional(0.0, -1.0),
+                              alignment: const AlignmentDirectional(0.0, -1.0),
                               children: [
                                 Align(
-                                  alignment: AlignmentDirectional(0.0, -1.0),
+                                  alignment: const AlignmentDirectional(0.0, -1.0),
                                   child: Padding(
-                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                    padding: const EdgeInsetsDirectional.fromSTEB(
                                         40.0, 0.0, 20.0, 0.0),
                                     child: Container(
-                                      decoration: BoxDecoration(),
+                                      decoration: const BoxDecoration(),
                                       child: Padding(
-                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                        padding: const EdgeInsetsDirectional.fromSTEB(
                                             0.0, 40.0, 0.0, 0.0),
                                         child: ClipRRect(
                                           borderRadius:
@@ -353,9 +351,9 @@ class _OnboardPageWidgetState extends State<OnboardPageWidget>
                                   ),
                                 ),
                                 Align(
-                                  alignment: AlignmentDirectional(0.0, 0.0),
+                                  alignment: const AlignmentDirectional(0.0, 0.0),
                                   child: Padding(
-                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                    padding: const EdgeInsetsDirectional.fromSTEB(
                                         40.0, 0.0, 40.0, 0.0),
                                     child: Column(
                                       mainAxisSize: MainAxisSize.max,
@@ -376,7 +374,7 @@ class _OnboardPageWidgetState extends State<OnboardPageWidget>
                                             'textOnPageLoadAnimation1']!),
                                         Padding(
                                           padding:
-                                              EdgeInsetsDirectional.fromSTEB(
+                                              const EdgeInsetsDirectional.fromSTEB(
                                                   0.0, 4.0, 0.0, 0.0),
                                           child: Text(
                                             'Simply scan any book ISBN barcode to instantly add it to your collection',
@@ -392,14 +390,14 @@ class _OnboardPageWidgetState extends State<OnboardPageWidget>
                                         ),
                                         Padding(
                                           padding:
-                                              EdgeInsetsDirectional.fromSTEB(
+                                              const EdgeInsetsDirectional.fromSTEB(
                                                   0.0, 12.0, 0.0, 0.0),
                                           child: FFButtonWidget(
                                             onPressed: () async {
                                               await _model.pageViewController
                                                   ?.nextPage(
                                                 duration:
-                                                    Duration(milliseconds: 300),
+                                                    const Duration(milliseconds: 300),
                                                 curve: Curves.ease,
                                               );
                                             },
@@ -407,9 +405,9 @@ class _OnboardPageWidgetState extends State<OnboardPageWidget>
                                             options: FFButtonOptions(
                                               width: double.infinity,
                                               height: 44.0,
-                                              padding: EdgeInsetsDirectional
+                                              padding: const EdgeInsetsDirectional
                                                   .fromSTEB(0.0, 0.0, 0.0, 0.0),
-                                              iconPadding: EdgeInsetsDirectional
+                                              iconPadding: const EdgeInsetsDirectional
                                                   .fromSTEB(0.0, 0.0, 0.0, 0.0),
                                               color:
                                                   FlutterFlowTheme.of(context)
@@ -425,7 +423,7 @@ class _OnboardPageWidgetState extends State<OnboardPageWidget>
                                                                 .info,
                                                       ),
                                               elevation: 3.0,
-                                              borderSide: BorderSide(
+                                              borderSide: const BorderSide(
                                                 color: Colors.transparent,
                                                 width: 1.0,
                                               ),
@@ -441,7 +439,7 @@ class _OnboardPageWidgetState extends State<OnboardPageWidget>
                                                 ?.animateToPage(
                                               2,
                                               duration:
-                                                  Duration(milliseconds: 500),
+                                                  const Duration(milliseconds: 500),
                                               curve: Curves.ease,
                                             );
                                           },
@@ -450,10 +448,10 @@ class _OnboardPageWidgetState extends State<OnboardPageWidget>
                                             width: double.infinity,
                                             height: 44.0,
                                             padding:
-                                                EdgeInsetsDirectional.fromSTEB(
+                                                const EdgeInsetsDirectional.fromSTEB(
                                                     0.0, 0.0, 0.0, 0.0),
                                             iconPadding:
-                                                EdgeInsetsDirectional.fromSTEB(
+                                                const EdgeInsetsDirectional.fromSTEB(
                                                     0.0, 0.0, 0.0, 0.0),
                                             color: FlutterFlowTheme.of(context)
                                                 .secondaryBackground,
@@ -468,7 +466,7 @@ class _OnboardPageWidgetState extends State<OnboardPageWidget>
                                                               .primaryText,
                                                     ),
                                             elevation: 0.0,
-                                            borderSide: BorderSide(
+                                            borderSide: const BorderSide(
                                               color: Colors.transparent,
                                               width: 1.0,
                                             ),
@@ -480,24 +478,24 @@ class _OnboardPageWidgetState extends State<OnboardPageWidget>
                                           ),
                                           showLoadingIndicator: false,
                                         ),
-                                      ].divide(SizedBox(height: 12.0)),
+                                      ].divide(const SizedBox(height: 12.0)),
                                     ),
                                   ),
                                 ),
                               ],
                             ),
                             Stack(
-                              alignment: AlignmentDirectional(0.0, -1.0),
+                              alignment: const AlignmentDirectional(0.0, -1.0),
                               children: [
                                 Align(
-                                  alignment: AlignmentDirectional(0.0, -1.0),
+                                  alignment: const AlignmentDirectional(0.0, -1.0),
                                   child: Padding(
-                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                    padding: const EdgeInsetsDirectional.fromSTEB(
                                         40.0, 0.0, 20.0, 0.0),
                                     child: Container(
-                                      decoration: BoxDecoration(),
+                                      decoration: const BoxDecoration(),
                                       child: Padding(
-                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                        padding: const EdgeInsetsDirectional.fromSTEB(
                                             0.0, 40.0, 0.0, 0.0),
                                         child: ClipRRect(
                                           borderRadius:
@@ -515,9 +513,9 @@ class _OnboardPageWidgetState extends State<OnboardPageWidget>
                                   ),
                                 ),
                                 Align(
-                                  alignment: AlignmentDirectional(0.0, 0.0),
+                                  alignment: const AlignmentDirectional(0.0, 0.0),
                                   child: Padding(
-                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                    padding: const EdgeInsetsDirectional.fromSTEB(
                                         40.0, 0.0, 40.0, 0.0),
                                     child: Column(
                                       mainAxisSize: MainAxisSize.max,
@@ -538,7 +536,7 @@ class _OnboardPageWidgetState extends State<OnboardPageWidget>
                                             'textOnPageLoadAnimation3']!),
                                         Padding(
                                           padding:
-                                              EdgeInsetsDirectional.fromSTEB(
+                                              const EdgeInsetsDirectional.fromSTEB(
                                                   0.0, 4.0, 0.0, 0.0),
                                           child: Text(
                                             'Mark favorites, keep track of reading progress, in a single place',
@@ -554,14 +552,14 @@ class _OnboardPageWidgetState extends State<OnboardPageWidget>
                                         ),
                                         Padding(
                                           padding:
-                                              EdgeInsetsDirectional.fromSTEB(
+                                              const EdgeInsetsDirectional.fromSTEB(
                                                   0.0, 12.0, 0.0, 0.0),
                                           child: FFButtonWidget(
                                             onPressed: () async {
                                               await _model.pageViewController
                                                   ?.nextPage(
                                                 duration:
-                                                    Duration(milliseconds: 300),
+                                                    const Duration(milliseconds: 300),
                                                 curve: Curves.ease,
                                               );
                                             },
@@ -569,9 +567,9 @@ class _OnboardPageWidgetState extends State<OnboardPageWidget>
                                             options: FFButtonOptions(
                                               width: double.infinity,
                                               height: 44.0,
-                                              padding: EdgeInsetsDirectional
+                                              padding: const EdgeInsetsDirectional
                                                   .fromSTEB(0.0, 0.0, 0.0, 0.0),
-                                              iconPadding: EdgeInsetsDirectional
+                                              iconPadding: const EdgeInsetsDirectional
                                                   .fromSTEB(0.0, 0.0, 0.0, 0.0),
                                               color:
                                                   FlutterFlowTheme.of(context)
@@ -587,7 +585,7 @@ class _OnboardPageWidgetState extends State<OnboardPageWidget>
                                                                 .info,
                                                       ),
                                               elevation: 3.0,
-                                              borderSide: BorderSide(
+                                              borderSide: const BorderSide(
                                                 color: Colors.transparent,
                                                 width: 1.0,
                                               ),
@@ -603,7 +601,7 @@ class _OnboardPageWidgetState extends State<OnboardPageWidget>
                                                 ?.animateToPage(
                                               2,
                                               duration:
-                                                  Duration(milliseconds: 500),
+                                                  const Duration(milliseconds: 500),
                                               curve: Curves.ease,
                                             );
                                           },
@@ -612,10 +610,10 @@ class _OnboardPageWidgetState extends State<OnboardPageWidget>
                                             width: double.infinity,
                                             height: 44.0,
                                             padding:
-                                                EdgeInsetsDirectional.fromSTEB(
+                                                const EdgeInsetsDirectional.fromSTEB(
                                                     0.0, 0.0, 0.0, 0.0),
                                             iconPadding:
-                                                EdgeInsetsDirectional.fromSTEB(
+                                                const EdgeInsetsDirectional.fromSTEB(
                                                     0.0, 0.0, 0.0, 0.0),
                                             color: FlutterFlowTheme.of(context)
                                                 .secondaryBackground,
@@ -630,7 +628,7 @@ class _OnboardPageWidgetState extends State<OnboardPageWidget>
                                                               .primaryText,
                                                     ),
                                             elevation: 0.0,
-                                            borderSide: BorderSide(
+                                            borderSide: const BorderSide(
                                               color: Colors.transparent,
                                               width: 1.0,
                                             ),
@@ -642,24 +640,24 @@ class _OnboardPageWidgetState extends State<OnboardPageWidget>
                                           ),
                                           showLoadingIndicator: false,
                                         ),
-                                      ].divide(SizedBox(height: 12.0)),
+                                      ].divide(const SizedBox(height: 12.0)),
                                     ),
                                   ),
                                 ),
                               ],
                             ),
                             Stack(
-                              alignment: AlignmentDirectional(0.0, -1.0),
+                              alignment: const AlignmentDirectional(0.0, -1.0),
                               children: [
                                 Align(
-                                  alignment: AlignmentDirectional(0.0, -1.0),
+                                  alignment: const AlignmentDirectional(0.0, -1.0),
                                   child: Padding(
-                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                    padding: const EdgeInsetsDirectional.fromSTEB(
                                         40.0, 0.0, 20.0, 0.0),
                                     child: Container(
-                                      decoration: BoxDecoration(),
+                                      decoration: const BoxDecoration(),
                                       child: Padding(
-                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                        padding: const EdgeInsetsDirectional.fromSTEB(
                                             0.0, 40.0, 0.0, 0.0),
                                         child: ClipRRect(
                                           borderRadius:
@@ -677,9 +675,9 @@ class _OnboardPageWidgetState extends State<OnboardPageWidget>
                                   ),
                                 ),
                                 Align(
-                                  alignment: AlignmentDirectional(0.0, 0.0),
+                                  alignment: const AlignmentDirectional(0.0, 0.0),
                                   child: Padding(
-                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                    padding: const EdgeInsetsDirectional.fromSTEB(
                                         40.0, 0.0, 40.0, 0.0),
                                     child: Column(
                                       mainAxisSize: MainAxisSize.max,
@@ -700,7 +698,7 @@ class _OnboardPageWidgetState extends State<OnboardPageWidget>
                                             'textOnPageLoadAnimation5']!),
                                         Padding(
                                           padding:
-                                              EdgeInsetsDirectional.fromSTEB(
+                                              const EdgeInsetsDirectional.fromSTEB(
                                                   0.0, 4.0, 0.0, 0.0),
                                           child: Text(
                                             'Using AI, category, and basic summary gets generated in the background',
@@ -716,7 +714,7 @@ class _OnboardPageWidgetState extends State<OnboardPageWidget>
                                         ),
                                         Padding(
                                           padding:
-                                              EdgeInsetsDirectional.fromSTEB(
+                                              const EdgeInsetsDirectional.fromSTEB(
                                                   0.0, 12.0, 0.0, 0.0),
                                           child: FFButtonWidget(
                                             onPressed: () async {
@@ -726,9 +724,9 @@ class _OnboardPageWidgetState extends State<OnboardPageWidget>
                                             options: FFButtonOptions(
                                               width: double.infinity,
                                               height: 44.0,
-                                              padding: EdgeInsetsDirectional
+                                              padding: const EdgeInsetsDirectional
                                                   .fromSTEB(0.0, 0.0, 0.0, 0.0),
-                                              iconPadding: EdgeInsetsDirectional
+                                              iconPadding: const EdgeInsetsDirectional
                                                   .fromSTEB(0.0, 0.0, 0.0, 0.0),
                                               color:
                                                   FlutterFlowTheme.of(context)
@@ -744,7 +742,7 @@ class _OnboardPageWidgetState extends State<OnboardPageWidget>
                                                                 .info,
                                                       ),
                                               elevation: 3.0,
-                                              borderSide: BorderSide(
+                                              borderSide: const BorderSide(
                                                 color: Colors.transparent,
                                                 width: 1.0,
                                               ),
@@ -763,10 +761,10 @@ class _OnboardPageWidgetState extends State<OnboardPageWidget>
                                             width: double.infinity,
                                             height: 44.0,
                                             padding:
-                                                EdgeInsetsDirectional.fromSTEB(
+                                                const EdgeInsetsDirectional.fromSTEB(
                                                     0.0, 0.0, 0.0, 0.0),
                                             iconPadding:
-                                                EdgeInsetsDirectional.fromSTEB(
+                                                const EdgeInsetsDirectional.fromSTEB(
                                                     0.0, 0.0, 0.0, 0.0),
                                             color: FlutterFlowTheme.of(context)
                                                 .secondaryBackground,
@@ -774,7 +772,7 @@ class _OnboardPageWidgetState extends State<OnboardPageWidget>
                                                 FlutterFlowTheme.of(context)
                                                     .titleLarge,
                                             elevation: 0.0,
-                                            borderSide: BorderSide(
+                                            borderSide: const BorderSide(
                                               color: Colors.transparent,
                                               width: 1.0,
                                             ),
@@ -786,7 +784,7 @@ class _OnboardPageWidgetState extends State<OnboardPageWidget>
                                           ),
                                           showLoadingIndicator: false,
                                         ),
-                                      ].divide(SizedBox(height: 12.0)),
+                                      ].divide(const SizedBox(height: 12.0)),
                                     ),
                                   ),
                                 ),
@@ -796,7 +794,7 @@ class _OnboardPageWidgetState extends State<OnboardPageWidget>
                         ),
                       ),
                       Align(
-                        alignment: AlignmentDirectional(0.0, 0.1),
+                        alignment: const AlignmentDirectional(0.0, 0.1),
                         child: smooth_page_indicator.SmoothPageIndicator(
                           controller: _model.pageViewController ??=
                               PageController(initialPage: 0),
@@ -805,7 +803,7 @@ class _OnboardPageWidgetState extends State<OnboardPageWidget>
                           onDotClicked: (i) async {
                             await _model.pageViewController!.animateToPage(
                               i,
-                              duration: Duration(milliseconds: 500),
+                              duration: const Duration(milliseconds: 500),
                               curve: Curves.ease,
                             );
                           },
@@ -815,7 +813,7 @@ class _OnboardPageWidgetState extends State<OnboardPageWidget>
                             radius: 10.0,
                             dotWidth: 10.0,
                             dotHeight: 8.0,
-                            dotColor: Color(0xFFC0C0C0),
+                            dotColor: const Color(0xFFC0C0C0),
                             activeDotColor:
                                 FlutterFlowTheme.of(context).primary,
                             paintStyle: PaintingStyle.fill,

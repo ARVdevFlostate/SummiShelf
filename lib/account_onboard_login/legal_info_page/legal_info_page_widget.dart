@@ -2,14 +2,10 @@ import '/flutter_flow/flutter_flow_choice_chips.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
-import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/form_field_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter_markdown/flutter_markdown.dart';
-import 'package:flutter_spinkit/flutter_spinkit.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:provider/provider.dart';
 import 'legal_info_page_model.dart';
 export 'legal_info_page_model.dart';
 
@@ -51,22 +47,22 @@ class _LegalInfoPageWidgetState extends State<LegalInfoPageWidget> {
       key: scaffoldKey,
       backgroundColor: FlutterFlowTheme.of(context).secondaryBackground,
       body: Align(
-        alignment: AlignmentDirectional(0.0, -1.0),
+        alignment: const AlignmentDirectional(0.0, -1.0),
         child: Container(
           width: double.infinity,
-          constraints: BoxConstraints(
+          constraints: const BoxConstraints(
             maxWidth: 570.0,
           ),
-          decoration: BoxDecoration(),
+          decoration: const BoxDecoration(),
           child: Padding(
-            padding: EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 16.0, 24.0),
+            padding: const EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 16.0, 24.0),
             child: Column(
               mainAxisSize: MainAxisSize.max,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 // This row exists for when the "app bar" is hidden on desktop, having a way back for the user can work well.
                 Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 64.0, 0.0, 8.0),
+                  padding: const EdgeInsetsDirectional.fromSTEB(0.0, 64.0, 0.0, 8.0),
                   child: InkWell(
                     splashColor: Colors.transparent,
                     focusColor: Colors.transparent,
@@ -96,7 +92,7 @@ class _LegalInfoPageWidgetState extends State<LegalInfoPageWidget> {
                   ),
                 ),
                 Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 0.0, 0.0),
+                  padding: const EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 0.0, 0.0),
                   child: Text(
                     'Legal Information',
                     style: FlutterFlowTheme.of(context).displaySmall,
@@ -104,9 +100,9 @@ class _LegalInfoPageWidgetState extends State<LegalInfoPageWidget> {
                 ),
                 Padding(
                   padding:
-                      EdgeInsetsDirectional.fromSTEB(16.0, 16.0, 0.0, 16.0),
+                      const EdgeInsetsDirectional.fromSTEB(16.0, 16.0, 0.0, 16.0),
                   child: FlutterFlowChoiceChips(
-                    options: [
+                    options: const [
                       ChipData('Privacy Policy'),
                       ChipData('Terms & Conditions')
                     ],
@@ -128,7 +124,7 @@ class _LegalInfoPageWidgetState extends State<LegalInfoPageWidget> {
                       iconColor: FlutterFlowTheme.of(context).primaryText,
                       iconSize: 18.0,
                       labelPadding:
-                          EdgeInsetsDirectional.fromSTEB(12.0, 6.0, 12.0, 6.0),
+                          const EdgeInsetsDirectional.fromSTEB(12.0, 6.0, 12.0, 6.0),
                       elevation: 0.0,
                       borderColor: FlutterFlowTheme.of(context).primary,
                       borderWidth: 2.0,
@@ -145,7 +141,7 @@ class _LegalInfoPageWidgetState extends State<LegalInfoPageWidget> {
                       iconColor: FlutterFlowTheme.of(context).secondaryText,
                       iconSize: 18.0,
                       labelPadding:
-                          EdgeInsetsDirectional.fromSTEB(12.0, 6.0, 12.0, 6.0),
+                          const EdgeInsetsDirectional.fromSTEB(12.0, 6.0, 12.0, 6.0),
                       elevation: 0.0,
                       borderColor: FlutterFlowTheme.of(context).alternate,
                       borderWidth: 2.0,
@@ -166,7 +162,7 @@ class _LegalInfoPageWidgetState extends State<LegalInfoPageWidget> {
                 Expanded(
                   child: Padding(
                     padding:
-                        EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 16.0, 0.0),
+                        const EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 16.0, 0.0),
                     child: SingleChildScrollView(
                       child: Column(
                         mainAxisSize: MainAxisSize.max,

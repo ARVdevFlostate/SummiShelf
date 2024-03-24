@@ -8,7 +8,6 @@ import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_toggle_icon.dart';
 import '/flutter_flow/flutter_flow_util.dart';
-import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/admob_util.dart' as admob;
 import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:easy_debounce/easy_debounce.dart';
@@ -16,8 +15,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:provider/provider.dart';
 import 'bookshelf_grid_page_model.dart';
 export 'bookshelf_grid_page_model.dart';
 
@@ -50,8 +47,8 @@ class _BookshelfGridPageWidgetState extends State<BookshelfGridPageWidget>
           curve: Curves.easeInOut,
           delay: 0.ms,
           duration: 600.ms,
-          begin: Offset(0.0, 90.0),
-          end: Offset(0.0, 0.0),
+          begin: const Offset(0.0, 90.0),
+          end: const Offset(0.0, 0.0),
         ),
       ],
     ),
@@ -128,16 +125,16 @@ class _BookshelfGridPageWidgetState extends State<BookshelfGridPageWidget>
             key: scaffoldKey,
             backgroundColor: FlutterFlowTheme.of(context).secondaryBackground,
             body: Align(
-              alignment: AlignmentDirectional(0.0, -1.0),
+              alignment: const AlignmentDirectional(0.0, -1.0),
               child: Container(
                 width: double.infinity,
                 height: double.infinity,
-                constraints: BoxConstraints(
+                constraints: const BoxConstraints(
                   maxWidth: 570.0,
                 ),
-                decoration: BoxDecoration(),
+                decoration: const BoxDecoration(),
                 child: Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 24.0, 0.0),
+                  padding: const EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 24.0, 0.0),
                   child: Column(
                     mainAxisSize: MainAxisSize.max,
                     mainAxisAlignment: MainAxisAlignment.start,
@@ -154,10 +151,9 @@ class _BookshelfGridPageWidgetState extends State<BookshelfGridPageWidget>
                               focusNode: _model.textFieldFocusNode,
                               onChanged: (_) => EasyDebounce.debounce(
                                 '_model.textController',
-                                Duration(milliseconds: 2000),
+                                const Duration(milliseconds: 2000),
                                 () async {
-                                  if (_model.textController.text != null &&
-                                      _model.textController.text != '') {
+                                  if (_model.textController.text != '') {
                                     setState(() {
                                       _model.psvShowSearchResults = true;
                                     });
@@ -205,7 +201,7 @@ class _BookshelfGridPageWidgetState extends State<BookshelfGridPageWidget>
                                 filled: true,
                                 fillColor: FlutterFlowTheme.of(context)
                                     .primaryBackground,
-                                contentPadding: EdgeInsetsDirectional.fromSTEB(
+                                contentPadding: const EdgeInsetsDirectional.fromSTEB(
                                     0.0, 20.0, 0.0, 20.0),
                                 prefixIcon: Icon(
                                   Icons.search_outlined,
@@ -219,8 +215,6 @@ class _BookshelfGridPageWidgetState extends State<BookshelfGridPageWidget>
                                             onTap: () async {
                                               _model.textController?.clear();
                                               if (_model.textController.text !=
-                                                      null &&
-                                                  _model.textController.text !=
                                                       '') {
                                                 setState(() {
                                                   _model.psvShowSearchResults =
@@ -235,7 +229,7 @@ class _BookshelfGridPageWidgetState extends State<BookshelfGridPageWidget>
 
                                               setState(() {});
                                             },
-                                            child: Icon(
+                                            child: const Icon(
                                               Icons.clear,
                                               color: Color(0xFF757575),
                                               size: 18.0,
@@ -251,7 +245,7 @@ class _BookshelfGridPageWidgetState extends State<BookshelfGridPageWidget>
                           ),
                           if (false)
                             Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
+                              padding: const EdgeInsetsDirectional.fromSTEB(
                                   8.0, 0.0, 0.0, 0.0),
                               child: FlutterFlowIconButton(
                                 borderColor:
@@ -303,11 +297,11 @@ class _BookshelfGridPageWidgetState extends State<BookshelfGridPageWidget>
                         ),
                       Expanded(
                         child: Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(
+                          padding: const EdgeInsetsDirectional.fromSTEB(
                               0.0, 0.0, 0.0, 24.0),
                           child: Container(
                             width: double.infinity,
-                            decoration: BoxDecoration(),
+                            decoration: const BoxDecoration(),
                             child: Column(
                               mainAxisSize: MainAxisSize.max,
                               crossAxisAlignment: CrossAxisAlignment.start,
@@ -338,10 +332,7 @@ class _BookshelfGridPageWidgetState extends State<BookshelfGridPageWidget>
                                 Expanded(
                                   child: Builder(
                                     builder: (context) {
-                                      final allBooks = (_model
-                                                          .textController.text !=
-                                                      null &&
-                                                  _model.textController.text !=
+                                      final allBooks = (_model.textController.text !=
                                                       ''
                                               ? bookshelfGridPageBooksRecordList
                                                   .where((e) => functions
@@ -356,7 +347,7 @@ class _BookshelfGridPageWidgetState extends State<BookshelfGridPageWidget>
                                       if (allBooks.isEmpty) {
                                         return Center(
                                           child: EmptyStateDynamicWidget(
-                                            icon: Icon(
+                                            icon: const Icon(
                                               Icons.shelves,
                                               color: Color(0x7F9900FF),
                                               size: 90.0,
@@ -369,14 +360,14 @@ class _BookshelfGridPageWidgetState extends State<BookshelfGridPageWidget>
                                         );
                                       }
                                       return GridView.builder(
-                                        padding: EdgeInsets.fromLTRB(
+                                        padding: const EdgeInsets.fromLTRB(
                                           0,
                                           0,
                                           0,
                                           80.0,
                                         ),
                                         gridDelegate:
-                                            SliverGridDelegateWithFixedCrossAxisCount(
+                                            const SliverGridDelegateWithFixedCrossAxisCount(
                                           crossAxisCount: 2,
                                           crossAxisSpacing: 12.0,
                                           mainAxisSpacing: 12.0,
@@ -426,7 +417,7 @@ class _BookshelfGridPageWidgetState extends State<BookshelfGridPageWidget>
                                                                       .info,
                                                                 ),
                                                       ),
-                                                      duration: Duration(
+                                                      duration: const Duration(
                                                           milliseconds: 4000),
                                                       backgroundColor:
                                                           FlutterFlowTheme.of(
@@ -477,7 +468,7 @@ class _BookshelfGridPageWidgetState extends State<BookshelfGridPageWidget>
                                               child: Container(
                                                 height: double.infinity,
                                                 decoration: BoxDecoration(
-                                                  gradient: LinearGradient(
+                                                  gradient: const LinearGradient(
                                                     colors: [
                                                       Color(0x12FF0099),
                                                       Color(0x1E9900FF)
@@ -509,7 +500,7 @@ class _BookshelfGridPageWidgetState extends State<BookshelfGridPageWidget>
                                                   children: [
                                                     Padding(
                                                       padding:
-                                                          EdgeInsetsDirectional
+                                                          const EdgeInsetsDirectional
                                                               .fromSTEB(
                                                                   8.0,
                                                                   6.0,
@@ -517,12 +508,12 @@ class _BookshelfGridPageWidgetState extends State<BookshelfGridPageWidget>
                                                                   2.0),
                                                       child: Stack(
                                                         alignment:
-                                                            AlignmentDirectional(
+                                                            const AlignmentDirectional(
                                                                 0.0, 1.0),
                                                         children: [
                                                           Align(
                                                             alignment:
-                                                                AlignmentDirectional(
+                                                                const AlignmentDirectional(
                                                                     -1.0, 0.0),
                                                             child: Container(
                                                               width: 88.0,
@@ -543,7 +534,7 @@ class _BookshelfGridPageWidgetState extends State<BookshelfGridPageWidget>
                                                                   ).image,
                                                                 ),
                                                                 borderRadius:
-                                                                    BorderRadius
+                                                                    const BorderRadius
                                                                         .only(
                                                                   bottomLeft: Radius
                                                                       .circular(
@@ -609,7 +600,7 @@ class _BookshelfGridPageWidgetState extends State<BookshelfGridPageWidget>
                                                                     elevation:
                                                                         1.0,
                                                                     shape:
-                                                                        RoundedRectangleBorder(
+                                                                        const RoundedRectangleBorder(
                                                                       borderRadius:
                                                                           BorderRadius
                                                                               .only(
@@ -630,7 +621,7 @@ class _BookshelfGridPageWidgetState extends State<BookshelfGridPageWidget>
                                                                         color: FlutterFlowTheme.of(context)
                                                                             .accent4,
                                                                         borderRadius:
-                                                                            BorderRadius.only(
+                                                                            const BorderRadius.only(
                                                                           bottomLeft:
                                                                               Radius.circular(0.0),
                                                                           bottomRight:
@@ -709,10 +700,10 @@ class _BookshelfGridPageWidgetState extends State<BookshelfGridPageWidget>
                                                                               elevation: 0,
                                                                               insetPadding: EdgeInsets.zero,
                                                                               backgroundColor: Colors.transparent,
-                                                                              alignment: AlignmentDirectional(0.0, 0.0).resolve(Directionality.of(context)),
+                                                                              alignment: const AlignmentDirectional(0.0, 0.0).resolve(Directionality.of(context)),
                                                                               child: GestureDetector(
                                                                                 onTap: () => _model.unfocusNode.canRequestFocus ? FocusScope.of(context).requestFocus(_model.unfocusNode) : FocusScope.of(context).unfocus(),
-                                                                                child: Container(
+                                                                                child: SizedBox(
                                                                                   height: 290.0,
                                                                                   child: ConfirmBookDeleteComponentWidget(
                                                                                     currentBook: allBooksItem,
@@ -726,7 +717,7 @@ class _BookshelfGridPageWidgetState extends State<BookshelfGridPageWidget>
                                                                       },
                                                                     ),
                                                                   ),
-                                                                ].divide(SizedBox(
+                                                                ].divide(const SizedBox(
                                                                     width:
                                                                         16.0)),
                                                               );
@@ -737,7 +728,7 @@ class _BookshelfGridPageWidgetState extends State<BookshelfGridPageWidget>
                                                     ),
                                                     Align(
                                                       alignment:
-                                                          AlignmentDirectional(
+                                                          const AlignmentDirectional(
                                                               0.0, 1.0),
                                                       child: Container(
                                                         width: double.infinity,
@@ -748,7 +739,7 @@ class _BookshelfGridPageWidgetState extends State<BookshelfGridPageWidget>
                                                                   .of(context)
                                                               .accent4,
                                                           borderRadius:
-                                                              BorderRadius.only(
+                                                              const BorderRadius.only(
                                                             bottomLeft:
                                                                 Radius.circular(
                                                                     16.0),
@@ -771,7 +762,7 @@ class _BookshelfGridPageWidgetState extends State<BookshelfGridPageWidget>
                                                         ),
                                                         child: Padding(
                                                           padding:
-                                                              EdgeInsetsDirectional
+                                                              const EdgeInsetsDirectional
                                                                   .fromSTEB(
                                                                       8.0,
                                                                       0.0,
@@ -840,11 +831,11 @@ class _BookshelfGridPageWidgetState extends State<BookshelfGridPageWidget>
                                                                     .labelSmall,
                                                               ),
                                                             ]
-                                                                .divide(SizedBox(
+                                                                .divide(const SizedBox(
                                                                     height:
                                                                         2.0))
                                                                 .addToStart(
-                                                                    SizedBox(
+                                                                    const SizedBox(
                                                                         height:
                                                                             6.0)),
                                                           ),
@@ -852,7 +843,7 @@ class _BookshelfGridPageWidgetState extends State<BookshelfGridPageWidget>
                                                       ),
                                                     ),
                                                   ].divide(
-                                                      SizedBox(height: 4.0)),
+                                                      const SizedBox(height: 4.0)),
                                                 ),
                                               ),
                                             ),
@@ -863,14 +854,14 @@ class _BookshelfGridPageWidgetState extends State<BookshelfGridPageWidget>
                                     },
                                   ),
                                 ),
-                              ].divide(SizedBox(height: 12.0)),
+                              ].divide(const SizedBox(height: 12.0)),
                             ),
                           ),
                         ),
                       ),
                     ]
-                        .divide(SizedBox(height: 20.0))
-                        .addToStart(SizedBox(height: 64.0)),
+                        .divide(const SizedBox(height: 20.0))
+                        .addToStart(const SizedBox(height: 64.0)),
                   ),
                 ),
               ),
